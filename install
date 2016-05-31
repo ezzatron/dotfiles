@@ -90,3 +90,9 @@ for FILE in "$DOTFILES_PATH/dotfiles/".*; do
         ln -s $FILE "$HOME/$NAME"
     fi
 done
+
+for FILE in "$DOTFILES_PATH/setup/"*-*.bash; do
+  source "$FILE"
+done
+
+echo "Done. System must be restarted for some changes to take effect."

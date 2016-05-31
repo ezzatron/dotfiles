@@ -1,5 +1,6 @@
+echo "Installing PHP..."
+
 brew install \
-    composer \
     php53 --with-phpdbg \
     php53-intl
     php54 --with-phpdbg \
@@ -35,3 +36,13 @@ popd > /dev/null
 pushd "$PHP_ETC_PATH/7.0" > /dev/null
 ln -s ../php.ini
 popd > /dev/null
+
+if [[ -f "$HOME/bin/composer" ]]; then
+    echo "Composer already installed."
+else
+    echo "Installing Composer..."
+    curl -fsSL "https://getcomposer.org/download/1.0.0/composer.phar" > "$HOME/bin/composer"
+fi
+
+echo "Updating Composer..."
+"$HOME/bin/composer" selfupdate

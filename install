@@ -5,9 +5,9 @@ GITHUB_USER=ezzatron
 
 if [[ -d "$HOME/git/hub/$GITHUB_USER/dotfiles" ]]; then
     echo "Pulling $GITHUB_USER/dotfiles..."
-    pushd "$HOME/git/hub/$GITHUB_USER/dotfiles"
+    pushd "$HOME/git/hub/$GITHUB_USER/dotfiles" > /dev/null
     git pull
-    popd
+    popd > /dev/null
 else
     echo "Cloning $GITHUB_USER/dotfiles..."
     git clone "https://github.com/$GITHUB_USER/dotfiles.git" "$HOME/git/hub/$GITHUB_USER/dotfiles"

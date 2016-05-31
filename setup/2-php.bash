@@ -3,11 +3,11 @@ echo "Installing PHP..."
 brew install \
     homebrew/php/php53 \
     homebrew/php/php53-intl \
-    homebrew/php/php54 --with-phpdbg \
+    homebrew/php/php54 \
     homebrew/php/php54-intl \
-    homebrew/php/php55 --with-phpdbg \
+    homebrew/php/php55 \
     homebrew/php/php55-intl \
-    homebrew/php/php56 --with-phpdbg \
+    homebrew/php/php56 \
     homebrew/php/php56-intl \
     homebrew/php/php70 --with-phpdbg \
     homebrew/php/php70-intl \

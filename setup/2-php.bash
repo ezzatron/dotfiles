@@ -1,16 +1,16 @@
 echo "Installing PHP..."
 
 brew install \
-    php53 --with-phpdbg \
-    php53-intl
-    php54 --with-phpdbg \
-    php54-intl
-    php55 --with-phpdbg \
-    php55-intl
-    php56 --with-phpdbg \
-    php56-intl
-    php70 --with-phpdbg \
-    php70-intl
+    homebrew/php/php53 --with-phpdbg \
+    homebrew/php/php53-intl
+    homebrew/php/php54 --with-phpdbg \
+    homebrew/php/php54-intl
+    homebrew/php/php55 --with-phpdbg \
+    homebrew/php/php55-intl
+    homebrew/php/php56 --with-phpdbg \
+    homebrew/php/php56-intl
+    homebrew/php/php70 --with-phpdbg \
+    homebrew/php/php70-intl
 
 PHP_ETC_PATH="$(brew --prefix)/etc/php"
 

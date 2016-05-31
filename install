@@ -68,7 +68,7 @@ lpass login "$LASTPASS_EMAIL"
 echo "Fetching GitHub token from LastPass..."
 export GITHUB_TOKEN="$(lpass show "Personal/GitHub token" --notes)"
 export HOMEBREW_GITHUB_API_TOKEN="$GITHUB_TOKEN"
-echo 'export GITHUB_TOKEN="'"$GITHUB_TOKEN"'"' >> "$HOME/.secure.zshenv"
+echo 'export GITHUB_TOKEN="'"$GITHUB_TOKEN"'"' >> "$HOME/.zshenv.secure"
 
 if [ -f "$HOME/.ssh/id_rsa" ]; then
     echo "SSH key already exists."

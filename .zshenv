@@ -1,5 +1,5 @@
 setopt no_global_rcs
-source "$HOME/.secure.zshenv"
+source "$HOME/.zshenv.secure"
 
 if [[ $SHLVL = 1 ]]; then
     export PATH="/usr/local/bin:/usr/local/sbin:$PATH"

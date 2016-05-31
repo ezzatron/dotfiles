@@ -21,14 +21,32 @@ if [[ -z "$LASTPASS_EMAIL" ]]; then
     exit 1
 fi
 
-if [[ -d "$HOME/git/hub/$GITHUB_USER/dotfiles" ]]; then
+GIT_PATH="$HOME/git"
+GITHUB_PATH="$GIT_PATH/hub"
+DOTFILES_PATH="$GITHUB_PATH/$GITHUB_USER/dotfiles"
+
+if [[ -d "$DOTFILES_PATH" ]]; then
     echo "Pulling $GITHUB_USER/dotfiles..."
-    pushd "$HOME/git/hub/$GITHUB_USER/dotfiles" > /dev/null
+    pushd "$DOTFILES_PATH" > /dev/null
     git pull
     popd > /dev/null
 else
     echo "Cloning $GITHUB_USER/dotfiles..."
-    git clone "https://github.com/$GITHUB_USER/dotfiles.git" "$HOME/git/hub/$GITHUB_USER/dotfiles"
+    git clone "https://github.com/$GITHUB_USER/dotfiles.git" "$DOTFILES_PATH"
+fi
+
+if [[ -f "$HOME/.zshenv" ]]; then
+    echo "Zsh environment already installed."
+else
+    echo "Installing zsh environment"
+    ln -s "$DOTFILES_PATH/.zshenv" "$HOME/.zshenv"
+fi
+
+if [[ -f "$HOME/.zshrc" ]]; then
+    echo "Zsh configuration already installed."
+else
+    echo "Installing zsh configuration"
+    ln -s "$DOTFILES_PATH/.zshrc" "$HOME/.zshrc"
 fi
 
 if hash brew 2>/dev/null; then
@@ -50,6 +68,7 @@ lpass login "$LASTPASS_EMAIL"
 echo "Fetching GitHub token from LastPass..."
 export GITHUB_TOKEN="$(lpass show "Personal/GitHub token" --notes)"
 export HOMEBREW_GITHUB_API_TOKEN="$GITHUB_TOKEN"
+echo 'export GITHUB_TOKEN="'"$GITHUB_TOKEN"'"' >> "$HOME/.secure.zshenv"
 
 if [ -f "$HOME/.ssh/id_rsa" ]; then
     echo "SSH key already exists."
@@ -64,3 +83,8 @@ else
         > "$HOME/.ssh/id_rsa.pub"
     chmod 600 "$HOME/.ssh/id_rsa" "$HOME/.ssh/id_rsa.pub"
 fi
+
+echo "Switching dotfiles repo to SSH..."
+pushd "$DOTFILES_PATH" > /dev/null
+git remote set-url origin "$(git config --get remote.origin.url | sed 's/https:\/\/github.com\//git@github.com:/')"
+popd > /dev/null

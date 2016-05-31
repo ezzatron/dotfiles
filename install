@@ -20,3 +20,37 @@ else
     echo "Cloning $GITHUB_USER/dotfiles..."
     git clone "https://github.com/$GITHUB_USER/dotfiles.git" "$HOME/git/hub/$GITHUB_USER/dotfiles"
 fi
+
+if [[ hash brew 2>/dev/null ]]; then
+    echo "Homebrew already installed."
+else
+    echo "Installing Homebrew..."
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+if [[ hash lpass 2>/dev/null ]]; then
+    echo "LastPass CLI already installed."
+else
+    echo "Installing LastPass CLI..."
+    brew install lastpass-cli --with-pinentry
+fi
+
+lpass login
+
+echo "Fetching GitHub token from LastPass..."
+export GITHUB_TOKEN="$(lpass show "Personal/GitHub token" --notes)"
+export HOMEBREW_GITHUB_API_TOKEN="$GITHUB_TOKEN"
+
+if [ -f "$HOME/.ssh/id_rsa" ]; then
+    echo "SSH key already exists."
+else
+    echo "Fetching SSH key from LastPass..."
+    mkdir -p "$HOME/.ssh"
+    lpass show "Personal/SSH" --field "Private Key" \
+        | awk '/^[A-Za-z-]+:$/ { printf("%s ", $0); next } 1' \
+        > "$HOME/.ssh/id_rsa"
+    lpass show "Personal/SSH" --field "Public Key" \
+        | awk '/^[A-Za-z-]+:$/ { printf("%s ", $0); next } 1' \
+        > "$HOME/.ssh/id_rsa.pub"
+    chmod 600 "$HOME/.ssh/id_rsa" "$HOME/.ssh/id_rsa.pub"
+fi

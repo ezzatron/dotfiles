@@ -84,7 +84,7 @@ for FILE in "$DOTFILES_PATH/dotfiles/".*; do
     fi
 
     if [ -e "$HOME/$NAME" ]; then
-        echo "$NAME already exists"
+        echo "$NAME already exists."
     else
         echo "Linking $NAME..."
         ln -s $FILE "$HOME/$NAME"

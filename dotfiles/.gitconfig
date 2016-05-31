@@ -1,0 +1,24 @@
+[user]
+	name = Erin Millard
+	email = ezzatron@gmail.com
+[color]
+	ui = auto
+[github]
+	user = ezzatron
+[credential]
+	helper = cache --timeout=21600
+[core]
+	excludesfile = ~/.gitignore-global
+	autocrlf = input
+	editor = subl -w
+[format]
+	pretty = %C(dim)%ci%C(reset) %C(dim)%p%C(reset) %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an %ar.%C(reset)
+[push]
+	default = simple
+[branch]
+	autosetuprebase = always
+[diff]
+	renames = true
+	renameLimit = 2000
+[tag]
+	sort = version:refname

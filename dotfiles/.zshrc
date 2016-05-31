@@ -45,7 +45,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew colored-man-pages colorize command-not-found common-aliases composer cp custom docker git git-flow-avh github history history-substring-search node npm osx screen sublime sudo vagrant z zsh-syntax-highlighting)
+plugins=(brew colored-man-pages colorize command-not-found common-aliases composer cp custom docker git github history history-substring-search node npm osx screen sublime sudo vagrant z zsh-syntax-highlighting)
 
 # User configuration
 

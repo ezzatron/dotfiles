@@ -35,20 +35,6 @@ else
     git clone "https://github.com/$GITHUB_USER/dotfiles.git" "$DOTFILES_PATH"
 fi
 
-if [[ -f "$HOME/.zshenv" ]]; then
-    echo "Zsh environment already installed."
-else
-    echo "Installing zsh environment"
-    ln -s "$DOTFILES_PATH/.zshenv" "$HOME/.zshenv"
-fi
-
-if [[ -f "$HOME/.zshrc" ]]; then
-    echo "Zsh configuration already installed."
-else
-    echo "Installing zsh configuration"
-    ln -s "$DOTFILES_PATH/.zshrc" "$HOME/.zshrc"
-fi
-
 if hash brew 2>/dev/null; then
     echo "Homebrew already installed."
 else
@@ -88,3 +74,19 @@ echo "Switching dotfiles repo to SSH..."
 pushd "$DOTFILES_PATH" > /dev/null
 git remote set-url origin "$(git config --get remote.origin.url | sed 's/https:\/\/github.com\//git@github.com:/')"
 popd > /dev/null
+
+echo "Installing dotfiles ..."
+for FILE in "$DOTFILES_PATH/dotfiles/".*; do
+    NAME=$(basename $FILE)
+
+    if [[ "." == $NAME || ".." == $NAME ]]; then
+        continue
+    fi
+
+    if [ -e "$HOME/$NAME" ]; then
+        echo "$NAME already exists"
+    else
+        echo "Linking $NAME..."
+        ln -s $FILE "$HOME/$NAME"
+    fi
+done

@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-GITHUB_USER=ezzatron
+if [[ -z "$GITHUB_USER" ]]; then
+    echo "GITHUB_USER not defined."
+    exit 1
+fi
 
 if [[ -d "$HOME/git/hub/$GITHUB_USER/dotfiles" ]]; then
     echo "Pulling $GITHUB_USER/dotfiles..."

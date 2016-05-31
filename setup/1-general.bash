@@ -1,3 +1,5 @@
+set -e
+
 [ -e "$HOME/bin" ] || mkdir -p "$HOME/bin"
 
 echo "Installing basic packages..."

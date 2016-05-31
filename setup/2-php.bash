@@ -1,21 +1,25 @@
+set -e
+
 echo "Installing PHP..."
 
 brew install \
-    homebrew/php/php53 \
-    homebrew/php/php53-intl \
-    homebrew/php/php54 \
-    homebrew/php/php54-intl \
-    homebrew/php/php55 \
-    homebrew/php/php55-intl \
-    homebrew/php/php56 \
-    homebrew/php/php56-intl \
     homebrew/php/php70 --with-phpdbg \
     homebrew/php/php70-intl \
     homebrew/php/composer
 
+brew install \
+    homebrew/php/php56 \
+    homebrew/php/php56-intl \
+    homebrew/php/php55 \
+    homebrew/php/php55-intl \
+    homebrew/php/php54 \
+    homebrew/php/php54-intl \
+    homebrew/php/php53 \
+    homebrew/php/php53-intl
+
 PHP_ETC_PATH="$(brew --prefix)/etc/php"
 
-echo "date.timezone = 'Australia/Brisbane'" >> "$PHP_ETC_PATH/php.ini"
+echo "date.timezone = 'Australia/Brisbane'" > "$PHP_ETC_PATH/php.ini"
 echo "phar.readonly = 0" >> "$PHP_ETC_PATH/php.ini"
 
 pushd "$PHP_ETC_PATH/5.3" > /dev/null

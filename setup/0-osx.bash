@@ -1,3 +1,5 @@
+set -e
+
 echo "Applying OSX defaults..."
 
 # Enable volume change feedback beep

@@ -2,6 +2,11 @@
 set -e
 
 if [[ -z "$GITHUB_USER" ]]; then
+    echo -n "GitHub user: "
+    read GITHUB_USER
+fi
+
+if [[ -z "$GITHUB_USER" ]]; then
     echo "GITHUB_USER not defined."
     exit 1
 fi

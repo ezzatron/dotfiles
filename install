@@ -11,6 +11,16 @@ if [[ -z "$GITHUB_USER" ]]; then
     exit 1
 fi
 
+if [[ -z "$LASTPASS_EMAIL" ]]; then
+    echo -n "LastPass email: "
+    read LASTPASS_EMAIL
+fi
+
+if [[ -z "$LASTPASS_EMAIL" ]]; then
+    echo "LASTPASS_EMAIL not defined."
+    exit 1
+fi
+
 if [[ -d "$HOME/git/hub/$GITHUB_USER/dotfiles" ]]; then
     echo "Pulling $GITHUB_USER/dotfiles..."
     pushd "$HOME/git/hub/$GITHUB_USER/dotfiles" > /dev/null
@@ -21,21 +31,21 @@ else
     git clone "https://github.com/$GITHUB_USER/dotfiles.git" "$HOME/git/hub/$GITHUB_USER/dotfiles"
 fi
 
-if [[ hash brew 2>/dev/null ]]; then
+if hash brew 2>/dev/null; then
     echo "Homebrew already installed."
 else
     echo "Installing Homebrew..."
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-if [[ hash lpass 2>/dev/null ]]; then
+if hash lpass 2>/dev/null; then
     echo "LastPass CLI already installed."
 else
     echo "Installing LastPass CLI..."
     brew install lastpass-cli --with-pinentry
 fi
 
-lpass login
+lpass login "$LASTPASS_EMAIL"
 
 echo "Fetching GitHub token from LastPass..."
 export GITHUB_TOKEN="$(lpass show "Personal/GitHub token" --notes)"

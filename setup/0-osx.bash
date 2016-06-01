@@ -1,5 +1,24 @@
 set -e
 
+function PlistBuddy-Add {
+    local key=$1
+    local type=$2
+    local plist=$3
+
+    /usr/libexec/PlistBuddy -c "Print $key" "$plist" > /dev/null 2>&1 || \
+        /usr/libexec/PlistBuddy -c "Add $key $type" "$plist"
+}
+function PlistBuddy-Set {
+    local key=$1
+    local type=$2
+    local value=$3
+    local plist=$4
+
+    /usr/libexec/PlistBuddy -c "Print $key" "$plist" > /dev/null 2>&1 || \
+        /usr/libexec/PlistBuddy -c "Add $key $type" "$plist"
+    /usr/libexec/PlistBuddy -c "Set $key $value" "$plist"
+}
+
 echo "Applying OSX defaults..."
 
 # Enable volume change feedback beep
@@ -41,6 +60,18 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+defaults write com.googlecode.iterm2 OnlyWhenMoreTabs -bool false
+
+# iTerm arrow key navigation
+# PlistBuddy-Add ":'New Bookmarks'" array "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+# PlistBuddy-Add ":'New Bookmarks':0" dict "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+# PlistBuddy-Add ":'New Bookmarks':0:'Keyboard Map'" dict "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+# PlistBuddy-Add ":'New Bookmarks':0:'Keyboard Map':'0xf702-0x280000'" dict "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+# PlistBuddy-Set ":'New Bookmarks':0:'Keyboard Map':'0xf702-0x280000':Action" integer 10 "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+# PlistBuddy-Set ":'New Bookmarks':0:'Keyboard Map':'0xf702-0x280000':Text" string "'b'" "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+# PlistBuddy-Add ":'New Bookmarks':0:'Keyboard Map':'0xf703-0x280000'" dict "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+# PlistBuddy-Set ":'New Bookmarks':0:'Keyboard Map':'0xf703-0x280000':Action" integer 10 "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+# PlistBuddy-Set ":'New Bookmarks':0:'Keyboard Map':'0xf703-0x280000':Text" string "'f'" "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
 
 killall \
     "Address Book" \

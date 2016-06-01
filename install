@@ -72,6 +72,9 @@ else
     chmod 600 "$HOME/.ssh/id_rsa" "$HOME/.ssh/id_rsa.pub"
 fi
 
+echo "Adding SSH key to keychain..."
+ssh-add -K "$HOME/.ssh/id_rsa"
+
 echo "Switching dotfiles repo to SSH..."
 pushd "$DOTFILES_PATH" > /dev/null
 git remote set-url origin "$(git config --get remote.origin.url | sed 's/https:\/\/github.com\//git@github.com:/')"

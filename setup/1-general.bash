@@ -12,6 +12,7 @@ brew install \
     ghi \
     git \
     hub \
+    z \
     zsh \
     zsh-autosuggestions \
     zsh-completions \

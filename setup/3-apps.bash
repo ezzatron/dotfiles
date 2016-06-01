@@ -8,6 +8,7 @@ brew cask install \
     dropbox \
     google-chrome \
     iterm2 \
+    scroll-reverser \
     slack \
     spotify \
     steam \

@@ -23,3 +23,8 @@ else
     lpass show "Personal/Sublime Text License" --notes \
         > "$SUBLIME_CONFIG_PATH/License.sublime_license"
 fi
+
+open "/Applications/Dropbox.app"
+open "/Applications/Google Chrome.app"
+open "/Applications/iTerm.app"
+open "/Applications/Spotify.app"

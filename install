@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+git --version
+
 if [[ -z "$GITHUB_USER" ]]; then
     echo -n "GitHub user: "
     read GITHUB_USER

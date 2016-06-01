@@ -9,7 +9,15 @@ gem install --user-install \
     travis
 
 brew install \
-    bash-completion \
     ghi \
     git \
-    hub
+    hub \
+    zsh \
+    zsh-autosuggestions \
+    zsh-completions \
+    zsh-history-substring-search \
+    zsh-syntax-highlighting
+
+echo "Installing Oh My Zsh..."
+chsh -s /usr/local/bin/zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

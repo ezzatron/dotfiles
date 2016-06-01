@@ -28,4 +28,5 @@ fi
 open "/Applications/Dropbox.app"
 open "/Applications/Google Chrome.app"
 open "/Applications/iTerm.app"
+open "/Applications/Scroll Reverser.app"
 open "/Applications/Spotify.app"

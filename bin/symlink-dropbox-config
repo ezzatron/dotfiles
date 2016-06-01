@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+DROPBOX_CONFIG_PATH="$HOME/Dropbox/Configuration"
+
+echo "Linking Sublime Text 3 configuration to Dropbox..."
+
+SUBLIME_CONFIG_PATH="$HOME/Library/Application Support/Sublime Text 3/"
+DROPBOX_SUBLIME_CONFIG_PATH="$DROPBOX_CONFIG_PATH/Sublime Text 3"
+
+if [[ -h "$SUBLIME_CONFIG_PATH/Installed Packages" ]]; then
+    echo "Installed Packages directory already linked."
+else
+    echo "Replacing Installed Packages directory..."
+    pushd "$SUBLIME_CONFIG_PATH" > /dev/null
+    mv "Installed Packages" "Installed Packages.bak"
+    ln -s "$DROPBOX_SUBLIME_CONFIG_PATH/Installed Packages"
+    popd > /dev/null
+fi
+
+if [[ -h "$SUBLIME_CONFIG_PATH/Packages" ]]; then
+    echo "Packages directory already linked."
+else
+    echo "Replacing Packages directory..."
+    pushd "$SUBLIME_CONFIG_PATH" > /dev/null
+    mv "Packages" "Packages.bak"
+    ln -s "$DROPBOX_SUBLIME_CONFIG_PATH/Packages"
+    popd > /dev/null
+fi

@@ -39,6 +39,9 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
 
+# Don’t display the annoying prompt when quitting iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
 killall \
     "Address Book" \
     "Calendar" \

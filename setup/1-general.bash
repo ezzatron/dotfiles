@@ -19,7 +19,6 @@ brew install \
     zsh-history-substring-search \
     zsh-syntax-highlighting
 
-
 echo "Installing zsh..."
 
 if [[ "/usr/local/bin/zsh" == "$SHELL" ]]; then

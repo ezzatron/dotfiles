@@ -45,13 +45,14 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew colored-man-pages colorize command-not-found common-aliases composer cp custom docker git github history node npm osx screen sublime sudo vagrant z)
+plugins=(brew colored-man-pages colorize command-not-found common-aliases composer cp custom docker git github history node npm osx screen sublime sudo vagrant)
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

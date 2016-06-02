@@ -96,6 +96,13 @@ for FILE in "$DOTFILES_PATH/dotfiles/".*; do
     fi
 done
 
+if [[ -h "$HOME/zsh" ]]; then
+    echo "Oh My Zsh custom directory already linked."
+else
+    echo "Linking Oh My Zsh custom directory..."
+    ln -s "$DOTFILES_PATH/zsh" "$HOME/zsh"
+fi
+
 for FILE in "$DOTFILES_PATH/setup/"*-*.bash; do
   source "$FILE"
 done

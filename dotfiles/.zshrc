@@ -2,7 +2,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="mh"
 CASE_SENSITIVE="true"
 DISABLE_UPDATE_PROMPT=true
-ZSH_CUSTOM="$HOME/git/hub/ezzatron/dotfiles/zsh"
+ZSH_CUSTOM="$HOME/zsh"
 
 plugins=(brew colored-man-pages colorize command-not-found common-aliases composer cp custom docker git github history history-substring-search node npm osx screen sublime sudo vagrant z)
 

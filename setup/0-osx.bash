@@ -49,6 +49,7 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 defaults write com.googlecode.iterm2 OnlyWhenMoreTabs -bool false
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/Dropbox/Configuration/iTerm"
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
 killall \
     "Address Book" \

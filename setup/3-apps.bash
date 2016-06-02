@@ -7,7 +7,7 @@ brew cask install \
     dockertoolbox \
     dropbox \
     google-chrome \
-    iterm2 \
+    iterm2-beta \
     scroll-reverser \
     slack \
     spotify \

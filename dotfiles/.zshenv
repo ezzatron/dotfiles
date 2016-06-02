@@ -9,4 +9,7 @@ if [[ $SHLVL = 1 ]]; then
     export PATH="vendor/bin:node_modules/.bin:$PATH"
 
     export HOMEBREW_GITHUB_API_TOKEN="$GITHUB_TOKEN"
+
+    export GIT_PATH="$HOME/git"
+    export GITHUB_PATH="$GIT_PATH/hub"
 fi

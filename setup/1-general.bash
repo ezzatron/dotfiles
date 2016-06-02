@@ -35,5 +35,9 @@ else
     chsh -s /usr/local/bin/zsh
 fi
 
-echo "Installing Oh My Zsh..."
-git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
+if [[ -e "$HOME/.oh-my-zsh" ]]; then
+    echo "Oh My Zsh already installed."
+else
+    echo "Installing Oh My Zsh..."
+    git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
+fi

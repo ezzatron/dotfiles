@@ -12,11 +12,9 @@ brew install \
     ghi \
     git \
     hub \
-    z \
     zsh \
     zsh-autosuggestions \
     zsh-completions \
-    zsh-history-substring-search \
     zsh-syntax-highlighting
 
 echo "Installing zsh..."

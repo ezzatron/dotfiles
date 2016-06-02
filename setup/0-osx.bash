@@ -48,6 +48,7 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 defaults write com.googlecode.iterm2 OnlyWhenMoreTabs -bool false
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/Dropbox/Configuration/iTerm"
 
 killall \
     "Address Book" \

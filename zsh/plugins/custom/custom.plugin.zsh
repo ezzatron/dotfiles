@@ -38,7 +38,7 @@ __hub-clone() {
     if [[ -e "$rpath" ]]; then
         cd "$rpath"
     else
-        "$HUB_BINARY" clone "$1" "$rpath" && cd "$rpath"
+        "$HUB_BINARY" clone -p "$1" "$rpath" && cd "$rpath"
     fi
 
     return $?

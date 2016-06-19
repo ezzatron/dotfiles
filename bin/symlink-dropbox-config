@@ -1,6 +1,23 @@
 #!/usr/bin/env bash
 
-DROPBOX_CONFIG_PATH="$HOME/Dropbox/Configuration"
+DROPBOX_PATH="$HOME/Dropbox"
+
+for FILE in "$DROPBOX_PATH/Fonts/"*.ttf; do
+    NAME=$(basename $FILE)
+
+    if [[ "." == $NAME || ".." == $NAME ]]; then
+        continue
+    fi
+
+    if [ -e "/Library/Fonts/$NAME" ]; then
+        echo "Font $NAME already exists."
+    else
+        echo "Copying font $NAME..."
+        cp $FILE "/Library/Fonts/"
+    fi
+done
+
+DROPBOX_CONFIG_PATH="$DROPBOX_PATH/Configuration"
 
 if [[ -h "$HOME/.ssh/config" ]]; then
     echo "SSH config already linked."

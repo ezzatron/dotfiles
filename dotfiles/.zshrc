@@ -4,7 +4,7 @@ CASE_SENSITIVE="true"
 DISABLE_UPDATE_PROMPT=true
 ZSH_CUSTOM="$HOME/zsh"
 
-plugins=(brew colored-man-pages colorize command-not-found common-aliases composer cp custom docker git history history-substring-search node npm osx screen sublime sudo vagrant z)
+plugins=(brew colored-man-pages colorize command-not-found common-aliases composer cp custom docker git history history-substring-search node npm osx screen sublime vagrant z)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

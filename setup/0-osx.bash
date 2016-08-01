@@ -16,6 +16,14 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+# Date formats
+defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d h:mm a"
+defaults write NSGlobalDomain AppleICUDateFormatStrings -dict \
+  1 -string "y-MM-dd" \
+  2 -string "y-MM-dd" \
+  3 -string "y-MM-dd" \
+  4 -string "y-MM-dd"
+
 # Automatically open a new Finder window when a volume is mounted
 defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true

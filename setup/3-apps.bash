@@ -4,7 +4,7 @@ echo "Installing apps..."
 
 brew tap caskroom/versions
 brew cask install \
-    dockertoolbox \
+    docker-toolbox \
     dropbox \
     google-chrome \
     iterm2-beta \
@@ -12,7 +12,7 @@ brew cask install \
     slack \
     spotify \
     steam \
-    sublime-text3
+    sublime-text
 
 SUBLIME_CONFIG_PATH="$HOME/Library/Application Support/Sublime Text 3/Local"
 

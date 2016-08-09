@@ -12,4 +12,6 @@ if [[ $SHLVL = 1 ]]; then
 
     export GIT_PATH="$HOME/git"
     export GITHUB_PATH="$GIT_PATH/hub"
+
+    export GOPATH="$HOME/go"
 fi

@@ -1,6 +1,7 @@
 set -e
 
 [ -e "$HOME/bin" ] || mkdir -p "$HOME/bin"
+[ -e "$HOME/go" ] || mkdir -p "$HOME/go"
 
 echo "Installing basic packages..."
 
@@ -11,6 +12,8 @@ gem install --user-install \
 brew install \
     ghi \
     git \
+    go \
+    hardlink-osx \
     hub \
     zsh \
     zsh-autosuggestions \

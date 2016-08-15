@@ -2,7 +2,10 @@ setopt no_global_rcs
 source "$HOME/.zshenv.secure"
 
 if [[ $SHLVL = 1 ]]; then
+    export GOPATH="$HOME/go"
+
     export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+    export PATH="$GOPATH/bin:$PATH"
     export PATH="$HOME/.gem/ruby/2.0.0/bin:$PATH"
     export PATH="$HOME/.composer/vendor/bin:$PATH"
     export PATH="$HOME/bin:$PATH"
@@ -12,6 +15,4 @@ if [[ $SHLVL = 1 ]]; then
 
     export GIT_PATH="$HOME/git"
     export GITHUB_PATH="$GIT_PATH/hub"
-
-    export GOPATH="$HOME/go"
 fi

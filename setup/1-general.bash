@@ -10,11 +10,15 @@ gem install --user-install \
     travis
 
 brew install \
+    colordiff \
     ghi \
     git \
     go \
     hardlink-osx \
     hub \
+    node \
+    wdiff \
+    wifi-password \
     zsh \
     zsh-autosuggestions \
     zsh-completions \

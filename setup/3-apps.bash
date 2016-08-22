@@ -6,6 +6,7 @@ brew tap caskroom/versions
 brew cask install \
     docker-toolbox \
     dropbox \
+    firefox \
     google-chrome \
     iterm2-beta \
     scroll-reverser \

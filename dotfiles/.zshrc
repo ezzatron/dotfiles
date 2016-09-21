@@ -7,6 +7,7 @@ ZSH_CUSTOM="$HOME/zsh"
 plugins=(brew colored-man-pages colorize command-not-found common-aliases composer custom docker git history history-substring-search node npm osx screen sublime z)
 
 source $ZSH/oh-my-zsh.sh
+source "$HOME/.iterm2_shell_integration.zsh"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 

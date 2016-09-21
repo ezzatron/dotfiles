@@ -1,3 +1,7 @@
+label() {
+    iterm2_set_user_var label "$@"
+}
+
 HUB_BINARY="$(which hub)"
 
 git() {

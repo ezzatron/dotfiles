@@ -4,6 +4,7 @@ echo "Installing apps..."
 
 brew tap caskroom/versions
 brew cask install \
+    docker \
     docker-toolbox \
     dropbox \
     firefox \

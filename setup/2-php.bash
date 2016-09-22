@@ -13,36 +13,37 @@ brew unlink \
     php71 \
     || true
 
-brew install php53
+brew install php53 --without-apache
 brew link --overwrite php53
 brew install \
     php53-intl
 brew unlink php53
 
-brew install php54
+brew install php54 --without-apache
 brew link --overwrite php54
 brew install \
     php54-intl
 brew unlink php54
 
-brew install php55
+brew install php55 --without-apache
 brew link --overwrite php55
 brew install \
     php55-intl
 brew unlink php55
 
-brew install php56 --with-phpdbg
+brew install php56 --without-apache --with-phpdbg
 brew link --overwrite php56
 brew install \
     php56-intl
 brew unlink php56
 
-brew install php71 --with-phpdbg
+brew install php71 --without-apache --with-phpdbg
 brew link --overwrite php71
 brew install \
     php71-intl
+brew unlink php71
 
-brew install php70 --with-phpdbg
+brew install php70 --without-apache --with-phpdbg
 brew link --overwrite php70
 brew install \
     php70-intl

@@ -17,6 +17,7 @@ brew install \
     hardlink-osx \
     hub \
     node \
+    watch \
     wdiff \
     wifi-password \
     zsh \

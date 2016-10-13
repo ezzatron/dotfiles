@@ -20,6 +20,7 @@ brew install \
     watch \
     wdiff \
     wifi-password \
+    yarn \
     zsh \
     zsh-autosuggestions \
     zsh-completions \

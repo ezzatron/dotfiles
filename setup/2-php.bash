@@ -4,14 +4,19 @@ echo "Installing PHP..."
 
 brew tap homebrew/homebrew-php
 
-brew unlink \
-    php53 \
-    php54 \
-    php55 \
-    php56 \
-    php70 \
-    php71 \
-    || true
+brew unlink php53 || true
+brew unlink php53-intl || true
+brew unlink php54 || true
+brew unlink php54-intl || true
+brew unlink php55 || true
+brew unlink php55-intl || true
+brew unlink php56 || true
+brew unlink php56-intl || true
+brew unlink php70 || true
+brew unlink php70-intl || true
+brew unlink php71 || true
+brew unlink php71-intl || true
+brew unlink composer || true
 
 brew install php53 --without-apache
 brew link --overwrite php53

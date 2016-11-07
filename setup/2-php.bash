@@ -54,6 +54,7 @@ brew install \
     php70-intl
 
 brew install composer
+brew link --overwrite composer
 
 PHP_ETC_PATH="$(brew --prefix)/etc/php"
 

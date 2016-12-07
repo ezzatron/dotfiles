@@ -42,16 +42,16 @@ brew install \
     php56-intl
 brew unlink php56
 
-brew install php71 --without-apache --with-phpdbg
-brew link --overwrite php71
-brew install \
-    php71-intl
-brew unlink php71
-
 brew install php70 --without-apache --with-phpdbg
 brew link --overwrite php70
 brew install \
     php70-intl
+brew unlink php70
+
+brew install php71 --without-apache --with-phpdbg
+brew link --overwrite php71
+brew install \
+    php71-intl
 
 brew install composer
 brew link --overwrite composer
@@ -78,5 +78,9 @@ ln -fs ../php.ini
 popd > /dev/null
 
 pushd "$PHP_ETC_PATH/7.0" > /dev/null
+ln -fs ../php.ini
+popd > /dev/null
+
+pushd "$PHP_ETC_PATH/7.1" > /dev/null
 ln -fs ../php.ini
 popd > /dev/null

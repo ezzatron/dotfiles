@@ -54,6 +54,7 @@ brew install php72 --without-apache --with-phpdbg
 brew link --overwrite php72
 brew install \
     php72-intl
+brew unlink php72
 
 brew install php71 --without-apache --with-phpdbg
 brew link --overwrite php71

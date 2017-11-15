@@ -9,10 +9,13 @@ gem install --user-install \
     pygments.rb \
     travis
 
+brew tap jmalloc/grit
+
 brew install \
     colordiff \
     ghi \
     git \
+    grit \
     go \
     hardlink-osx \
     hub \

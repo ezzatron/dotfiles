@@ -25,3 +25,7 @@ fi
 
 PROMPT_DATE="[%{$fg_bold[black]%}%T%{$reset_color%}]"
 RPROMPT="$RPROMPT$PROMPT_DATE"
+
+autoload -U compinit && compinit
+autoload -U bashcompinit && bashcompinit
+eval "$(grit shell-integration)"

@@ -23,9 +23,7 @@ if [[ -z "$LASTPASS_EMAIL" ]]; then
     exit 1
 fi
 
-GIT_PATH="$HOME/git"
-GITHUB_PATH="$GIT_PATH/hub"
-DOTFILES_PATH="$GITHUB_PATH/$GITHUB_USER/dotfiles"
+DOTFILES_PATH="$HOME/grit/github.com/$GITHUB_USER/dotfiles"
 
 if [[ -d "$DOTFILES_PATH" ]]; then
     echo "Pulling $GITHUB_USER/dotfiles..."

@@ -18,7 +18,6 @@ brew install \
     grit \
     go \
     hardlink-osx \
-    hub \
     node \
     watch \
     wdiff \

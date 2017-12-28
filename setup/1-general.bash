@@ -13,7 +13,6 @@ brew tap jmalloc/grit
 
 brew install \
     colordiff \
-    ghi \
     git \
     grit \
     go \

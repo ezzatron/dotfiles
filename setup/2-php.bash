@@ -50,16 +50,16 @@ brew install \
     php70-intl
 brew unlink php70
 
-brew install php72 --with-phpdbg
-brew link --overwrite php72
-brew install \
-    php72-intl
-brew unlink php72
-
 brew install php71 --with-phpdbg
 brew link --overwrite php71
 brew install \
     php71-intl
+brew unlink php71
+
+brew install php72 --with-phpdbg
+brew link --overwrite php72
+brew install \
+    php72-intl
 
 brew install composer
 brew link --overwrite composer

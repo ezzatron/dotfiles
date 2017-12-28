@@ -31,3 +31,6 @@ ssh-add -A 2>/dev/null
 autoload -U compinit && compinit
 autoload -U bashcompinit && bashcompinit
 eval "$(grit shell-integration)"
+
+# added by travis gem
+[ -f /Users/erin/.travis/travis.sh ] && source /Users/erin/.travis/travis.sh

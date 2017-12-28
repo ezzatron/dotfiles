@@ -20,43 +20,43 @@ brew unlink php72 || true
 brew unlink php72-intl || true
 brew unlink composer || true
 
-brew install php53 --without-apache
+brew install php53
 brew link --overwrite php53
 brew install \
     php53-intl
 brew unlink php53
 
-brew install php54 --without-apache
+brew install php54
 brew link --overwrite php54
 brew install \
     php54-intl
 brew unlink php54
 
-brew install php55 --without-apache
+brew install php55
 brew link --overwrite php55
 brew install \
     php55-intl
 brew unlink php55
 
-brew install php56 --without-apache --with-phpdbg
+brew install php56 --with-phpdbg
 brew link --overwrite php56
 brew install \
     php56-intl
 brew unlink php56
 
-brew install php70 --without-apache --with-phpdbg
+brew install php70 --with-phpdbg
 brew link --overwrite php70
 brew install \
     php70-intl
 brew unlink php70
 
-brew install php72 --without-apache --with-phpdbg
+brew install php72 --with-phpdbg
 brew link --overwrite php72
 brew install \
     php72-intl
 brew unlink php72
 
-brew install php71 --without-apache --with-phpdbg
+brew install php71 --with-phpdbg
 brew link --overwrite php71
 brew install \
     php71-intl

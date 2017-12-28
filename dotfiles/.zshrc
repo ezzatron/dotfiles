@@ -26,6 +26,8 @@ fi
 PROMPT_DATE="[%{$fg_bold[black]%}%T%{$reset_color%}]"
 RPROMPT="$RPROMPT$PROMPT_DATE"
 
+ssh-add -A 2>/dev/null
+
 autoload -U compinit && compinit
 autoload -U bashcompinit && bashcompinit
 eval "$(grit shell-integration)"

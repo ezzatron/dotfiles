@@ -2,67 +2,22 @@ set -e
 
 echo "Installing PHP..."
 
+brew tap ezzatron/brew-php
 brew tap homebrew/homebrew-php
 
-brew unlink php53 || true
-brew unlink php53-intl || true
-brew unlink php54 || true
-brew unlink php54-intl || true
-brew unlink php55 || true
-brew unlink php55-intl || true
-brew unlink php56 || true
-brew unlink php56-intl || true
-brew unlink php70 || true
-brew unlink php70-intl || true
-brew unlink php71 || true
-brew unlink php71-intl || true
-brew unlink php72 || true
-brew unlink php72-intl || true
-brew unlink composer || true
+brew install brew-php
 
-brew install php53
-brew link --overwrite php53
-brew install \
-    php53-intl
-brew unlink php53
+brew php install php53 php53-intl
+brew php install php54 php54-intl
+brew php install php55 php55-intl
+brew php install php56 php56-intl
+brew php install php70 php70-intl
+brew php install php71 php71-intl
+brew php install php72 php72-intl
 
-brew install php54
-brew link --overwrite php54
-brew install \
-    php54-intl
-brew unlink php54
+brew php link php72
 
-brew install php55
-brew link --overwrite php55
-brew install \
-    php55-intl
-brew unlink php55
-
-brew install php56 --with-phpdbg
-brew link --overwrite php56
-brew install \
-    php56-intl
-brew unlink php56
-
-brew install php70 --with-phpdbg
-brew link --overwrite php70
-brew install \
-    php70-intl
-brew unlink php70
-
-brew install php71 --with-phpdbg
-brew link --overwrite php71
-brew install \
-    php71-intl
-brew unlink php71
-
-brew install php72 --with-phpdbg
-brew link --overwrite php72
-brew install \
-    php72-intl
-
-brew install composer
-brew link --overwrite composer
+brew php install composer
 
 PHP_ETC_PATH="$(brew --prefix)/etc/php"
 

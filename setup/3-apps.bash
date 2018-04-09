@@ -6,7 +6,6 @@ brew tap caskroom/versions
 brew cask install \
     docker \
     dropbox \
-    firefox \
     google-chrome \
     iterm2-beta \
     scroll-reverser \
@@ -14,6 +13,7 @@ brew cask install \
     spotify \
     steam \
     sublime-text
+brew cask install firefox --language=en-GB
 
 open "/Applications/Dropbox.app"
 open "/Applications/Google Chrome.app"

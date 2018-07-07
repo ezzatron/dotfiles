@@ -2,7 +2,7 @@ setopt no_global_rcs
 source "$HOME/.zshenv.secure"
 
 if [[ $SHLVL = 1 ]]; then
-    export GOPATH="$HOME/go"
+    export GOPATH="$(go env GOPATH)"
 
     export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
     export PATH="$GOPATH/bin:$PATH"

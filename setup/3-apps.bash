@@ -6,13 +6,16 @@ brew tap caskroom/versions
 brew cask install \
     docker \
     dropbox \
+    eqmac \
     google-chrome \
-    iterm2-beta \
+    iterm2 \
     scroll-reverser \
     slack \
     spotify \
     steam \
-    sublime-text
+    sublime-text \
+    vagrant \
+    virtualbox
 brew cask install firefox --language=en-GB
 
 open "/Applications/Dropbox.app"

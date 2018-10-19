@@ -4,6 +4,8 @@ echo "Installing apps..."
 
 brew tap caskroom/versions
 brew cask install \
+    1password \
+    authy \
     docker \
     dropbox \
     eqmac \

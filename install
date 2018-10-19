@@ -13,14 +13,18 @@ if [[ -z "$GITHUB_USER" ]]; then
     exit 1
 fi
 
-if [[ -z "$LASTPASS_EMAIL" ]]; then
-    echo -n "LastPass email: "
-    read LASTPASS_EMAIL
-fi
+if [ -z "$OP_SESSION_my" ]; then
+    while [ -z "$OP_EMAIL" ]; do
+        echo -n "1Password email address: "
+        read OP_EMAIL
+    done
 
-if [[ -z "$LASTPASS_EMAIL" ]]; then
-    echo "LASTPASS_EMAIL not defined."
-    exit 1
+    while [ -z "$OP_KEY" ]; do
+        echo -n "1Password secret key: "
+        read OP_KEY
+    done
+
+    eval $(op signin my "$OP_EMAIL" "$OP_KEY")
 fi
 
 DOTFILES_PATH="$HOME/grit/github.com/$GITHUB_USER/dotfiles"
@@ -42,32 +46,33 @@ else
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-if hash lpass 2>/dev/null; then
-    echo "LastPass CLI already installed."
+if hash jq 2>/dev/null; then
+    echo "jq already installed."
 else
-    echo "Installing LastPass CLI..."
-    brew install lastpass-cli --with-pinentry
+    echo "Installing jq..."
+    brew install jq
 fi
 
-lpass login "$LASTPASS_EMAIL"
+if hash op 2>/dev/null; then
+    echo "1Password CLI already installed."
+else
+    echo "Installing 1Password CLI..."
+    brew cask install 1password-cli
+fi
 
-echo "Fetching GitHub token from LastPass..."
-export GITHUB_TOKEN="$(lpass show "Personal/GitHub token" --notes)"
+echo "Fetching GitHub token from 1Password..."
+export GITHUB_TOKEN="$(op get item --account=my GitHub | jq --raw-output '.details.sections[]? | select(.title == "Tokens") | .fields[]? | select(.t == "Personal") | .v')"
 export HOMEBREW_GITHUB_API_TOKEN="$GITHUB_TOKEN"
 echo 'export GITHUB_TOKEN="'"$GITHUB_TOKEN"'"' >> "$HOME/.zshenv.secure"
 
 if [ -f "$HOME/.ssh/id_rsa" ]; then
     echo "SSH key already exists."
 else
-    echo "Fetching SSH key from LastPass..."
+    echo "Fetching SSH key from 1Password..."
     mkdir -p "$HOME/.ssh"
-    lpass show "Personal/SSH" --field "Private Key" \
-        | awk '/^[A-Za-z-]+:$/ { printf("%s ", $0); next } 1' \
+    op get item --account=my SSH | jq --raw-output .details.notesPlain \
         > "$HOME/.ssh/id_rsa"
-    lpass show "Personal/SSH" --field "Public Key" \
-        | awk '/^[A-Za-z-]+:$/ { printf("%s ", $0); next } 1' \
-        > "$HOME/.ssh/id_rsa.pub"
-    chmod 600 "$HOME/.ssh/id_rsa" "$HOME/.ssh/id_rsa.pub"
+    chmod 600 "$HOME/.ssh/id_rsa"
 fi
 
 SUBLIME_CONFIG_PATH="$HOME/Library/Application Support/Sublime Text 3/Local"
@@ -75,9 +80,9 @@ SUBLIME_CONFIG_PATH="$HOME/Library/Application Support/Sublime Text 3/Local"
 if [ -f "$SUBLIME_CONFIG_PATH/License.sublime_license" ]; then
     echo "Sublime Text license already exists."
 else
-    echo "Fetching Sublime Text license from LastPass..."
+    echo "Fetching Sublime Text license from 1Password..."
     mkdir -p "$SUBLIME_CONFIG_PATH"
-    lpass show "Personal/Sublime Text License" --notes \
+    op get item --account=my 'Sublime Text' | jq --raw-output '.details.sections[]? | select(.title == "") | .fields[]? | select(.t == "license key") | .v' \
         > "$SUBLIME_CONFIG_PATH/License.sublime_license"
 fi
 

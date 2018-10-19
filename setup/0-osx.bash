@@ -100,6 +100,12 @@ defaults write com.apple.spotlight orderedItems -array \
 # Touch bar customization
 defaults write com.apple.controlstrip MiniCustomized "(com.apple.system.media-play-pause, com.apple.system.mute, com.apple.system.volume, com.apple.system.brightness)"
 
+# Save screenshots to /tmp
+defaults write com.apple.screencapture location -string "/tmp"
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
 killall \
     "Address Book" \
     "Calendar" \

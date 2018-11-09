@@ -27,6 +27,11 @@ if [ -z "$OP_SESSION_my" ]; then
     eval $(op signin my "$OP_EMAIL" "$OP_KEY")
 fi
 
+if [ -z "$OP_SESSION_my" ]; then
+    echo "1Password sign in failed."
+    exit 1
+fi
+
 DOTFILES_PATH="$HOME/grit/github.com/$GITHUB_USER/dotfiles"
 
 if [[ -d "$DOTFILES_PATH" ]]; then

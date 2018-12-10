@@ -8,6 +8,7 @@ brew install brew-php
 
 brew php install php@7.0
 brew php install php@7.1
+brew php install php@7.2
 brew php install php
 
 brew php link php
@@ -28,5 +29,9 @@ ln -fs ../php.ini
 popd > /dev/null
 
 pushd "$PHP_ETC_PATH/7.2" > /dev/null
+ln -fs ../php.ini
+popd > /dev/null
+
+pushd "$PHP_ETC_PATH/7.3" > /dev/null
 ln -fs ../php.ini
 popd > /dev/null

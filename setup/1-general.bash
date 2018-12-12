@@ -17,6 +17,7 @@ brew install \
     grit \
     go \
     hardlink-osx \
+    mysql-client \
     node \
     watch \
     wdiff \
@@ -26,6 +27,8 @@ brew install \
     zsh-autosuggestions \
     zsh-completions \
     zsh-syntax-highlighting
+
+brew link --force mysql-client
 
 echo "Installing zsh..."
 

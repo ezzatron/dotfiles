@@ -15,7 +15,5 @@ brew cask install \
     slack \
     spotify \
     steam \
-    sublime-text \
-    vagrant \
-    virtualbox
+    sublime-text
 brew cask install firefox --language=en-GB

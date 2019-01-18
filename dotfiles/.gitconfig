@@ -22,3 +22,5 @@
 	renameLimit = 2000
 [tag]
 	sort = version:refname
+[include]
+	path = ~/.gitconfig.local

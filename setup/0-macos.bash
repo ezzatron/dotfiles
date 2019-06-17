@@ -66,7 +66,7 @@ sudo defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdate -bo
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 defaults write com.googlecode.iterm2 OnlyWhenMoreTabs -bool false
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/Dropbox/Configuration/iTerm"
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/Google Drive/Configuration/iTerm"
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
 # Don't display first-time Spotlight messages

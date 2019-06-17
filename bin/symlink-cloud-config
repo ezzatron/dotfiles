@@ -1,33 +1,35 @@
 #!/usr/bin/env bash
 
-DROPBOX_PATH="$HOME/Dropbox"
+set -e
 
-for FILE in "$DROPBOX_PATH/Fonts/"*.ttf; do
-    NAME=$(basename $FILE)
+CLOUD_PATH="$HOME/Google Drive"
+
+for FILE in "$CLOUD_PATH/Fonts/"*.ttf; do
+    NAME=$(basename "$FILE")
 
     if [[ "." == $NAME || ".." == $NAME ]]; then
         continue
     fi
 
-    if [ -e "/Library/Fonts/$NAME" ]; then
+    if [ -e "$HOME/Library/Fonts/$NAME" ]; then
         echo "Font $NAME already exists."
     else
         echo "Copying font $NAME..."
-        cp $FILE "/Library/Fonts/"
+        cp "$FILE" "$HOME/Library/Fonts/$NAME"
     fi
 done
 
-DROPBOX_CONFIG_PATH="$DROPBOX_PATH/Configuration"
+CLOUD_CONFIG_PATH="$CLOUD_PATH/Configuration"
 
 if [[ -h "$HOME/.ssh/config" ]]; then
     echo "SSH config already linked."
 else
     echo "Linking SSH config..."
-    ln -s "$DROPBOX_CONFIG_PATH/Ssh/config" "$HOME/.ssh/config"
+    ln -s "$CLOUD_CONFIG_PATH/Ssh/config" "$HOME/.ssh/config"
 fi
 
 SUBLIME_CONFIG_PATH="$HOME/Library/Application Support/Sublime Text 3/"
-DROPBOX_SUBLIME_CONFIG_PATH="$DROPBOX_CONFIG_PATH/Sublime Text 3"
+CLOUD_SUBLIME_CONFIG_PATH="$CLOUD_CONFIG_PATH/Sublime Text 3"
 
 if [[ -h "$SUBLIME_CONFIG_PATH/Installed Packages" ]]; then
     echo "Sublime Installed Packages directory already linked."
@@ -38,7 +40,7 @@ else
         mv "$SUBLIME_CONFIG_PATH/Installed Packages" "$SUBLIME_CONFIG_PATH/Installed Packages.bak"
     fi
 
-    ln -s "$DROPBOX_SUBLIME_CONFIG_PATH/Installed Packages" "$SUBLIME_CONFIG_PATH/Installed Packages"
+    ln -s "$CLOUD_SUBLIME_CONFIG_PATH/Installed Packages" "$SUBLIME_CONFIG_PATH/Installed Packages"
 fi
 
 if [[ -h "$SUBLIME_CONFIG_PATH/Packages" ]]; then
@@ -50,5 +52,5 @@ else
         mv "$SUBLIME_CONFIG_PATH/Packages" "$SUBLIME_CONFIG_PATH/Packages.bak"
     fi
 
-    ln -s "$DROPBOX_SUBLIME_CONFIG_PATH/Packages" "$SUBLIME_CONFIG_PATH/Packages"
+    ln -s "$CLOUD_SUBLIME_CONFIG_PATH/Packages" "$SUBLIME_CONFIG_PATH/Packages"
 fi

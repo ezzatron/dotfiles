@@ -7,8 +7,8 @@ brew cask install \
     1password \
     authy \
     docker \
-    dropbox \
     eqmac \
+    google-backup-and-sync \
     google-chrome \
     iterm2 \
     scroll-reverser \

@@ -100,7 +100,7 @@ git remote set-url origin "$(git config --get remote.origin.url | sed 's/https:\
 popd > /dev/null
 
 echo "Installing dotfiles ..."
-for FILE in "$DOTFILES_PATH/dotfiles/".*; do
+for FILE in "$DOTFILES_PATH/dotfiles/".* "$DOTFILES_PATH/dotfiles/"*; do
     NAME=$(basename $FILE)
 
     if [[ "." == $NAME || ".." == $NAME ]]; then

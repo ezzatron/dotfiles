@@ -1,42 +1,6 @@
 set -e
 
-[ -e "$HOME/bin" ] || mkdir -p "$HOME/bin"
-[ -e "$HOME/go" ] || mkdir -p "$HOME/go"
-
-echo "Installing basic packages..."
-
-gem install --user-install \
-    pygments.rb \
-    travis
-
-brew tap jmalloc/grit
-
-brew install \
-    awscli \
-    colordiff \
-    git \
-    grit \
-    go \
-    hardlink-osx \
-    imagemagick \
-    jq \
-    mysql-client \
-    node@10 \
-    node \
-    pgcli \
-    vlc \
-    watch \
-    wdiff \
-    wifi-password \
-    yarn \
-    zsh \
-    zsh-autosuggestions \
-    zsh-completions \
-    zsh-syntax-highlighting
-
-brew link --force mysql-client
-
-echo "Installing zsh..."
+echo "Configuring shell..."
 
 if [[ "/usr/local/bin/zsh" == "$SHELL" ]]; then
     echo "Brew zsh is already the current shell."

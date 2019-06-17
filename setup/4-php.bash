@@ -1,13 +1,6 @@
 set -e
 
-echo "Installing PHP..."
-
-brew tap ezzatron/brew-php
-
-brew install brew-php
-brew php install php
-brew php link php
-brew php install composer
+echo "Configuring PHP..."
 
 PHP_ETC_PATH="$(brew --prefix)/etc/php"
 

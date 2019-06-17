@@ -17,8 +17,12 @@ brew install \
     grit \
     go \
     hardlink-osx \
+    imagemagick \
+    jq \
     mysql-client \
+    node@10 \
     node \
+    pgcli \
     watch \
     wdiff \
     wifi-password \

@@ -24,6 +24,10 @@ CLOUD_CONFIG_PATH="$CLOUD_PATH/Configuration"
 if [[ -h "$HOME/.ssh/config" ]]; then
     echo "SSH config already linked."
 else
+    if [[ -f "$HOME/.ssh/config" ]]; then
+        mv "$HOME/.ssh/config" "$HOME/.ssh/config.bak"
+    fi
+
     echo "Linking SSH config..."
     ln -s "$CLOUD_CONFIG_PATH/Ssh/config" "$HOME/.ssh/config"
 fi

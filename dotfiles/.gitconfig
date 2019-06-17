@@ -11,6 +11,7 @@
 	excludesfile = ~/.gitignore-global
 	autocrlf = input
 	editor = subl -w
+	attributesfile = ~/.gitattributes
 [format]
 	pretty = %C(dim)%ci%C(reset) %C(dim)%p%C(reset) %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an %ar.%C(reset)
 [push]
@@ -22,3 +23,7 @@
 	renameLimit = 2000
 [tag]
 	sort = version:refname
+[alias]
+	diff-image = "!f() { cd -- \"${GIT_PREFIX:-.}\"; GIT_DIFF_IMAGE_ENABLED=1 git diff \"$@\"; }; f"
+[diff "image"]
+	command = ~/grit/github.com/ewanmellor/git-diff-image/git_diff_image

@@ -26,13 +26,44 @@ defaults write NSGlobalDomain AppleICUDateFormatStrings -dict \
   3 -string "y-MM-dd" \
   4 -string "y-MM-dd"
 
+# Allow Finder to be quit normally
+defaults write com.apple.finder QuitMenuItem -bool true
+
+# Show the Finder path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Show the Finder status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Hide Finder recent tags
+defaults write com.apple.finder ShowRecentTags -bool false
+
+# Open folders in new Finder windows instead of tabs
+defaults write com.apple.finder FinderSpawnTab -bool false
+
+# Use list view in all Finder windows by default
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Keep directories at the top when sorting in Finder
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+# Use the home directory as the default location for new Finder windows
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+
+# Finder should search the current directory by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Turn off automatic Desktop icons
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
+
 # Automatically open a new Finder window when a volume is mounted
 defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
-
-# Use list view in all Finder windows by default
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Right-oriented Dock
 defaults write com.apple.Dock orientation -string "right"

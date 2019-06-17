@@ -12,6 +12,7 @@ gem install --user-install \
 brew tap jmalloc/grit
 
 brew install \
+    awscli \
     colordiff \
     git \
     grit \
@@ -23,6 +24,7 @@ brew install \
     node@10 \
     node \
     pgcli \
+    vlc \
     watch \
     wdiff \
     wifi-password \

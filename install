@@ -4,6 +4,10 @@ set -e
 
 git --version
 
+# Prompt immediately for sudo, and keep it alive while the install script runs
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 if hash brew 2>/dev/null; then
     echo "Homebrew already installed."
 else

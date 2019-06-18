@@ -16,9 +16,6 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'autosuggestions'
 
-zstyle ':prezto:module:prompt' theme 'sorin'
-zstyle ':prezto:module:prompt' pwd-length 'short'
-
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
@@ -26,3 +23,6 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'line' \
   'cursor' \
   'root'
+
+zstyle ':prezto:module:prompt' pwd-length 'short'
+zstyle ':prezto:module:prompt' theme 'sorin'

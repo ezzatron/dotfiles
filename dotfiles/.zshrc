@@ -1,8 +1,6 @@
 CASE_SENSITIVE=true
 
-function source-if-exists () {
-  [ -f "$1" ] && source "$1"
-}
+source "$HOME/.functions.zsh"
 
 source-if-exists "$(brew --prefix)/etc/profile.d/z.sh"
 source-if-exists "$HOME/.zprezto/init.zsh"

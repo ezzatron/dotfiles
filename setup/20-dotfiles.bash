@@ -2,7 +2,7 @@ set -e
 
 echo "Installing dotfiles..."
 
-for FILE in "$DOTFILES_PATH/dotfiles/".* "$DOTFILES_PATH/dotfiles/"*; do
+for FILE in "$HOME/dotfiles/dotfiles/".* "$HOME/dotfiles/dotfiles/"*; do
   NAME=$(basename $FILE)
 
   if [[ "." == $NAME || ".." == $NAME ]]; then

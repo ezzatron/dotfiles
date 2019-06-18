@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 set -e
 
 git --version
@@ -65,64 +66,13 @@ else
     git clone "https://github.com/$GITHUB_USER/dotfiles.git" "$DOTFILES_PATH"
 fi
 
-echo "Fetching GitHub token from 1Password..."
-export GITHUB_TOKEN="$(op get item --account=my GitHub | jq --raw-output '.details.sections[]? | select(.title == "Tokens") | .fields[]? | select(.t == "Personal") | .v')"
-export HOMEBREW_GITHUB_API_TOKEN="$GITHUB_TOKEN"
-echo 'export GITHUB_TOKEN="'"$GITHUB_TOKEN"'"' >> "$HOME/.zshenv.secure"
-
-if [ -f "$HOME/.ssh/id_rsa" ]; then
-    echo "SSH key already exists."
+if [[ -e "$HOME/dotfiles" ]]; then
+    echo "Dotfiles shortcut directory already exists."
 else
-    echo "Fetching SSH key from 1Password..."
-    mkdir -p "$HOME/.ssh"
-    op get item --account=my SSH | jq --raw-output .details.notesPlain \
-        > "$HOME/.ssh/id_rsa"
-    chmod 600 "$HOME/.ssh/id_rsa"
+    ln -s "$DOTFILES_PATH" "$HOME/dotfiles"
 fi
 
-SUBLIME_CONFIG_PATH="$HOME/Library/Application Support/Sublime Text 3/Local"
-
-if [ -f "$SUBLIME_CONFIG_PATH/License.sublime_license" ]; then
-    echo "Sublime Text license already exists."
-else
-    echo "Fetching Sublime Text license from 1Password..."
-    mkdir -p "$SUBLIME_CONFIG_PATH"
-    op get item --account=my 'Sublime Text' | jq --raw-output '.details.sections[]? | select(.title == "") | .fields[]? | select(.t == "license key") | .v' \
-        > "$SUBLIME_CONFIG_PATH/License.sublime_license"
-fi
-
-echo "Adding SSH key to keychain..."
-ssh-add -K "$HOME/.ssh/id_rsa"
-
-echo "Switching dotfiles repo to SSH..."
-pushd "$DOTFILES_PATH" > /dev/null
-git remote set-url origin "$(git config --get remote.origin.url | sed 's/https:\/\/github.com\//git@github.com:/')"
-popd > /dev/null
-
-echo "Installing dotfiles ..."
-for FILE in "$DOTFILES_PATH/dotfiles/".* "$DOTFILES_PATH/dotfiles/"*; do
-    NAME=$(basename $FILE)
-
-    if [[ "." == $NAME || ".." == $NAME ]]; then
-        continue
-    fi
-
-    if [ -e "$HOME/$NAME" ]; then
-        echo "$NAME already exists."
-    else
-        echo "Linking $NAME..."
-        ln -s $FILE "$HOME/$NAME"
-    fi
-done
-
-if [[ -h "$HOME/zsh" ]]; then
-    echo "Oh My Zsh custom directory already linked."
-else
-    echo "Linking Oh My Zsh custom directory..."
-    ln -s "$DOTFILES_PATH/zsh" "$HOME/zsh"
-fi
-
-for FILE in "$DOTFILES_PATH/setup/"*-*.bash; do
+for FILE in "$HOME/dotfiles/setup/"*-*.bash; do
   source "$FILE"
 done
 

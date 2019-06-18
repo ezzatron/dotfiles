@@ -2,6 +2,13 @@ set -e
 
 echo "Configuring shell..."
 
+if [[ -e "$HOME/zsh" ]]; then
+    echo "Oh My Zsh custom directory already exists."
+else
+    echo "Linking Oh My Zsh custom directory..."
+    ln -s "$HOME/dotfiles/zsh" "$HOME/zsh"
+fi
+
 if [[ "/usr/local/bin/zsh" == "$SHELL" ]]; then
     echo "Brew zsh is already the current shell."
 else

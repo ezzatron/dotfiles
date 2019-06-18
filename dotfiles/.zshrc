@@ -1,15 +1,13 @@
-export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="mh"
-CASE_SENSITIVE="true"
-DISABLE_UPDATE_PROMPT=true
-ZSH_CUSTOM="$HOME/zsh"
+CASE_SENSITIVE=true
 
-plugins=(brew colored-man-pages colorize command-not-found common-aliases composer custom docker git history history-substring-search node npm osx screen sublime z)
+function source-if-exists () {
+  [ -f "$1" ] && source "$1"
+}
 
-source $ZSH/oh-my-zsh.sh
-source "$HOME/.iterm2_shell_integration.zsh"
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source-if-exists "$(brew --prefix)/etc/profile.d/z.sh"
+source-if-exists "$HOME/.zprezto/init.zsh"
+source-if-exists "$HOME/.iterm2_shell_integration.zsh"
+source-if-exists "$HOME/.travis/travis.sh"
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -23,14 +21,8 @@ if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
   setopt combiningchars
 fi
 
-PROMPT_DATE="[%{$fg_bold[black]%}%T%{$reset_color%}]"
-RPROMPT="$RPROMPT$PROMPT_DATE"
-
 ssh-add -A 2>/dev/null
 
 autoload -U compinit && compinit
 autoload -U bashcompinit && bashcompinit
 eval "$(grit shell-integration)"
-
-# added by travis gem
-[ -f /Users/erin/.travis/travis.sh ] && source /Users/erin/.travis/travis.sh

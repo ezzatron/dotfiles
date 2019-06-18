@@ -19,4 +19,3 @@ export GITHUB_TOKEN="$(op get item --account=my GitHub | jq --raw-output '.detai
 export HOMEBREW_GITHUB_API_TOKEN="$GITHUB_TOKEN"
 
 update-token "GITHUB_TOKEN" "$GITHUB_TOKEN"
-update-token "HOMEBREW_GITHUB_API_TOKEN" "$GITHUB_TOKEN"

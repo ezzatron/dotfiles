@@ -2,13 +2,6 @@ set -e
 
 echo "Configuring shell..."
 
-if [[ -e "$HOME/zsh" ]]; then
-  echo "Oh My Zsh custom directory already exists."
-else
-  echo "Linking Oh My Zsh custom directory..."
-  ln -s "$HOME/dotfiles/zsh" "$HOME/zsh"
-fi
-
 if [[ "/usr/local/bin/zsh" == "$SHELL" ]]; then
   echo "Brew zsh is already the current shell."
 else
@@ -23,9 +16,9 @@ else
   chsh -s /usr/local/bin/zsh
 fi
 
-if [[ -e "$HOME/.oh-my-zsh" ]]; then
-  echo "Oh My Zsh already installed."
+if [[ -e "$HOME/.zprezto" ]]; then
+  echo "Prezto already installed."
 else
-  echo "Installing Oh My Zsh..."
-  git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
+  echo "Installing Prezto..."
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
 fi

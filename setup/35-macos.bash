@@ -139,16 +139,16 @@ defaults write com.apple.screencapture location -string "$HOME/Screenshots"
 defaults write com.apple.screencapture type -string "png"
 
 killall \
-    "Address Book" \
-    "Calendar" \
-    "ControlStrip" \
-    "cfprefsd" \
-    "Contacts" \
-    "Dock" \
-    "Finder" \
-    "iCal" \
-    "iTunes" \
-    "Mail" \
-    "Safari" \
-    "Spotlight" \
-    "SystemUIServer"
+  "Address Book" \
+  "Calendar" \
+  "ControlStrip" \
+  "cfprefsd" \
+  "Contacts" \
+  "Dock" \
+  "Finder" \
+  "iCal" \
+  "iTunes" \
+  "Mail" \
+  "Safari" \
+  "Spotlight" \
+  "SystemUIServer"

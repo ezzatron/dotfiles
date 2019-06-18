@@ -1,14 +1,14 @@
 set -e
 
 if [ -f "$HOME/.ssh/id_rsa" ]; then
-    echo "SSH key already exists."
+  echo "SSH key already exists."
 else
-    echo "Fetching SSH key from 1Password..."
+  echo "Fetching SSH key from 1Password..."
 
-    mkdir -p "$HOME/.ssh"
-    op get item --account=my SSH | jq --raw-output .details.notesPlain \
-        > "$HOME/.ssh/id_rsa"
-    chmod 600 "$HOME/.ssh/id_rsa"
+  mkdir -p "$HOME/.ssh"
+  op get item --account=my SSH | jq --raw-output .details.notesPlain \
+    > "$HOME/.ssh/id_rsa"
+  chmod 600 "$HOME/.ssh/id_rsa"
 fi
 
 echo "Adding SSH key to keychain..."

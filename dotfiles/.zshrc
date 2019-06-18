@@ -20,7 +20,7 @@ fi
 unsetopt share_history
 
 if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
-    setopt combiningchars
+  setopt combiningchars
 fi
 
 PROMPT_DATE="[%{$fg_bold[black]%}%T%{$reset_color%}]"

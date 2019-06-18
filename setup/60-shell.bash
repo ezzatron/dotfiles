@@ -22,3 +22,11 @@ else
   echo "Installing Prezto..."
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
 fi
+
+
+if [[ -e "$HOME/.iterm2_shell_integration.zsh" ]]; then
+  echo "iTerm shell integration already installed."
+else
+  echo "Installing iTerm shell integration..."
+  curl -L https://iterm2.com/shell_integration/zsh -o "$HOME/.iterm2_shell_integration.zsh"
+fi

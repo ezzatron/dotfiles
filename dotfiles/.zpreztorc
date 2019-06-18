@@ -27,3 +27,5 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 
 zstyle ':prezto:module:prompt' pwd-length 'short'
 zstyle ':prezto:module:prompt' theme 'sorin'
+
+zstyle ':prezto:module:utility' safe-ops 'no'

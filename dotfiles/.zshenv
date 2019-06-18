@@ -1,5 +1,12 @@
 setopt no_global_rcs
+
 source "$HOME/.zshenv.secure"
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='subl -n -w'
+fi
 
 if [[ $SHLVL = 1 ]]; then
   export DEFAULT_USER="$USER"

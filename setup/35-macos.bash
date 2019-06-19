@@ -7,8 +7,8 @@ echo "Applying macOS defaults..."
 grep -q pam_tid /etc/pam.d/sudo || sudo sed -i.bak $'2i\\\nauth       sufficient     pam_tid.so\n' /etc/pam.d/sudo
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 20
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 25
 
 # Disable janky animation when zooming windows (not working - needs investigation)
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false

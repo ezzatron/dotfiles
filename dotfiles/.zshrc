@@ -9,4 +9,6 @@ source-if-exists "$HOME/.travis/travis.sh"
 
 eval "$(grit shell-integration)"
 
+ssh-add -A 2>/dev/null
+
 setopt clobber

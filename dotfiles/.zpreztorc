@@ -25,6 +25,8 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'cursor' \
   'root'
 
+zstyle ':prezto:module:ssh:load' identities ''
+
 zstyle ':prezto:module:prompt' pwd-length 'short'
 zstyle ':prezto:module:prompt' theme 'sorin'
 

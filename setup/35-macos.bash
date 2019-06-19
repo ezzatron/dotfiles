@@ -3,6 +3,7 @@ set -e
 echo "Applying macOS defaults..."
 
 # Allow touch ID for sudo
+# If using iTerm, you must also disable "Allow sessions to survive logging out and back in" in preferences > advanced
 grep -q pam_tid /etc/pam.d/sudo || sudo sed -i.bak $'2i\\\nauth       sufficient     pam_tid.so\n' /etc/pam.d/sudo
 
 # Set a blazingly fast keyboard repeat rate

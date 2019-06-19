@@ -10,7 +10,7 @@ grep -q pam_tid /etc/pam.d/sudo || sudo sed -i.bak $'2i\\\nauth       sufficient
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 25
 
-# Disable janky animation when zooming windows (not working - needs investigation)
+# Disable janky animation when zooming windows (works intermittently)
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 
 # Trackpad: enable tap to click for this user and for the login screen
@@ -185,11 +185,6 @@ defaults write com.apple.screencapture location -string "$HOME/Screenshots"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
-
-# Show Safari developer options (not working - needs investigation)
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari WebKitPreferences.developerExtrasEnabled -bool true
 
 killall \
   "Address Book" \

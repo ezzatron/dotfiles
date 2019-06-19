@@ -10,7 +10,7 @@ grep -q pam_tid /etc/pam.d/sudo || sudo sed -i.bak $'2i\\\nauth       sufficient
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
-# Disable janky animation when zooming windows
+# Disable janky animation when zooming windows (not working - needs investigation)
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 
 # Trackpad: enable tap to click for this user and for the login screen

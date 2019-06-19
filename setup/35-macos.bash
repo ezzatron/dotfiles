@@ -8,7 +8,7 @@ grep -q pam_tid /etc/pam.d/sudo || sudo sed -i.bak $'2i\\\nauth       sufficient
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain InitialKeyRepeat -int 20
 
 # Disable janky animation when zooming windows (not working - needs investigation)
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false

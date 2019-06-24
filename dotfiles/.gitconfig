@@ -24,3 +24,5 @@
 	sort = version:refname
 [include]
 	path = ~/.gitconfig.local
+[fetch]
+	prune = true

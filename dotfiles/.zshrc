@@ -12,3 +12,4 @@ eval "$(grit shell-integration)"
 ssh-add -A 2>/dev/null
 
 setopt clobber
+unsetopt correct

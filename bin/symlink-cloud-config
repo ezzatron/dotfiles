@@ -4,21 +4,6 @@ set -e
 
 CLOUD_PATH="$HOME/Google Drive"
 
-for FILE in "$CLOUD_PATH/Fonts/"*.ttf; do
-    NAME=$(basename "$FILE")
-
-    if [[ "." == $NAME || ".." == $NAME ]]; then
-        continue
-    fi
-
-    if [ -e "$HOME/Library/Fonts/$NAME" ]; then
-        echo "Font $NAME already exists."
-    else
-        echo "Copying font $NAME..."
-        cp "$FILE" "$HOME/Library/Fonts/$NAME"
-    fi
-done
-
 CLOUD_CONFIG_PATH="$CLOUD_PATH/Configuration"
 
 if [[ -h "$HOME/.ssh/config" ]]; then

@@ -16,17 +16,6 @@ else
   chsh -s /usr/local/bin/zsh
 fi
 
-if [[ -z "$(infocmp xterm-256color | grep sitm)" ]]; then
-  echo "Adding terminal support for italics."
-
-  infocmp xterm-256color > "$HOME/xterm-256color.terminfo"
-  cp "$HOME/xterm-256color.terminfo" "$HOME/xterm-256color.terminfo.bak"
-  printf '\tsitm=\\E[3m, ritm=\\E[23m,\n' >> "$HOME/xterm-256color.terminfo"
-  tic "$HOME/xterm-256color.terminfo"
-else
-  echo "Terminal already supports italics."
-fi
-
 if [[ -e "$HOME/.zprezto" ]]; then
   echo "Prezto already installed."
 else

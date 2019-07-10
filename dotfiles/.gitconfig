@@ -27,4 +27,4 @@
 [fetch]
 	prune = true
 [alias]
-	release-log = !sh -c 'git -P log "$(git describe --abbrev=0).."'
+	release-log = !sh -c 'git -P log "$(git describe --abbrev=0)~1.."'

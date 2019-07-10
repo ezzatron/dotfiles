@@ -26,3 +26,5 @@
 	path = ~/.gitconfig.local
 [fetch]
 	prune = true
+[alias]
+	release-log = !sh -c 'git -P log "$(git describe --abbrev=0).."'

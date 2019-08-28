@@ -12,6 +12,15 @@ function git-slug () {
   fi
 }
 
+function git {
+  if [[ "$1" == "checkout" ]]; then
+    echo 'ERROR: Use "git switch" or "git restore" instead'
+    return 1
+  else
+    command git "$@"
+  fi
+}
+
 function source-if-exists () {
   [ -f "$1" ] && source "$1"
 }

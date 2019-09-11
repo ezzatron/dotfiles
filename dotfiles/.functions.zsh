@@ -14,7 +14,7 @@ function git-slug () {
 
 function git {
   if [[ "$1" == "checkout" ]]; then
-    echo 'ERROR: Use "git switch" or "git restore" instead'
+    echo 'ERROR: Use "git switch" or "git restore" instead' >&2
     return 1
   else
     command git "$@"

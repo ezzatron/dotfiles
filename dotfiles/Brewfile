@@ -1,5 +1,6 @@
 tap "ezzatron/brew-php"
 tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 tap "jmalloc/grit"
 
 brew "awscli"
@@ -28,7 +29,6 @@ cask "1password"
 cask "1password-cli"
 cask "authy"
 cask "docker"
-cask "eqmac"
 cask "firefox-developer-edition", args: {language: "en-GB"}
 cask "font-fira-code"
 cask "font-victor-mono"

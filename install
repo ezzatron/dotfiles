@@ -22,21 +22,18 @@ else
     brew install jq
 fi
 
+if hash mas 2>/dev/null; then
+    echo "mas already installed."
+else
+    echo "Installing mas..."
+    brew install mas
+fi
+
 if hash op 2>/dev/null; then
     echo "1Password CLI already installed."
 else
     echo "Installing 1Password CLI..."
     brew cask install 1password-cli
-fi
-
-if [[ -z "$GITHUB_USER" ]]; then
-    echo -n "GitHub user: "
-    read GITHUB_USER
-fi
-
-if [[ -z "$GITHUB_USER" ]]; then
-    echo "GITHUB_USER not defined."
-    exit 1
 fi
 
 if [ -z "$OP_SESSION_my" ]; then
@@ -55,6 +52,26 @@ fi
 
 if [ -z "$OP_SESSION_my" ]; then
     echo "1Password sign in failed."
+    exit 1
+fi
+
+if mas account; then
+    echo "App store sign in detected."
+else
+    op get item --account=my Apple | jq --raw-output '.details.fields[]? | select(.designation == "password") | .value' | tr -d '\n' | pbcopy
+    echo "Sign in to the app store first. Password has been copied to the clipboard."
+    mas open
+    open "x-apple.systempreferences:com.apple.preferences.AppleIDPrefPane"
+    exit 1
+fi
+
+if [[ -z "$GITHUB_USER" ]]; then
+    echo -n "GitHub user: "
+    read GITHUB_USER
+fi
+
+if [[ -z "$GITHUB_USER" ]]; then
+    echo "GITHUB_USER not defined."
     exit 1
 fi
 

@@ -2,6 +2,12 @@ set -e
 
 echo "Applying macOS defaults..."
 
+function plist-set-or-add () {
+  /usr/libexec/PlistBuddy -c "Set $1" "${@:2}" ||
+  /usr/libexec/PlistBuddy -c "Add $1" "${@:2}" ||
+  echo "Unable to set or add plist with args:" "$@"
+}
+
 # Allow touch ID for sudo
 # If using iTerm, you must also disable "Allow sessions to survive logging out and back in" in preferences > advanced
 grep -q pam_tid /etc/pam.d/sudo || sudo sed -i.bak $'2i\\\nauth       sufficient     pam_tid.so\n' /etc/pam.d/sudo
@@ -56,24 +62,24 @@ defaults write com.apple.finder FinderSpawnTab -bool false
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Sort icon views by name
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy name" "$HOME/Library/Preferences/com.apple.finder.plist"
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy name" "$HOME/Library/Preferences/com.apple.finder.plist"
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy name" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add ":DesktopViewSettings:IconViewSettings:arrangeBy name" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add ":FK_StandardViewSettings:IconViewSettings:arrangeBy name" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add ":StandardViewSettings:IconViewSettings:arrangeBy name" "$HOME/Library/Preferences/com.apple.finder.plist"
 
 # Show item info in icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" "$HOME/Library/Preferences/com.apple.finder.plist"
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo true" "$HOME/Library/Preferences/com.apple.finder.plist"
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add ":DesktopViewSettings:IconViewSettings:showItemInfo true" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add ":FK_StandardViewSettings:IconViewSettings:showItemInfo true" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add ":StandardViewSettings:IconViewSettings:showItemInfo true" "$HOME/Library/Preferences/com.apple.finder.plist"
 
 # Minimize grid spacing in icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 1" "$HOME/Library/Preferences/com.apple.finder.plist"
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 1" "$HOME/Library/Preferences/com.apple.finder.plist"
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 1" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add ":DesktopViewSettings:IconViewSettings:gridSpacing 1" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add ":FK_StandardViewSettings:IconViewSettings:gridSpacing 1" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add ":StandardViewSettings:IconViewSettings:gridSpacing 1" "$HOME/Library/Preferences/com.apple.finder.plist"
 
 # Set the icon size in icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 64" "$HOME/Library/Preferences/com.apple.finder.plist"
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 64" "$HOME/Library/Preferences/com.apple.finder.plist"
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 64" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add ":DesktopViewSettings:IconViewSettings:iconSize 64" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add ":FK_StandardViewSettings:IconViewSettings:iconSize 64" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add ":StandardViewSettings:IconViewSettings:iconSize 64" "$HOME/Library/Preferences/com.apple.finder.plist"
 
 # Keep directories at the top when sorting in Finder
 defaults write com.apple.finder _FXSortFoldersFirst -bool true

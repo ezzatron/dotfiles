@@ -191,7 +191,7 @@ defaults write com.apple.spotlight orderedItems -array \
   '{"enabled" = 0;"name" = "MENU_OTHER";}'
 
 # Touch bar customization
-defaults write com.apple.controlstrip MiniCustomized "(com.apple.system.media-play-pause, com.apple.system.mute, com.apple.system.volume, com.apple.system.brightness)"
+defaults write com.apple.controlstrip MiniCustomized "(com.apple.system.brightness, com.apple.system.volume, com.apple.system.mute, com.apple.system.media-play-pause)"
 
 # Save screenshots to a dedicated directory
 mkdir -p "$HOME/Screenshots"

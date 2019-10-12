@@ -36,6 +36,8 @@ else
     brew cask install 1password-cli
 fi
 
+sudo spctl --add "$(which op)"
+
 if [ -z "$OP_SESSION_my" ]; then
     while [ -z "$OP_EMAIL" ]; do
         echo -n "1Password email address: "

@@ -2,7 +2,11 @@ set -e
 
 echo "Configuring PHP..."
 
-PHP_INI_SCAN_DIR="$(php --ini | grep "conf\.d$" | sed "s/.*: \//\//")"
+PHP_ETC_PATH="$(brew --prefix)/etc/php"
 
-echo "date.timezone = 'Australia/Brisbane'" > "$PHP_INI_SCAN_DIR/timezone.ini"
-echo "phar.readonly = 0" >> "$PHP_INI_SCAN_DIR/phar.ini"
+for VERSION_PATH in "$PHP_ETC_PATH"/*; do
+  if [ -d "$VERSION_PATH" ]; then
+    echo "date.timezone = 'Australia/Brisbane'" > "$VERSION_PATH/conf.d/timezone.ini"
+    echo "phar.readonly = 0" > "$VERSION_PATH/conf.d/phar.ini"
+  fi
+done

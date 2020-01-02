@@ -21,7 +21,7 @@ else
   cat >> "$HOME/.config/hub" <<EOL
 github.com:
 - user: $GITHUB_USER
-  oauth_token: $GHE_TOKEN
+  oauth_token: $GITHUB_TOKEN
   protocol: https
 EOL
   echo "Added Hub configuration for github.com"

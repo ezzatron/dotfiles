@@ -3,8 +3,13 @@ set -e
 echo "Applying macOS defaults..."
 
 function plist-set-or-add () {
-  /usr/libexec/PlistBuddy -c "Set $1" "${@:2}" ||
-  /usr/libexec/PlistBuddy -c "Add $1" "${@:2}" ||
+  local ENTRY="$1"
+  local TYPE="$2"
+  local VALUE="$3"
+  local PLIST="$4"
+
+  /usr/libexec/PlistBuddy -c "Set $1 $3" "$4" ||
+  /usr/libexec/PlistBuddy -c "Add $1 $2 $3" "$4" ||
   echo "Unable to set or add plist with args:" "$@"
 }
 
@@ -70,24 +75,24 @@ defaults write com.apple.finder FinderSpawnTab -bool false
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Sort icon views by name
-plist-set-or-add ":DesktopViewSettings:IconViewSettings:arrangeBy name" "$HOME/Library/Preferences/com.apple.finder.plist"
-plist-set-or-add ":FK_StandardViewSettings:IconViewSettings:arrangeBy name" "$HOME/Library/Preferences/com.apple.finder.plist"
-plist-set-or-add ":StandardViewSettings:IconViewSettings:arrangeBy name" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add :DesktopViewSettings:IconViewSettings:arrangeBy string name "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add :FK_StandardViewSettings:IconViewSettings:arrangeBy string name "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add :StandardViewSettings:IconViewSettings:arrangeBy string name "$HOME/Library/Preferences/com.apple.finder.plist"
 
 # Show item info in icon views
-plist-set-or-add ":DesktopViewSettings:IconViewSettings:showItemInfo true" "$HOME/Library/Preferences/com.apple.finder.plist"
-plist-set-or-add ":FK_StandardViewSettings:IconViewSettings:showItemInfo true" "$HOME/Library/Preferences/com.apple.finder.plist"
-plist-set-or-add ":StandardViewSettings:IconViewSettings:showItemInfo true" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add :DesktopViewSettings:IconViewSettings:showItemInfo bool true "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add :FK_StandardViewSettings:IconViewSettings:showItemInfo bool true "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add :StandardViewSettings:IconViewSettings:showItemInfo bool true "$HOME/Library/Preferences/com.apple.finder.plist"
 
 # Minimize grid spacing in icon views
-plist-set-or-add ":DesktopViewSettings:IconViewSettings:gridSpacing 1" "$HOME/Library/Preferences/com.apple.finder.plist"
-plist-set-or-add ":FK_StandardViewSettings:IconViewSettings:gridSpacing 1" "$HOME/Library/Preferences/com.apple.finder.plist"
-plist-set-or-add ":StandardViewSettings:IconViewSettings:gridSpacing 1" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add :DesktopViewSettings:IconViewSettings:gridSpacing int 1 "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add :FK_StandardViewSettings:IconViewSettings:gridSpacing int 1 "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add :StandardViewSettings:IconViewSettings:gridSpacing int 1 "$HOME/Library/Preferences/com.apple.finder.plist"
 
 # Set the icon size in icon views
-plist-set-or-add ":DesktopViewSettings:IconViewSettings:iconSize 64" "$HOME/Library/Preferences/com.apple.finder.plist"
-plist-set-or-add ":FK_StandardViewSettings:IconViewSettings:iconSize 64" "$HOME/Library/Preferences/com.apple.finder.plist"
-plist-set-or-add ":StandardViewSettings:IconViewSettings:iconSize 64" "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add :DesktopViewSettings:IconViewSettings:iconSize int 64 "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add :FK_StandardViewSettings:IconViewSettings:iconSize int 64 "$HOME/Library/Preferences/com.apple.finder.plist"
+plist-set-or-add :StandardViewSettings:IconViewSettings:iconSize int 64 "$HOME/Library/Preferences/com.apple.finder.plist"
 
 # Keep directories at the top when sorting in Finder
 defaults write com.apple.finder _FXSortFoldersFirst -bool true

@@ -2,13 +2,13 @@ set -e
 
 echo "Configuring Hub..."
 
-if [[ -z "$GITHUB_USER" ]]; then
-    echo "GITHUB_USER not defined."
+if [[ -z "$GH_USER" ]]; then
+    echo "GH_USER not defined."
     exit 1
 fi
 
-if [[ -z "$GITHUB_TOKEN" ]]; then
-    echo "GITHUB_TOKEN not defined."
+if [[ -z "$GH_TOKEN" ]]; then
+    echo "GH_TOKEN not defined."
     exit 1
 fi
 
@@ -20,8 +20,8 @@ if grep -q github.com "$HOME/.config/hub"; then
 else
   cat >> "$HOME/.config/hub" <<EOL
 github.com:
-- user: $GITHUB_USER
-  oauth_token: $GITHUB_TOKEN
+- user: $GH_USER
+  oauth_token: $GH_TOKEN
   protocol: https
 EOL
   echo "Added Hub configuration for github.com"

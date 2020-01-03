@@ -1,7 +1,7 @@
 set -e
 
-if [[ -z "$GITHUB_TOKEN" ]]; then
-    echo "GITHUB_TOKEN not defined."
+if [[ -z "$GH_TOKEN" ]]; then
+    echo "GH_TOKEN not defined."
     exit 1
 fi
 
@@ -18,4 +18,4 @@ done
 
 echo "Configuring Composer..."
 
-composer config --global github-oauth.github.com "$GITHUB_TOKEN"
+composer config --global github-oauth.github.com "$GH_TOKEN"

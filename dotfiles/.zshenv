@@ -11,7 +11,7 @@ if [[ $SHLVL = 1 ]]; then
 
   export BROWSER="open"
   export DEFAULT_USER="$USER"
-  export HOMEBREW_GITHUB_API_TOKEN="$GITHUB_TOKEN"
+  export HOMEBREW_GITHUB_API_TOKEN="$GH_TOKEN"
   export LESS="-g -i -M -R -S -w -z-4"
 
   export PATH="/usr/local/bin:/usr/local/sbin:$PATH"

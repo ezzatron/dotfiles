@@ -29,3 +29,5 @@
 	release-log = !sh -c 'git -P log "$(git describe --abbrev=0)~1.."'
 [pull]
 	ff = only
+[stash]
+	showPatch = true

@@ -15,8 +15,6 @@
 	pretty = %C(dim)%ci%C(reset) %C(dim)%p%C(reset) %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an %ar.%C(reset)
 [push]
 	default = simple
-[branch]
-	autosetuprebase = always
 [diff]
 	renames = true
 	renameLimit = 2000
@@ -29,3 +27,5 @@
 [alias]
 	release-diff = !sh -c 'git diff "$(git describe --abbrev=0)~1.."'
 	release-log = !sh -c 'git -P log "$(git describe --abbrev=0)~1.."'
+[pull]
+	ff = only

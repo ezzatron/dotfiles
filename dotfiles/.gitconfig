@@ -31,3 +31,5 @@
 	ff = only
 [stash]
 	showPatch = true
+[merge]
+	ff = only

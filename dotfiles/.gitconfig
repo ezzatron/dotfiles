@@ -15,6 +15,7 @@
 	pretty = %C(dim)%ci%C(reset) %C(dim)%p%C(reset) %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an %ar.%C(reset)
 [push]
 	default = simple
+	followTags = true
 [diff]
 	renames = true
 	renameLimit = 2000

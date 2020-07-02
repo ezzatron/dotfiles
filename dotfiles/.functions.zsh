@@ -29,19 +29,12 @@ function iterm2_print_user_vars () {
   iterm2_set_user_var gitSlug "$(git-slug)"
 }
 
-function prompt_docker() {
+function prompt_my_hivecontext() {
   if [[ -n "$HIVE_SWARM_NAME" ]]; then
-    p10k segment -b 1 -f 15 -t "$HIVE_SWARM_NAME"
-    return
+    p10k segment -i ' ' -b 1 -f 15 -t "$HIVE_SWARM_NAME"
+  elif [[ -z "$DOCKER_HOST" || "$DOCKER_HOST" == "unix:///var/run/docker.sock" ]]; then
+    p10k segment -i ' ' -b 1 -f 15 -t self
+  else
+    p10k segment -i ' ' -b 1 -f 15 -t "$DOCKER_HOST"
   fi
-
-  if [[ -z "$DOCKER_HOST" ]]; then
-    return
-  fi
-
-  if [[ "$DOCKER_HOST" == "unix:///var/run/docker.sock" ]]; then
-    return
-  fi
-
-  p10k segment -b 1 -f 15 -t "$DOCKER_HOST"
 }

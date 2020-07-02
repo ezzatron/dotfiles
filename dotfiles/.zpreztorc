@@ -30,6 +30,6 @@ zstyle ':prezto:module:git:alias' skip 'yes'
 zstyle ':prezto:module:ssh:load' identities ''
 
 zstyle ':prezto:module:prompt' pwd-length 'short'
-zstyle ':prezto:module:prompt' theme 'sorin'
+zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 
 zstyle ':prezto:module:utility' safe-ops 'no'

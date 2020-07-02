@@ -28,3 +28,20 @@ function source-if-exists () {
 function iterm2_print_user_vars () {
   iterm2_set_user_var gitSlug "$(git-slug)"
 }
+
+function prompt_docker() {
+  if [[ -n "$HIVE_SWARM_NAME" ]]; then
+    p10k segment -b 1 -f 15 -t "$HIVE_SWARM_NAME"
+    return
+  fi
+
+  if [[ -z "$DOCKER_HOST" ]]; then
+    return
+  fi
+
+  if [[ "$DOCKER_HOST" == "unix:///var/run/docker.sock" ]]; then
+    return
+  fi
+
+  p10k segment -b 1 -f 15 -t "$DOCKER_HOST"
+}

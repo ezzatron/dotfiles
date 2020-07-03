@@ -15,7 +15,7 @@ brew "hub"
 brew "imagemagick"
 brew "jmalloc/grit/grit"
 brew "jq"
-brew "mysql-client"
+brew "mycli"
 brew "node"
 brew "node@10"
 brew "openssl-osx-ca", restart_service: :changed

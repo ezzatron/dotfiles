@@ -16,3 +16,5 @@ ssh-add -A 2>/dev/null
 setopt clobber
 unsetopt autocd
 unsetopt correct
+
+export WORDCHARS="_"

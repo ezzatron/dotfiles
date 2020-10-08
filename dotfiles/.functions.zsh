@@ -33,7 +33,7 @@ function prompt_my_hivecontext() {
   if [[ -n "$HIVE_SWARM_NAME" ]]; then
     p10k segment -i ' ' -b 1 -f 15 -t "$HIVE_SWARM_NAME"
   elif [[ -z "$DOCKER_HOST" || "$DOCKER_HOST" == "unix:///var/run/docker.sock" ]]; then
-    p10k segment -i ' ' -b 1 -f 15 -t self
+    p10k segment -i ' ' -b 8 -f 15 -t self
   else
     p10k segment -i ' ' -b 1 -f 15 -t "$DOCKER_HOST"
   fi

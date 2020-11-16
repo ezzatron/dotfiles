@@ -183,6 +183,9 @@ defaults write com.apple.screencapture type -string "png"
 # Mac Media Key Forwarder should prioritize Spotify
 defaults write com.milgra.hsmke user_priority_option -int 2
 
+# Disable window closing shortcuts for Steam remote play
+defaults write com.valvesoftware.steam.streamingclient NSUserKeyEquivalents '{Close="\U200b";"Quit steamstreamingclient"="~\Uf707";}'
+
 killall \
   "Address Book" \
   "Calendar" \

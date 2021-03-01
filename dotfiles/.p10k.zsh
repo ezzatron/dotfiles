@@ -33,7 +33,8 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     # os_icon               # os identifier
-    my_hivecontext          # current hive/docker context
+    my_hivecontext          # current hive/docker context (non-self swarms)
+    my_hiveselfcontext      # current hive/docker context (self swarm)
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================
@@ -109,8 +110,8 @@
     # example               # example user-defined segment (see prompt_example function below)
   )
 
-  # Only show my_hivecontext when running hive or docker
-  typeset -g POWERLEVEL9K_MY_HIVECONTEXT_SHOW_ON_COMMAND='hive|docker'
+  # Only show my_hiveselfcontext when running hive or docker
+  typeset -g POWERLEVEL9K_MY_HIVESELFCONTEXT_SHOW_ON_COMMAND='hive|docker'
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
   typeset -g POWERLEVEL9K_MODE=nerdfont-complete

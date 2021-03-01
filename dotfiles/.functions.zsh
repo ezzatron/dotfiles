@@ -32,9 +32,13 @@ function iterm2_print_user_vars () {
 function prompt_my_hivecontext() {
   if [[ -n "$HIVE_SWARM_NAME" ]]; then
     p10k segment -i ' ' -b 1 -f 15 -t "$HIVE_SWARM_NAME"
-  elif [[ -z "$DOCKER_HOST" || "$DOCKER_HOST" == "unix:///var/run/docker.sock" ]]; then
-    p10k segment -i ' ' -b 8 -f 15 -t self
-  else
+  elif [[ -n "$DOCKER_HOST" && "$DOCKER_HOST" != "unix:///var/run/docker.sock" ]]; then
     p10k segment -i ' ' -b 1 -f 15 -t "$DOCKER_HOST"
+  fi
+}
+
+function prompt_my_hiveselfcontext() {
+  if [[ -z "$HIVE_SWARM_NAME" && (( -z "$DOCKER_HOST" || "$DOCKER_HOST" == "unix:///var/run/docker.sock" )) ]]; then
+    p10k segment -i ' ' -b 8 -f 15 -t self
   fi
 }

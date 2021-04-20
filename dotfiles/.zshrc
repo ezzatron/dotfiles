@@ -1,6 +1,7 @@
 autoload -U bashcompinit && bashcompinit
 
 source "$HOME/.functions.zsh"
+source-if-exists "$HOME/.functions.workfiles.zsh"
 
 source-if-exists "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh"
 source-if-exists "$(brew --prefix)/etc/profile.d/z.sh"

@@ -11,6 +11,10 @@ else
   chmod 600 "$HOME/.ssh/id_rsa"
 fi
 
+echo "Copying SSH key passphrase to the clipboard..."
+
+op get item --account=my SSH | jq --raw-output '.details.sections[]? | select(.title == "") | .fields[]? | select(.t == "passphrase") | .v' | pbcopy
+
 echo "Adding SSH key to keychain..."
 
 ssh-add -K "$HOME/.ssh/id_rsa"

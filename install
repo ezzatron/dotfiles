@@ -48,17 +48,20 @@ if [ -z "$OP_SESSION_my" ]; then
     done
 
     eval $(op signin my "$OP_EMAIL" "$OP_KEY")
-fi
 
-if [ -z "$OP_SESSION_my" ]; then
-    echo "1Password sign in failed."
-    exit 1
-fi
+    if [ -z "$OP_SESSION_my" ]; then
+        echo "1Password sign in failed."
+        exit 1
+    fi
 
-echo "To persist the 1Password CLI session, run the following command:"
-echo
-printf "    export OP_SESSION_my=%q\n" "$OP_SESSION_my"
-echo
+    echo "1Password sign in succeeded."
+    echo "To persist the 1Password CLI session, run the following command:"
+    echo
+    printf "    export OP_SESSION_my=%q\n" "$OP_SESSION_my"
+    echo
+else
+    echo "Existing 1Password CLI session detected."
+fi
 
 if mas account; then
     echo "App store sign in detected."

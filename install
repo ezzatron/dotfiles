@@ -63,7 +63,7 @@ else
     echo "Existing 1Password CLI session detected."
 fi
 
-if mas account; then
+if mas account >/dev/null; then
     echo "App store sign in detected."
 else
     op get item --account=my Apple | jq --raw-output '.details.fields[]? | select(.designation == "password") | .value' | tr -d '\n' | pbcopy

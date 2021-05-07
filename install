@@ -55,6 +55,11 @@ if [ -z "$OP_SESSION_my" ]; then
     exit 1
 fi
 
+echo "To persist the 1Password CLI session, run the following command:"
+echo
+printf "    export OP_SESSION_my=%q\n" "$OP_SESSION_my"
+echo
+
 if mas account; then
     echo "App store sign in detected."
 else

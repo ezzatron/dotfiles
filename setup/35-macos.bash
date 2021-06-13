@@ -13,6 +13,9 @@ function plist-set-or-add () {
   echo "Unable to set or add plist with args:" "$@"
 }
 
+# turn off font smoothing (better for Retina displays, but worse for non-Retina)
+defaults -currentHost write NSGlobalDomain AppleFontSmoothing -int 0
+
 # Allow touch ID for sudo
 # If using iTerm, you must also disable "Allow sessions to survive logging out and back in" in preferences > advanced
 grep -q pam_tid /etc/pam.d/sudo || sudo sed -i.bak $'2i\\\nauth       sufficient     pam_tid.so\n' /etc/pam.d/sudo

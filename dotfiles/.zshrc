@@ -19,3 +19,5 @@ unsetopt autocd
 unsetopt correct
 
 export WORDCHARS="_"
+
+touchid-sudo-check

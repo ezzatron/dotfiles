@@ -25,6 +25,14 @@ function source-if-exists () {
   [ -f "$1" ] && source "$1"
 }
 
+function touchid-sudo-check () {
+  grep -q pam_tid /etc/pam.d/sudo || >&2 echo "WARNING: Touch ID is no longer enabled for sudo. Run touchid-sudo-enable to re-enable."
+}
+
+function touchid-sudo-enable () {
+  grep -q pam_tid /etc/pam.d/sudo || sudo sed -i.bak $'2i\\\nauth       sufficient     pam_tid.so\n' /etc/pam.d/sudo
+}
+
 function iterm2_print_user_vars () {
   iterm2_set_user_var gitSlug "$(git-slug)"
 }

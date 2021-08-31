@@ -10,7 +10,7 @@
 [core]
 	excludesfile = ~/.gitignore-global
 	autocrlf = input
-	editor = subl -w
+	editor = code --wait
 [format]
 	pretty = %C(dim)%ci%C(reset) %C(dim)%p%C(reset) %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an %ar.%C(reset)
 [push]
@@ -19,6 +19,9 @@
 [diff]
 	renames = true
 	renameLimit = 2000
+	tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 [tag]
 	sort = version:refname
 [include]

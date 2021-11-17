@@ -43,3 +43,5 @@
 	defaultBranch = main
 [commit]
 	cleanup = scissors
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/

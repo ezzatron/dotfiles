@@ -16,19 +16,3 @@ else
     echo "Linking SSH config..."
     ln -s "$CLOUD_CONFIG_PATH/Ssh/config" "$HOME/.ssh/config"
 fi
-
-SUBLIME_CONFIG_PATH="$HOME/Library/Application Support/Sublime Text 3/"
-CLOUD_SUBLIME_CONFIG_PATH="$CLOUD_CONFIG_PATH/Sublime Text 3"
-
-if [[ -h "$SUBLIME_CONFIG_PATH/Packages/User" ]]; then
-    echo "Sublime Text config already linked."
-else
-    echo "Linking Sublime Text config..."
-
-    if [[ -d "$SUBLIME_CONFIG_PATH/Packages/User" ]]; then
-        mv "$SUBLIME_CONFIG_PATH/Packages/User" "$SUBLIME_CONFIG_PATH/User.bak"
-    fi
-
-    mkdir -p "$SUBLIME_CONFIG_PATH/Packages"
-    ln -s "$CLOUD_SUBLIME_CONFIG_PATH/Packages/User" "$SUBLIME_CONFIG_PATH/Packages/User"
-fi

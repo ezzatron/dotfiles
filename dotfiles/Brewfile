@@ -41,8 +41,6 @@ cask "scroll-reverser"
 cask "slack"
 cask "spotify"
 cask "steam"
-cask "sublime-merge"
-cask "sublime-text"
 cask "vlc"
 
 mas "Affinity Designer", id: 824171161

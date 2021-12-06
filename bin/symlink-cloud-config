@@ -2,7 +2,7 @@
 
 set -e
 
-CLOUD_PATH="$HOME/Google Drive"
+CLOUD_PATH="$HOME/My Drive"
 
 CLOUD_CONFIG_PATH="$CLOUD_PATH/Configuration"
 

@@ -17,14 +17,18 @@ if [[ "$(uname -p)" == "arm" ]]; then
     fi
 fi
 
-if [[ -e /opt/homebrew/bin/brew ]]; then
+if [[ -e /opt/homebrew/bin/brew || -e /usr/local/bin/brew ]]; then
     echo "Homebrew already installed."
 else
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ -e /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -e /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 if hash jq 2>/dev/null; then
     echo "jq already installed."

@@ -15,7 +15,13 @@ if [[ $SHLVL = 1 ]]; then
   export LESS="-g -i -M -R -S -w -z-4"
 
   export PATH="/usr/local/bin:$PATH"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  if [[ -e /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -e /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+
   export GOPATH="$(go env GOPATH)"
   export PATH="$GOPATH/bin:$PATH"
   export PATH="$HOME/.composer/vendor/bin:$PATH"

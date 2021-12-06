@@ -8,6 +8,15 @@ git --version
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+if [[ "$(uname -p)" == "arm" ]]; then
+    if [[ -f /Library/Apple/usr/share/rosetta/rosetta ]]; then
+        echo "Rosetta already installed."
+    else
+        echo "Installing Rosetta..."
+        sudo softwareupdate --install-rosetta
+    fi
+fi
+
 if [[ -e /opt/homebrew/bin/brew ]]; then
     echo "Homebrew already installed."
 else

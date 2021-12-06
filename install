@@ -65,13 +65,25 @@ else
     echo "Existing 1Password CLI session detected."
 fi
 
-if mas account >/dev/null; then
-    echo "App store sign in detected."
-else
-    op get item --account=my Apple | jq --raw-output '.details.fields[]? | select(.designation == "password") | .value' | tr -d '\n' | pbcopy
-    echo "Sign in to the app store first. Password has been copied to the clipboard."
-    mas open
-    open "x-apple.systempreferences:com.apple.preferences.AppleIDPrefPane"
+# Waiting on https://github.com/mas-cli/mas/issues/417
+# if mas account >/dev/null; then
+#     echo "App store sign in detected."
+# else
+#     op get item --account=my Apple | jq --raw-output '.details.fields[]? | select(.designation == "password") | .value' | tr -d '\n' | pbcopy
+#     echo "Sign in to the app store first. Password has been copied to the clipboard."
+#     mas open
+#     open "x-apple.systempreferences:com.apple.preferences.AppleIDPrefPane"
+#     exit 1
+# fi
+
+op get item --account=my Apple | jq --raw-output '.details.fields[]? | select(.designation == "password") | .value' | tr -d '\n' | pbcopy
+echo "Sign in to the app store first. Password has been copied to the clipboard."
+open "x-apple.systempreferences:com.apple.preferences.AppleIDPrefPane"
+
+read -p "Have you signed in? [yn] " -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
     exit 1
 fi
 

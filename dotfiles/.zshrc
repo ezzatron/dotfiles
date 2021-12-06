@@ -12,7 +12,7 @@ source-if-exists "$HOME/.p10k.zsh"
 
 eval "$(grit shell-integration)"
 
-ssh-add -A 2>/dev/null
+ssh-add --apple-load-keychain 2>/dev/null
 
 setopt clobber
 unsetopt autocd

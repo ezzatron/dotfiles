@@ -17,7 +17,7 @@ op get item --account=my SSH | jq --raw-output '.details.sections[]? | select(.t
 
 echo "Adding SSH key to keychain..."
 
-ssh-add -K "$HOME/.ssh/id_rsa"
+ssh-add --apple-use-keychain "$HOME/.ssh/id_rsa"
 
 echo "Switching dotfiles repo to SSH..."
 

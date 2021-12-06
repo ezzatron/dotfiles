@@ -87,6 +87,7 @@ fi
 
 op get item --account=my Apple | jq --raw-output '.details.fields[]? | select(.designation == "password") | .value' | tr -d '\n' | pbcopy
 echo "Sign in to the app store first. Password has been copied to the clipboard."
+mas open
 open "x-apple.systempreferences:com.apple.preferences.AppleIDPrefPane"
 
 read -p "Have you signed in? [yn] " -n 1 -r

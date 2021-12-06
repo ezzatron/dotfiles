@@ -14,7 +14,7 @@ if [[ $SHLVL = 1 ]]; then
   export HOMEBREW_GITHUB_API_TOKEN="$GH_TOKEN"
   export LESS="-g -i -M -R -S -w -z-4"
 
-  export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
   export GOPATH="$(go env GOPATH)"
   export PATH="$GOPATH/bin:$PATH"
   export PATH="$HOME/.composer/vendor/bin:$PATH"

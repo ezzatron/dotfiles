@@ -13,7 +13,7 @@ if [[ "$(uname -p)" == "arm" ]]; then
         echo "Rosetta already installed."
     else
         echo "Installing Rosetta..."
-        sudo softwareupdate --install-rosetta
+        sudo softwareupdate --install-rosetta --agree-to-license
     fi
 fi
 

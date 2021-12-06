@@ -2,18 +2,20 @@ set -e
 
 echo "Configuring shell..."
 
-if [[ "/usr/local/bin/zsh" == "$SHELL" ]]; then
+BREW_ZSH_PATH="$(brew --prefix)/bin/zsh"
+
+if [[ "$BREW_ZSH_PATH" == "$SHELL" ]]; then
   echo "Brew zsh is already the current shell."
 else
-  if grep -Fxq /usr/local/bin/zsh /etc/shells; then
+  if grep -Fxq "$BREW_ZSH_PATH" /etc/shells; then
     echo "Brew zsh is already a standard shell."
   else
     echo "Adding brew zsh as a standard shell..."
-    sudo sh -c 'echo /usr/local/bin/zsh > /etc/shells'
+    sudo sh -c "echo '$BREW_ZSH_PATH' > /etc/shells"
   fi
 
   echo "Setting brew zsh as the current shell..."
-  chsh -s /usr/local/bin/zsh
+  chsh -s "$BREW_ZSH_PATH"
 fi
 
 if [[ -e "$HOME/.zprezto" ]]; then

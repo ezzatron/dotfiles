@@ -145,6 +145,12 @@ defaults write com.apple.dock wvous-tl-modifier -int 0
 defaults write com.apple.dock wvous-tr-corner -int 10
 defaults write com.apple.dock wvous-tr-modifier -int 0
 
+# Bottom-right hot corner is disabled
+defaults write com.apple.dock wvous-br-corner -int 0
+
+# Bottom-left hot corner is disabled
+defaults write com.apple.dock wvous-bl-corner -int 0
+
 # Don’t show Dashboard as a Space
 defaults write com.apple.dock dashboard-in-overlay -bool true
 

@@ -1,6 +1,7 @@
 [user]
 	name = Erin Millard
 	email = ezzatron@gmail.com
+	signingkey = A875A8646B3D5FCE
 [color]
 	ui = auto
 [github]
@@ -26,6 +27,7 @@
 	cmd = code --wait --diff $LOCAL $REMOTE
 [tag]
 	sort = version:refname
+	gpgsign = true
 [include]
 	path = ~/.gitconfig.local
 [fetch]
@@ -43,5 +45,6 @@
 	defaultBranch = main
 [commit]
 	cleanup = scissors
+	gpgsign = true
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/

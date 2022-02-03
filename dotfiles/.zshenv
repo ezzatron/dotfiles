@@ -6,7 +6,7 @@ if [[ $SHLVL = 1 ]]; then
   if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR="vim"
   else
-    export EDITOR="subl -n -w"
+    export EDITOR="code --wait"
   fi
 
   export BROWSER="open"

@@ -26,6 +26,7 @@ if [[ $SHLVL = 1 ]]; then
   export PATH="$GOPATH/bin:$PATH"
   export PATH="$HOME/.composer/vendor/bin:$PATH"
   export PATH="$HOME/bin:$PATH"
+  export PATH="$HOME/.krew/bin:$PATH"
   export PATH="vendor/bin:node_modules/.bin:$PATH"
 
   [ -f "$HOME/.zshenv.workfiles" ] && source "$HOME/.zshenv.workfiles"

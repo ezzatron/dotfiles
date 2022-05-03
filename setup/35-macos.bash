@@ -139,11 +139,11 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Top-left hot corner tuns on screen saver
 defaults write com.apple.dock wvous-tl-corner -int 5
-defaults write com.apple.dock wvous-tl-modifier -int 0
+defaults write com.apple.dock wvous-tl-modifier -int 1048576
 
 # Top-right hot corner tuns off screen
 defaults write com.apple.dock wvous-tr-corner -int 10
-defaults write com.apple.dock wvous-tr-modifier -int 0
+defaults write com.apple.dock wvous-tr-modifier -int 1048576
 
 # Bottom-right hot corner is disabled
 defaults write com.apple.dock wvous-br-corner -int 0

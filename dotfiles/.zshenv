@@ -14,16 +14,19 @@ if [[ $SHLVL = 1 ]]; then
   export HOMEBREW_GITHUB_API_TOKEN="$GH_TOKEN"
   export LESS="-g -i -M -R -S -w -z-4"
 
-  export PATH="/usr/local/bin:$PATH"
+  if [[ -x /usr/libexec/path_helper ]]; then
+    eval "$(/usr/libexec/path_helper -s)"
+  fi
 
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
   export GOPATH="$(go env GOPATH)"
   export PATH="$GOPATH/bin:$PATH"
   export PATH="$HOME/.composer/vendor/bin:$PATH"
-  export PATH="$HOME/bin:$PATH"
   export PATH="$HOME/.krew/bin:$PATH"
-  export PATH="vendor/bin:node_modules/.bin:$PATH"
+  export PATH="$HOME/bin:$PATH"
+  export PATH="vendor/bin:$PATH"
+  export PATH="node_modules/.bin:$PATH"
 
-  [ -f "$HOME/.zshenv.workfiles" ] && source "$HOME/.zshenv.workfiles"
+  [[ -f "$HOME/.zshenv.workfiles" ]] && source "$HOME/.zshenv.workfiles"
 fi

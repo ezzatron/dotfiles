@@ -47,20 +47,25 @@ else
     brew install --cask 1password-cli
 fi
 
-if [ -z "$OP_SESSION_my" ]; then
-    while [ -z "$OP_EMAIL" ]; do
-        echo -n "1Password email address: "
-        read OP_EMAIL
-    done
+if [[ -f "$HOME/.config/op/config" ]]; then
+    echo "1Password CLI already configured."
+else
+    echo "Configuring 1Password CLI..."
+    eval "$(op account add --address my.1password.com --shorthand my --signin)"
 
-    while [ -z "$OP_KEY" ]; do
-        echo -n "1Password secret key: "
-        read OP_KEY
-    done
+    if [[ -f "$HOME/.config/op/config" ]]; then
+        "!Password configuration failed."
+        exit 1
+    fi
+fi
 
-    eval $(op signin my "$OP_EMAIL" "$OP_KEY")
+OP_USER_ID="$(cat ~/.config/op/config | jq --raw-output '.accounts[] | select(.shorthand == "my").userUUID')"
+OP_SESSION="OP_SESSION_$OP_USER_ID"
 
-    if [ -z "$OP_SESSION_my" ]; then
+if [[ -z "${!OP_SESSION}" ]]; then
+    eval $(op signin --account=my)
+
+    if [[ -z "${!OP_SESSION}" ]]; then
         echo "1Password sign in failed."
         exit 1
     fi
@@ -68,7 +73,7 @@ if [ -z "$OP_SESSION_my" ]; then
     echo "1Password sign in succeeded."
     echo "To persist the 1Password CLI session, run the following command:"
     echo
-    printf "    export OP_SESSION_my=%q\n" "$OP_SESSION_my"
+    printf "    export %s=%q\n" "$OP_SESSION" "${!OP_SESSION}"
     echo
 else
     echo "Existing 1Password CLI session detected."
@@ -78,14 +83,14 @@ fi
 # if mas account >/dev/null; then
 #     echo "App store sign in detected."
 # else
-#     op get item --account=my Apple | jq --raw-output '.details.fields[]? | select(.designation == "password") | .value' | tr -d '\n' | pbcopy
+#     op item get --account=my --vault=Personal Apple --fields=password | tr -d '\n' | pbcopy
 #     echo "Sign in to the app store first. Password has been copied to the clipboard."
 #     mas open
 #     open "x-apple.systempreferences:com.apple.preferences.AppleIDPrefPane"
 #     exit 1
 # fi
 
-op get item --account=my Apple | jq --raw-output '.details.fields[]? | select(.designation == "password") | .value' | tr -d '\n' | pbcopy
+op item get --account=my --vault=Personal Apple --fields=password | tr -d '\n' | pbcopy
 echo "Sign in to the app store first. Password has been copied to the clipboard."
 mas open
 open "x-apple.systempreferences:com.apple.preferences.AppleIDPrefPane"

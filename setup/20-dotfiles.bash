@@ -9,7 +9,7 @@ for FILE in "$HOME/dotfiles/dotfiles/".* "$HOME/dotfiles/dotfiles/"*; do
     continue
   fi
 
-  if [ -e "$HOME/$NAME" ]; then
+  if [[ -e "$HOME/$NAME" ]]; then
     echo "$NAME already exists."
   else
     echo "Linking $NAME..."

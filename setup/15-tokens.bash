@@ -15,7 +15,7 @@ function update-token () {
 
 echo "Fetching GitHub token from 1Password..."
 
-export GH_TOKEN="$(op get item --account=my GitHub | jq --raw-output '.details.sections[]? | select(.title == "Tokens") | .fields[]? | select(.t == "Personal") | .v')"
+export GH_TOKEN="$(op item get --account=my --vault=Personal GitHub --fields=Tokens.Personal)"
 export HOMEBREW_GITHUB_API_TOKEN="$GH_TOKEN"
 
 update-token "GH_TOKEN" "$GH_TOKEN"

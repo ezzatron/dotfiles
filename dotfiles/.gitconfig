@@ -1,50 +1,50 @@
-[user]
-	name = Erin Millard
-	email = ezzatron@gmail.com
-	signingkey = A875A8646B3D5FCE
+[alias]
+	release-diff = !sh -c 'git diff "$(git describe --abbrev=0)~1.."'
+	release-log = !sh -c 'git -P log "$(git describe --abbrev=0)~1.."'
 [color]
 	ui = auto
-[github]
-	user = ezzatron
-[credential]
-	helper = cache --timeout=21600
+[commit]
+	cleanup = scissors
+	gpgsign = true
 [core]
-	excludesfile = ~/.gitignore-global
 	autocrlf = input
 	editor = code --wait
-[format]
-	pretty = %C(dim)%ci%C(reset) %C(dim)%p%C(reset) %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an %ar.%C(reset)
-[push]
-	default = current
-	followTags = true
+	excludesfile = ~/.gitignore-global
+[credential]
+	helper = cache --timeout=43200 # 12 hours
 [diff]
-	renames = true
 	renameLimit = 2000
+	renames = true
 	tool = vscode
 [difftool]
 	prompt = false
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
-[tag]
-	sort = version:refname
-	gpgsign = true
-[include]
-	path = ~/.gitconfig.local
 [fetch]
 	prune = true
-[alias]
-	release-diff = !sh -c 'git diff "$(git describe --abbrev=0)~1.."'
-	release-log = !sh -c 'git -P log "$(git describe --abbrev=0)~1.."'
-[pull]
-	ff = only
-[stash]
-	showPatch = true
-[merge]
-	ff = only
+[format]
+	pretty = %C(dim)%ci%C(reset) %C(dim)%p%C(reset) %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an %ar.%C(reset)
+[github]
+	user = ezzatron
+[include]
+	path = ~/.gitconfig.local
 [init]
 	defaultBranch = main
-[commit]
-	cleanup = scissors
+[merge]
+	ff = only
+[pull]
+	ff = only
+[push]
+	default = current
+	followTags = true
+[stash]
+	showPatch = true
+[tag]
 	gpgsign = true
+	sort = version:refname
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[user]
+	email = ezzatron@gmail.com
+	name = Erin Millard
+	signingkey = A875A8646B3D5FCE

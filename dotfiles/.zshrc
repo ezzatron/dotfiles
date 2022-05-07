@@ -10,6 +10,7 @@ source-if-exists "$HOME/.iterm2_shell_integration.zsh"
 source-if-exists "$HOME/.travis/travis.sh"
 source-if-exists "$HOME/.p10k.zsh"
 
+eval "$(op completion zsh)"; compdef _op op
 eval "$(grit shell-integration)"
 
 ssh-add --apple-load-keychain 2>/dev/null

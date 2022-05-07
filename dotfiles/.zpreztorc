@@ -13,7 +13,6 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'utility' \
-  'ssh' \
   'git' \
   'completion' \
   'syntax-highlighting' \
@@ -33,9 +32,6 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 
 # disable prezto's git module aliases
 zstyle ':prezto:module:git:alias' skip 'yes'
-
-# this probably isn't needed since I use 1Password's SSH agent
-zstyle ':prezto:module:ssh:load' identities ''
 
 # set the working directory prompt display length.
 zstyle ':prezto:module:prompt' pwd-length 'short'

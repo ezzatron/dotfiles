@@ -6,7 +6,7 @@ git --version
 
 # Prompt immediately for sudo, and keep it alive while the install script runs
 sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done &>/dev/null &
 
 if [[ "$(uname -p)" == "arm" ]]; then
     if [[ -f /Library/Apple/usr/share/rosetta/rosetta ]]; then
@@ -26,21 +26,21 @@ fi
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-if hash jq 2>/dev/null; then
+if hash jq &>/dev/null; then
     echo "jq already installed."
 else
     echo "Installing jq..."
     brew install jq
 fi
 
-if hash mas 2>/dev/null; then
+if hash mas &>/dev/null; then
     echo "mas already installed."
 else
     echo "Installing mas..."
     brew install mas
 fi
 
-if hash op 2>/dev/null; then
+if hash op &>/dev/null; then
     echo "1Password CLI already installed."
 else
     echo "Installing 1Password CLI..."
@@ -53,34 +53,30 @@ else
     echo "Configuring 1Password CLI..."
     eval "$(op account add --address my.1password.com --shorthand my --signin)"
 
-    if [[ -f "$HOME/.config/op/config" ]]; then
-        "!Password configuration failed."
+    if [[ ! -f "$HOME/.config/op/config" ]]; then
+        echo "1Password configuration failed."
         exit 1
     fi
 fi
+
+until op account get --account my &>/dev/null
+do
+    echo "1Password CLI session not detected."
+    echo "Signing in to 1Password CLI..."
+    eval $(op signin --account=my)
+done
 
 OP_USER_ID="$(cat ~/.config/op/config | jq --raw-output '.accounts[] | select(.shorthand == "my").userUUID')"
 OP_SESSION="OP_SESSION_$OP_USER_ID"
 
-if [[ -z "${!OP_SESSION}" ]]; then
-    eval $(op signin --account=my)
-
-    if [[ -z "${!OP_SESSION}" ]]; then
-        echo "1Password sign in failed."
-        exit 1
-    fi
-
-    echo "1Password sign in succeeded."
-    echo "To persist the 1Password CLI session, run the following command:"
-    echo
-    printf "    export %s=%q\n" "$OP_SESSION" "${!OP_SESSION}"
-    echo
-else
-    echo "Existing 1Password CLI session detected."
-fi
+echo "1Password CLI session detected."
+echo "To persist the 1Password CLI session, run the following command:"
+echo
+printf "    export %s=%q\n" "$OP_SESSION" "${!OP_SESSION}"
+echo
 
 # Waiting on https://github.com/mas-cli/mas/issues/417
-# if mas account >/dev/null; then
+# if mas account &>/dev/null; then
 #     echo "App store sign in detected."
 # else
 #     op item get --account=my --vault=Personal Apple --fields=password | tr -d '\n' | pbcopy
@@ -99,6 +95,7 @@ read -p "Have you signed in? [yn] " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
+    echo "Unable to continue without app store sign in."
     exit 1
 fi
 
@@ -116,9 +113,9 @@ DOTFILES_PATH="$HOME/grit/github.com/$GH_USER/dotfiles"
 
 if [[ -d "$DOTFILES_PATH" ]]; then
     echo "Pulling $GH_USER/dotfiles..."
-    pushd "$DOTFILES_PATH" > /dev/null
+    pushd "$DOTFILES_PATH" &>/dev/null
     git pull
-    popd > /dev/null
+    popd &>/dev/null
 else
     echo "Cloning $GH_USER/dotfiles..."
     git clone "https://github.com/$GH_USER/dotfiles.git" "$DOTFILES_PATH"

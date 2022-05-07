@@ -2,7 +2,7 @@ set -e
 
 echo "Opening apps..."
 
-open "/Applications/1Password 7.app"
+open "/Applications/1Password.app"
 open "/Applications/Docker.app"
 open "/Applications/Google Chrome.app"
 open "/Applications/Google Drive.app"

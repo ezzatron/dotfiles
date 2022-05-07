@@ -18,7 +18,11 @@ if [[ $SHLVL = 1 ]]; then
     eval "$(/usr/libexec/path_helper -s)"
   fi
 
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+  if [[ -e /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -e /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
 
   export GOPATH="$(go env GOPATH)"
   export PATH="$GOPATH/bin:$PATH"

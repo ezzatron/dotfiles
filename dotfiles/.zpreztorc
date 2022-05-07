@@ -1,6 +1,10 @@
+# set case-sensitivity for completion, history lookup, etc.
 zstyle ':prezto:*:*' case-sensitive 'yes'
+# color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
 
+# load prezto modules
+# see https://github.com/sorin-ionescu/prezto/tree/master/modules#modules
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
@@ -13,10 +17,12 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'completion' \
   'syntax-highlighting' \
-  'prompt' \
   'history-substring-search' \
-  'autosuggestions'
+  'autosuggestions' \
+  'prompt'
 
+# enable all syntax highlighting highlighters
+# see https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting#highlighters
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
@@ -25,11 +31,16 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'cursor' \
   'root'
 
+# disable prezto's git module aliases
 zstyle ':prezto:module:git:alias' skip 'yes'
 
+# this probably isn't needed since I use 1Password's SSH agent
 zstyle ':prezto:module:ssh:load' identities ''
 
+# set the working directory prompt display length.
 zstyle ':prezto:module:prompt' pwd-length 'short'
+# set the prompt to Powerlevel10k
 zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 
+# disable prompts for deleting/overwriting when using tools like cp, mv, rm etc.
 zstyle ':prezto:module:utility' safe-ops 'no'

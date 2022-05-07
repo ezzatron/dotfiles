@@ -1,7 +1,10 @@
+# files created by macOS
 .DS_Store
 .AppleDouble
 .LSOverride
 .Spotlight-V100
 .Trashes
 .nfs.*
+
+# editor configuration files
 .vscode

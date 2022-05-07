@@ -181,9 +181,6 @@ defaults write com.apple.screencapture location -string "$HOME/Screenshots"
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
 
-# Mac Media Key Forwarder should prioritize Spotify
-defaults write com.milgra.hsmke user_priority_option -int 2
-
 # Disable window closing shortcuts for Steam remote play
 defaults write com.valvesoftware.steam.streamingclient NSUserKeyEquivalents '{Close="\U200b";"Quit steamstreamingclient"="~\Uf707";}'
 

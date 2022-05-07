@@ -1,9 +1,5 @@
-tap "datawire/blackbird"
-tap "ezzatron/brew-php"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "jmalloc/grit"
-tap "ktr0731/evans"
 
 brew "awscli"
 brew "clang-format" # needed for VSCode protobuf extension to support formatting

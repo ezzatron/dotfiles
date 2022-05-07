@@ -1,50 +1,78 @@
 [alias]
+	# shows the diff against the latest tag
 	release-diff = !sh -c 'git diff "$(git describe --abbrev=0)~1.."'
+	# shows the log since the latest tag
 	release-log = !sh -c 'git -P log "$(git describe --abbrev=0)~1.."'
-[color]
-	ui = auto
 [commit]
+	# the "scissors" cleanup mode is nice for entering markdown in commit messages
 	cleanup = scissors
+	# sign commit messages with GPG
 	gpgsign = true
 [core]
+	# convert Windows-style line endings to *nix-style when adding to the index
 	autocrlf = input
+	# use VSCode as the editor
 	editor = code --wait
+	# use a global ignore file for files that should be ignored acress all repos
 	excludesfile = ~/.gitignore-global
 [credential]
+	# cache credentials when using non-SSH repo clones
 	helper = cache --timeout=43200 # 12 hours
 [diff]
+	# increase the max number of files to consider when detecting renamed files
 	renameLimit = 2000
-	renames = true
+	# detect renames and copies
+	renames = copies
+	# use a visual diff tool when using the "git difftool" command
 	tool = vscode
 [difftool]
+	# skip prompting on every invocation of the diff tool
 	prompt = false
 [difftool "vscode"]
+	# specify the correct arguments for VSCode to act as a visual diff tool
 	cmd = code --wait --diff $LOCAL $REMOTE
 [fetch]
+  # before fetching, remove any branches that were deleted upstream
 	prune = true
 [format]
+	# produce nice-looking logs
+	# I didn't write this, and I can't recall where it came from
 	pretty = %C(dim)%ci%C(reset) %C(dim)%p%C(reset) %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an %ar.%C(reset)
-[github]
-	user = ezzatron
 [include]
+	# include another Git config which is not committed to this repo
 	path = ~/.gitconfig.local
 [init]
+	# use "main" as the default branch name for new repos
 	defaultBranch = main
 [merge]
+	# only use fast-forward merges unless --no-ff is explicitly specified
 	ff = only
 [pull]
+	# stop Git from automatically trying to merge outdated branches when pulling
 	ff = only
 [push]
+	# push only the current branch to a branch of the same name
+	# this means that pushing new branches upstream is as simple as "git push -u"
 	default = current
+	# push tags in addition to commits
 	followTags = true
 [stash]
+	# show untracked content when using "git stash show"
+	showIncludeUntracked = true
+	# show the actual content when using "git stash show"
 	showPatch = true
+	# don't show the stat summary when using "git stash show"
+	showStat = false
 [tag]
+	# sign tag annotations with GPG
 	gpgsign = true
+	# sort tags by version when using "git tag" to list tags
 	sort = version:refname
 [url "ssh://git@github.com/"]
+	# always use SSH for GitHub URLs
 	insteadOf = https://github.com/
 [user]
 	email = ezzatron@gmail.com
 	name = Erin Millard
+	# ID of the GPG key used to sign commits and tag annotations
 	signingkey = A875A8646B3D5FCE

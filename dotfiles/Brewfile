@@ -42,7 +42,6 @@ cask "docker"
 cask "firefox-developer-edition", args: {language: "en-GB"}
 cask "font-victor-mono-nerd-font"
 cask "google-chrome"
-cask "google-drive"
 cask "guitar-pro"
 cask "iterm2"
 cask "scroll-reverser"

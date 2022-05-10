@@ -43,6 +43,10 @@ if [[ $SHLVL = 1 ]]; then
   # -z-4 = set the scrolling window size to 4 lines less than the screen size
   export LESS="-g -i -M -R -S -w -z-4"
 
+  # some tools that use SSH (like Grit) don't support the config setting
+  # "IdentityAgent" - this environment variable serves the same purpose
+  export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
   # execute the macOS path helper, which adds OS-level things to $PATH
   if [[ -x /usr/libexec/path_helper ]]; then
     eval "$(/usr/libexec/path_helper -s)"

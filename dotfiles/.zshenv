@@ -28,9 +28,6 @@ if [[ $SHLVL = 1 ]]; then
     export EDITOR="code --wait"
   fi
 
-  # use a GitHub token for Homebrew - this extends GitHub's rate limits
-  export HOMEBREW_GITHUB_API_TOKEN="$GH_TOKEN"
-
   # default options for less
 	# I didn't write this, and I can't recall where it came from
   #
@@ -46,6 +43,9 @@ if [[ $SHLVL = 1 ]]; then
   # some tools that use SSH (like Grit) don't support the config setting
   # "IdentityAgent" - this environment variable serves the same purpose
   export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+  # use a GitHub token for Homebrew - this extends GitHub's rate limits
+  export HOMEBREW_GITHUB_API_TOKEN="$GH_TOKEN"
 
   # execute the macOS path helper, which adds OS-level things to $PATH
   if [[ -x /usr/libexec/path_helper ]]; then

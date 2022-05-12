@@ -60,11 +60,8 @@ if [[ $SHLVL = 1 ]]; then
     eval "$(/usr/local/bin/brew shellenv)"
   fi
 
-  # see https://pkg.go.dev/cmd/go#hdr-GOPATH_environment_variable
-  export GOPATH="$(go env GOPATH)"
-
   # add globally installed Go binaries to $PATH
-  export PATH="$GOPATH/bin:$PATH"
+  export PATH="$(go env GOPATH)/bin:$PATH"
   # add globally installed PHP binaries to $PATH
   export PATH="$HOME/.composer/vendor/bin:$PATH"
   # add custom binaries to $PATH

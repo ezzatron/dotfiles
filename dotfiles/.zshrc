@@ -1,5 +1,6 @@
-# add completions support for commmands that only support bash
-autoload -U bashcompinit && bashcompinit
+# configure completions for Homebrew packages
+# this must be done before Prezto is loaded
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 # include my custom functions
 source "$HOME/.functions.zsh"
@@ -21,6 +22,9 @@ source-if-exists "$HOME/.iterm2_shell_integration.zsh"
 # include Powerlevel10k
 # see https://github.com/romkatv/powerlevel10k
 source-if-exists "$HOME/.p10k.zsh"
+
+# add completions support for commmands that only support bash (e.g. Grit v1)
+autoload -U bashcompinit && bashcompinit
 
 # include 1Password CLI completions
 # see https://developer.1password.com/docs/cli/get-started/#shell-completion

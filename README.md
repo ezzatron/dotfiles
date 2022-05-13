@@ -3,8 +3,7 @@
 ## What is this repo?
 
 This repo contains my personal ["dotfiles"]. In other words, the configuration
-files for my terminal, shell, prompt, macOS, and other software. I also use this
-repo to set up new machines in a semi-automated fashion.
+files for my terminal, shell, prompt, macOS, and other software.
 
 Features include:
 

@@ -4,8 +4,6 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 # include custom functions
 source "$HOME/.functions.zsh"
-# include private functions
-source-if-exists "$HOME/.functions.private.zsh"
 
 # include Powerlevel10k instant prompt
 # see https://github.com/romkatv/powerlevel10k#instant-prompt

@@ -38,9 +38,6 @@
 	# produce nice-looking logs
 	# I didn't write this, and I can't recall where it came from
 	pretty = %C(dim)%ci%C(reset) %C(dim)%p%C(reset) %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an %ar.%C(reset)
-[include]
-	# include private Git config
-	path = ~/.gitconfig.private
 [init]
 	# use "main" as the default branch name for new repos
 	defaultBranch = main
@@ -76,3 +73,8 @@
 	name = Erin Millard
 	# ID of the GPG key used to sign commits and tag annotations
 	signingkey = A875A8646B3D5FCE
+
+# includes must be placed last so that they can override the values above
+[include]
+	# include Git config from extensions
+	path = ~/.dotfiles-extensions.gitconfig

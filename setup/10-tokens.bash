@@ -1,6 +1,6 @@
 set -e
 
-SECURE_PATH="$HOME/.zshenv.secure"
+PRIVATE_PATH="$HOME/.zshenv.private"
 
 function update-token () {
   NAME="$1"
@@ -9,8 +9,8 @@ function update-token () {
   PREFIX="^export $NAME"
   REPLACEMENT="export $NAME="'"'"$VALUE"'"'
 
-  grep -q "$PREFIX" "$SECURE_PATH" && sed -i "" "s/$PREFIX.*/$REPLACEMENT/" "$SECURE_PATH" || echo "$REPLACEMENT" >> "$SECURE_PATH"
-  sort -o "$SECURE_PATH" "$SECURE_PATH"
+  grep -q "$PREFIX" "$PRIVATE_PATH" && sed -i "" "s/$PREFIX.*/$REPLACEMENT/" "$PRIVATE_PATH" || echo "$REPLACEMENT" >> "$PRIVATE_PATH"
+  sort -o "$PRIVATE_PATH" "$PRIVATE_PATH"
 }
 
 echo "Fetching GitHub token from 1Password..."

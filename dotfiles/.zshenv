@@ -17,9 +17,6 @@ setopt no_global_rcs
 # if you don't do this, then $PATH will be appended to again when you open a
 # sub-shell
 if [[ $SHLVL = 1 ]]; then
-  # the .zshenv.secure file sets up env vars that aren't committed in this repo
-  source "$HOME/.zshenv.secure"
-
   if [[ -n $SSH_CONNECTION ]]; then
     # use vim as the editor when using SSH
     export EDITOR="vim"
@@ -70,5 +67,10 @@ if [[ $SHLVL = 1 ]]; then
   export PATH="node_modules/.bin:$PATH"
 
   # include private env vars
-  [[ -f "$HOME/.zshenv.private" ]] && source "$HOME/.zshenv.private"
+  source "$HOME/.zshenv.private"
+
+  # include extension env vars
+  for FILE in "$HOME/dotfiles/extensions/"*/dotfiles/.zshenv; do
+    source "$FILE"
+  done
 fi

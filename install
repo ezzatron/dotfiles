@@ -137,8 +137,9 @@ else
 fi
 
 if [[ -e "$HOME/dotfiles" ]]; then
-    echo "Dotfiles shortcut directory already exists."
+    echo "Dotfiles directory shortcut already exists."
 else
+    echo "Creating dotfiles directory shortcut..."
     ln -s "$DOTFILES_PATH" "$HOME/dotfiles"
 fi
 
@@ -146,4 +147,4 @@ for FILE in "$HOME/dotfiles/setup/"*-*.bash; do
   source "$FILE"
 done
 
-echo "Done. System must be restarted for some changes to take effect."
+echo "Installation complete. System must be restarted for some changes to take effect."

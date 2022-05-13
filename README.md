@@ -16,6 +16,7 @@ files for my terminal, shell, prompt, macOS, and other software.
 - [1Password] integration for `ssh`
 - [Git] customizations, including signing with [GnuPG]
 - [Touch ID] for `sudo`
+- Can be extended with other (potentially private) dotfiles repos
 
 ## Installation
 

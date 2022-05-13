@@ -5,7 +5,7 @@
 This repo contains my personal ["dotfiles"]. In other words, the configuration
 files for my terminal, shell, prompt, macOS, and other software.
 
-Features include:
+### Features
 
 - Semi-automated [installation]
 - [macOS] customizations

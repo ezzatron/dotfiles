@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ -z "$GH_USER" ]]; then
+    echo -n "GitHub user: "
+    read GH_USER
+fi
+
+if [[ -z "$GH_USER" ]]; then
+    echo "GH_USER not defined."
+    exit 1
+fi
+
+if [[ -z "$EXTENSION" ]]; then
+    echo -n "Extension name: "
+    read EXTENSION
+fi
+
+if [[ -z "$EXTENSION" ]]; then
+    echo "EXTENSION not defined."
+    exit 1
+fi
+
+DOTFILES_PATH="$HOME/grit/github.com/$GH_USER/$EXTENSION-dotfiles"
+
+if [[ -d "$DOTFILES_PATH" ]]; then
+    echo "Pulling $GH_USER/$EXTENSION-dotfiles..."
+    pushd "$DOTFILES_PATH" &>/dev/null
+    git pull
+    popd &>/dev/null
+else
+    echo "Cloning $GH_USER/$EXTENSION-dotfiles..."
+    git clone "git@github.com:$GH_USER/$EXTENSION-dotfiles.git" "$DOTFILES_PATH"
+fi
+
+if [[ -e "$HOME/dotfiles/extensions/$EXTENSION" ]]; then
+    echo "Dotfiles extension already installed."
+else
+    echo "Installing dotfiles extension..."
+    ln -s "$DOTFILES_PATH" "$HOME/dotfiles/extensions/$EXTENSION"
+fi
+
+for FILE in "$HOME/dotfiles/extensions/$EXTENSION/setup/"*-*.bash; do
+  source "$FILE"
+done
+
+echo "Installation complete."

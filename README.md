@@ -2,14 +2,14 @@
 
 ## What is this repo?
 
-This repo contains my personal ["dotfiles"], or the set configuration files I
-use to configure my terminal, shell, and prompt, as well as macOS, and other
-software. I also use this repo to set up new machines in a semi-automated
-fashion.
+This repo contains my personal ["dotfiles"]. In other words, the configuration
+files for my terminal, shell, prompt, macOS, and other software. I also use this
+repo to set up new machines in a semi-automated fashion.
 
 Features include:
 
-- macOS customizations
+- Semi-automated [installation]
+- [macOS] customizations
 - [Homebrew] for apps and packages
 - [Prezto] for `zsh` customization
 - [Powerlevel10k] for prompt customization
@@ -23,7 +23,9 @@ Features include:
 [git]: https://git-scm.com/
 [gnupg]: https://gnupg.org/
 [homebrew]: https://brew.sh/
+[installation]: #installation
 [iterm]: https://iterm2.com/
+[macos]: https://apple.com/macos/
 [powerlevel10k]: https://github.com/romkatv/powerlevel10k
 [prezto]: https://github.com/sorin-ionescu/prezto
 [touch id]: https://wikipedia.org/wiki/Touch_ID

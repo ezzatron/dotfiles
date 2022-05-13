@@ -70,7 +70,9 @@ if [[ $SHLVL = 1 ]]; then
   source "$HOME/.zshenv.private"
 
   # include extension env vars
+  setopt nullglob
   for FILE in "$HOME/dotfiles/extensions/"*/dotfiles/.zshenv; do
     source "$FILE"
   done
+  unsetopt nullglob
 fi

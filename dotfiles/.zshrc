@@ -2,10 +2,10 @@
 # this must be done before Prezto is loaded
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-# include my custom functions
+# include custom functions
 source "$HOME/.functions.zsh"
-# include my custom work-related functions
-source-if-exists "$HOME/.functions.workfiles.zsh"
+# include private functions
+source-if-exists "$HOME/.functions.private.zsh"
 
 # include Powerlevel10k instant prompt
 # see https://github.com/romkatv/powerlevel10k#instant-prompt

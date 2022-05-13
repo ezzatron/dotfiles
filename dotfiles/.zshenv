@@ -69,6 +69,6 @@ if [[ $SHLVL = 1 ]]; then
   # this allows you to run them without the node_modules/.bin/ prefix
   export PATH="node_modules/.bin:$PATH"
 
-  # the .zshenv.workfiles file sets up work-related env vars
-  [[ -f "$HOME/.zshenv.workfiles" ]] && source "$HOME/.zshenv.workfiles"
+  # include private env vars
+  [[ -f "$HOME/.zshenv.private" ]] && source "$HOME/.zshenv.private"
 fi

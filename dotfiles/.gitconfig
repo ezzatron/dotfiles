@@ -39,8 +39,8 @@
 	# I didn't write this, and I can't recall where it came from
 	pretty = %C(dim)%ci%C(reset) %C(dim)%p%C(reset) %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an %ar.%C(reset)
 [include]
-	# include another Git config which is not committed to this repo
-	path = ~/.gitconfig.local
+	# include private Git config
+	path = ~/.gitconfig.private
 [init]
 	# use "main" as the default branch name for new repos
 	defaultBranch = main

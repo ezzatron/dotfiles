@@ -32,6 +32,10 @@ else
     ln -s "$EXTENSION_DOTFILES_PATH" "$HOME/dotfiles/extensions/$EXTENSION_NAME"
 fi
 
+for FILE in "$HOME/dotfiles/setup-extension/"*-*.bash; do
+  source "$FILE"
+done
+
 for FILE in "$HOME/dotfiles/extensions/$EXTENSION_NAME/setup/"*-*.bash; do
   source "$FILE"
 done

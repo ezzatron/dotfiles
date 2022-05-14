@@ -2,46 +2,37 @@
 
 set -e
 
-if [[ -z "$GH_USER" ]]; then
-    echo -n "GitHub user: "
-    read GH_USER
+if [[ -z "$EXTENSION_SLUG" ]]; then
+    echo -n "Extension slug (e.g. ezzatron/extension-dotfiles): "
+    read EXTENSION_SLUG
 fi
 
-if [[ -z "$GH_USER" ]]; then
-    echo "GH_USER not defined."
+if [[ -z "$EXTENSION_SLUG" ]]; then
+    echo "EXTENSION_SLUG not defined."
     exit 1
 fi
 
-if [[ -z "$EXTENSION" ]]; then
-    echo -n "Extension name: "
-    read EXTENSION
-fi
+export EXTENSION_NAME="$(basename "$EXTENSION_SLUG")"
+export EXTENSION_DOTFILES_PATH="$HOME/grit/github.com/$EXTENSION_SLUG"
 
-if [[ -z "$EXTENSION" ]]; then
-    echo "EXTENSION not defined."
-    exit 1
-fi
-
-DOTFILES_PATH="$HOME/grit/github.com/$GH_USER/$EXTENSION-dotfiles"
-
-if [[ -d "$DOTFILES_PATH" ]]; then
-    echo "Pulling $GH_USER/$EXTENSION-dotfiles..."
-    pushd "$DOTFILES_PATH" &>/dev/null
+if [[ -d "$EXTENSION_DOTFILES_PATH" ]]; then
+    echo "Pulling $EXTENSION_SLUG..."
+    pushd "$EXTENSION_DOTFILES_PATH" &>/dev/null
     git pull
     popd &>/dev/null
 else
-    echo "Cloning $GH_USER/$EXTENSION-dotfiles..."
-    git clone "git@github.com:$GH_USER/$EXTENSION-dotfiles.git" "$DOTFILES_PATH"
+    echo "Cloning $EXTENSION_SLUG..."
+    git clone "git@github.com:$EXTENSION_SLUG.git" "$EXTENSION_DOTFILES_PATH"
 fi
 
-if [[ -e "$HOME/dotfiles/extensions/$EXTENSION" ]]; then
+if [[ -e "$HOME/dotfiles/extensions/$EXTENSION_NAME" ]]; then
     echo "Dotfiles extension already installed."
 else
     echo "Installing dotfiles extension..."
-    ln -s "$DOTFILES_PATH" "$HOME/dotfiles/extensions/$EXTENSION"
+    ln -s "$EXTENSION_DOTFILES_PATH" "$HOME/dotfiles/extensions/$EXTENSION_NAME"
 fi
 
-for FILE in "$HOME/dotfiles/extensions/$EXTENSION/setup/"*-*.bash; do
+for FILE in "$HOME/dotfiles/extensions/$EXTENSION_NAME/setup/"*-*.bash; do
   source "$FILE"
 done
 

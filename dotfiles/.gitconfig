@@ -4,7 +4,7 @@
 	# shows the log since the latest tag
 	release-log = !sh -c 'git -P log "$(git describe --abbrev=0)~1.."'
 	# create a tag in a way that allows for Markdown headings
-	tag-md = tag --annotate --cleanup=whitespace --edit --message ""
+	tag-md = tag --annotate --cleanup=whitespace --edit --message \"\"
 [commit]
 	# the "scissors" cleanup mode is nice for entering markdown in commit messages
 	cleanup = scissors

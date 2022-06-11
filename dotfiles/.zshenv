@@ -59,12 +59,6 @@ if [[ $SHLVL = 1 ]]; then
 
   # add custom binaries to $PATH
   export PATH="$HOME/bin:$PATH"
-  # add locally installed PHP binaries to $PATH
-  # this allows you to run them without the vendor/bin/ prefix
-  export PATH="vendor/bin:$PATH"
-  # add locally installed Node.js binaries to $PATH
-  # this allows you to run them without the node_modules/.bin/ prefix
-  export PATH="node_modules/.bin:$PATH"
 
   # include private env vars
   source "$HOME/.zshenv.private"

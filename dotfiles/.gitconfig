@@ -1,6 +1,6 @@
 [alias]
 	# shows the diff against the latest tag
-	release-diff = !sh -c 'git diff "$(git describe --abbrev=0)~1.."'
+	release-diff = !sh -c 'git diff "$(git describe --abbrev=0).."'
 	# shows the log since the latest tag
 	release-log = !sh -c 'git -P log "$(git describe --abbrev=0)~1.."'
 	# create a tag in a way that allows for Markdown headings

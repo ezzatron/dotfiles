@@ -66,7 +66,7 @@
 	# sign tag annotations with GPG
 	gpgsign = true
 	# sort tags by version when using "git tag" to list tags
-	sort = version:refname
+	sort = -version:refname
 [url "ssh://git@github.com/"]
 	# always use SSH for GitHub URLs
 	insteadOf = https://github.com/

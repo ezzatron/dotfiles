@@ -71,7 +71,7 @@
 	# always use SSH for GitHub URLs
 	insteadOf = https://github.com/
 [user]
-	email = ezzatron@gmail.com
+	email = contact@erin.id.au
 	name = Erin Millard
 	# ID of the GPG key used to sign commits and tag annotations
 	signingkey = A875A8646B3D5FCE

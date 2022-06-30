@@ -184,6 +184,9 @@ defaults write com.apple.screencapture type -string "png"
 # Disable window closing shortcuts for Steam remote play
 defaults write com.valvesoftware.steam.streamingclient NSUserKeyEquivalents '{Close="\U200b";"Quit steamstreamingclient"="~\Uf707";}'
 
+# Force Xcode to use the built-in version of Git for installing dependencies
+defaults write com.apple.dt.Xcode IDEPackageSupportUseBuiltinSCM YES
+
 killall \
   "Address Book" \
   "Calendar" \

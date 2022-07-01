@@ -43,6 +43,15 @@ function prompt_my_dockerlocalcontext() {
   fi
 }
 
+# defines a custom Powerlevel10k prompt segment for Telepresence
+#
+# displays the current Telepresence container
+function prompt_my_telepresencecontext() {
+  if [[ -n "$TELEPRESENCE_CONTAINER" ]]; then
+    p10k segment -i ' ' -b 1 -f 15 -t "$TELEPRESENCE_CONTAINER"
+  fi
+}
+
 # include a shell script, but don't complain if it doesn't exist
 function source-if-exists () {
   [ -f "$1" ] && source "$1"

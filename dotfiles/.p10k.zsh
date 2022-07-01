@@ -35,6 +35,7 @@
     # os_icon               # os identifier
     my_dockerremotecontext  # current docker context (remote)
     my_dockerlocalcontext   # current docker context (local)
+    my_telepresencecontext  # current Telepresence context
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================

@@ -50,6 +50,8 @@
 	# stop Git from automatically trying to merge outdated branches when pulling
 	ff = only
 [push]
+	# automatically set upstream branches when pushing
+	autoSetupRemote = true
 	# push only the current branch to a branch of the same name
 	# this means that pushing new branches upstream is as simple as "git push -u"
 	default = current

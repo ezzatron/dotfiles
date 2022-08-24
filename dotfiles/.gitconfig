@@ -8,7 +8,7 @@
 [commit]
 	# the "scissors" cleanup mode is nice for entering markdown in commit messages
 	cleanup = scissors
-	# sign commit messages with GPG
+	# sign commit messages
 	gpgsign = true
 [core]
 	# convert Windows-style line endings to *nix-style when adding to the index
@@ -40,6 +40,12 @@
 	# produce nice-looking logs
 	# I didn't write this, and I can't recall where it came from
 	pretty = %C(dim)%ci%C(reset) %C(dim)%p%C(reset) %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an %ar.%C(reset)
+[gpg]
+	# sign with an SSH key instead of GPG
+	format = ssh
+[gpg "ssh"]
+	# this must be configured in order to verify SSH signatures on commits
+	allowedSignersFile = ~/.ssh/allowed_signers
 [init]
 	# use "main" as the default branch name for new repos
 	defaultBranch = main
@@ -65,7 +71,7 @@
 	# don't show the stat summary when using "git stash show"
 	showStat = false
 [tag]
-	# sign tag annotations with GPG
+	# sign tag annotations
 	gpgsign = true
 	# sort tags by version when using "git tag" to list tags
 	sort = -version:refname
@@ -75,8 +81,8 @@
 [user]
 	email = contact@erin.id.au
 	name = Erin Millard
-	# ID of the GPG key used to sign commits and tag annotations
-	signingkey = A875A8646B3D5FCE
+	# SSH key to use for signing (make sure this is your PUBLIC key, not private)
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKRaKzNLwVvprRZIs3q+ZSU1mnvyvTr/YM04/pAc9r7S
 
 # includes must be placed last so that they can override the values above
 [include]

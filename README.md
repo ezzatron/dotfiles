@@ -14,7 +14,7 @@ files for my terminal, shell, prompt, macOS, and other software.
 - [Powerlevel10k] for prompt customization
 - [iTerm] customization
 - [1Password] integration for `ssh`
-- [Git] customizations, including signing with [GnuPG]
+- [Git] customizations, including signing with SSH
 - [Touch ID] for `sudo`
 - Can be extended with other (potentially private) dotfiles repos
 
@@ -33,7 +33,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/main/insta
 ["dotfiles"]: https://wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments
 [1password]: https://1password.com/
 [git]: https://git-scm.com/
-[gnupg]: https://gnupg.org/
 [homebrew]: https://brew.sh/
 [installation]: #installation
 [iterm]: https://iterm2.com/

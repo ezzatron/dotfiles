@@ -8,5 +8,5 @@
 
 # editor configuration files
 .vs/
-.vscode./
+.vscode/
 *.xcuser*

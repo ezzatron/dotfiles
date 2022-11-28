@@ -61,7 +61,7 @@ fi
 echo "First, add your personal 1Password account to the app, then enable the following options in the preferences:"
 echo
 echo "    - Developer > 1Password SSH Agent > Use the SSH agent"
-echo "    - Developer > 1Password CLI 2 > Biometric unlock for 1Password CLI"
+echo "    - Developer > Command-Line Interface (CLI) > Connect with 1Password CLI"
 echo
 
 open "/Applications/1Password.app"

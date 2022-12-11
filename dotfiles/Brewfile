@@ -20,8 +20,7 @@ brew "jmalloc/grit/grit"
 brew "jq"
 brew "ktr0731/evans/evans"
 brew "kubectx"
-brew "kubernetes-cli", link: false
-brew "kubernetes-cli@1.22"
+brew "kubernetes-cli"
 brew "node"
 brew "node@16", link: false
 brew "php"

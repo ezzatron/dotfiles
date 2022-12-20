@@ -434,6 +434,9 @@
     # in this case.
     (( VCS_STATUS_HAS_UNSTAGED == -1 )) && res+=" ${modified}─"
 
+    # WIP if the HEAD commit summary is WIP
+    (( VCS_STATUS_COMMIT_SUMMARY == "WIP" )) && res+=" WIP"
+
     typeset -g my_git_format=$res
   }
   functions -M my_git_formatter 2>/dev/null

@@ -435,7 +435,9 @@
     (( VCS_STATUS_HAS_UNSTAGED == -1 )) && res+=" ${modified}─"
 
     # WIP if the HEAD commit summary is WIP
-    (( VCS_STATUS_COMMIT_SUMMARY == "WIP" )) && res+=" WIP"
+    if [[ "$VCS_STATUS_COMMIT_SUMMARY" == "WIP" ]]; then
+      res+=" WIP"
+    fi
 
     typeset -g my_git_format=$res
   }

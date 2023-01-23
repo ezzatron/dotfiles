@@ -45,10 +45,31 @@ function prompt_my_dockerlocalcontext() {
 
 # defines a custom Powerlevel10k prompt segment for Telepresence
 #
-# displays the current Telepresence container
+# displays the total number of active intercepts, and the current Telepresence
+# container (if the current shell is an intercept)
 function prompt_my_telepresencecontext() {
-  if [[ -n "$TELEPRESENCE_CONTAINER" ]]; then
-    p10k segment -i ' ' -b 1 -f 15 -t "$TELEPRESENCE_CONTAINER"
+  local TELEPRESENCE_STATUS="$(telepresence status --output json 2>/dev/null)"
+
+  if [[ -z "$TELEPRESENCE_STATUS" ]]; then
+    return
+  fi
+
+  local TELEPRESENCE_RUNNING="$(echo "$TELEPRESENCE_STATUS" | jq -r '.root_daemon.running and .user_daemon.running' 2>/dev/null)"
+
+  if [[ "$TELEPRESENCE_RUNNING" != "true" ]]; then
+    return
+  fi
+
+  local WORKLOAD_COUNT="$(telepresence list --output json | jq -r 'if .err then 0 else .stdout|map(select(.intercept_infos))|length end')"
+
+  if [[ "$WORKLOAD_COUNT" != "0" ]]; then
+    if [[ -n "$TELEPRESENCE_CONTAINER" ]]; then
+      local LABEL="$WORKLOAD_COUNT | $TELEPRESENCE_CONTAINER"
+    else
+      local LABEL="$WORKLOAD_COUNT"
+    fi
+
+    p10k segment -i ' ' -b 1 -f 15 -t "$LABEL"
   fi
 }
 

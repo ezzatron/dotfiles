@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+TEMPLATE=$'# Generated file - DO NOT EDIT\n'
+TEMPLATE+=$'#\n'
+TEMPLATE+=$'# Modify templates/grit.toml instead, or add dotfiles/grit.sources to an\n'
+TEMPLATE+=$'# extension.\n'
+TEMPLATE+=$'\n'
+TEMPLATE+=$(<"$HOME/dotfiles/templates/grit.toml")
+EXTENSION_SOURCES=
+
+for FILE in "$HOME/dotfiles/extensions/"*/dotfiles/grit.sources; do
+  EXTENSION_NAME="$(basename "$(dirname "$(dirname "$FILE")")")"
+  EXTENSION_SOURCES+="# From extension $EXTENSION_NAME"$'\n'
+  EXTENSION_SOURCES+=$(<"$FILE")
+done
+
+echo "${TEMPLATE/'"$EXTENSION_SOURCES" = "EXTENSION_SOURCES$"'/"$EXTENSION_SOURCES"}" > "$HOME/.config/grit.toml"

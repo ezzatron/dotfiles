@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+CONFIG=$'# Generated file - DO NOT EDIT\n'
+CONFIG+=$'#\n'
+CONFIG+=$'# Add dotfiles/.gitconfig to an extension instead.\n'
+CONFIG+=$'\n'
+CONFIG+=$'[include]\n'
+
+for FILE in "$HOME/dotfiles/extensions/"*/dotfiles/.gitconfig; do
+  CONFIG+="  path = $FILE"$'\n'
+done
+
+echo -n "$CONFIG" > "$HOME/.dotfiles-extensions.gitconfig"

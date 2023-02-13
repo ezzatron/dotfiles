@@ -5,6 +5,8 @@
 	release-log = !git -P log "$(git describe --abbrev=0)~1.."
 	# create a tag in a way that allows for Markdown headings
 	tag-md = !git tag --annotate --cleanup=whitespace --edit --message \"$1\"
+	# like git show, but better
+	info = !git show --pretty='%C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %C(bold white)%s%C(reset) %C(dim)by %an — %ar%C(reset)%n%n%C(dim)Author:%C(reset)  %an %C(dim)<%ae>%C(reset)%n         %C(dim)%ad — %ar%C(reset)%n%n%C(dim)Commit:%C(reset)  %C(cyan)%h%C(reset) — %C(cyan dim)%H%C(reset)%n         %cn %C(dim)<%ce>%C(reset)%n         %C(dim)%cd — %cr%C(reset)%n%n%C(dim)Parents:%C(reset) %C(cyan)%p%C(reset) — %C(cyan dim)%P%C(reset)%n%n%w(,4,4)%-b%-'
 [commit]
 	# the "scissors" cleanup mode is nice for entering markdown in commit messages
 	cleanup = scissors
@@ -38,8 +40,7 @@
 	prune = true
 [format]
 	# produce nice-looking logs
-	# I didn't write this, and I can't recall where it came from
-	pretty = %C(dim)%ci%C(reset) %C(dim)%p%C(reset) %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an %ar.%C(reset)
+	pretty = %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an — %ar%C(reset)
 [gpg]
 	# sign with an SSH key instead of GPG
 	format = ssh

@@ -1,3 +1,12 @@
+# override standard git commands with aliases
+git () {
+  if [ "$1" = "show" ]; then
+    command git x-show "${@:2}"
+  else
+    command git "$@"
+  fi
+}
+
 # outputs the Git repo slug (e.g. ezzatron/dotfiles)
 function git-slug () {
   if ! URL="$(git config --get remote.origin.url)"; then

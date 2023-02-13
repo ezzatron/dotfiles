@@ -49,6 +49,9 @@
 [init]
 	# use "main" as the default branch name for new repos
 	defaultBranch = main
+[log]
+	# format dates in strict ISO-8601 format
+	date = iso-strict
 [merge]
 	# only use fast-forward merges unless --no-ff is explicitly specified
 	ff = only

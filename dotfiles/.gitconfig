@@ -65,8 +65,6 @@
 	# push only the current branch to a branch of the same name
 	# this means that pushing new branches upstream is as simple as "git push -u"
 	default = current
-	# push tags in addition to commits
-	followTags = true
 [stash]
 	# show untracked content when using "git stash show"
 	showIncludeUntracked = true

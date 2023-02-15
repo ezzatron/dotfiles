@@ -1,4 +1,6 @@
 [alias]
+	# push tags and associated commits atomically
+	push-tags = !git push --follow-tags --atomic
 	# shows the diff against the latest tag
 	release-diff = !git diff "$(git describe --abbrev=0).."
 	# shows the log since the latest tag

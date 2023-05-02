@@ -345,7 +345,7 @@
 				<real>1</real>
 			</dict>
 			<key>Badge Font</key>
-			<string>VictorMonoNerdFontComplete-Bold</string>
+			<string>VictorMonoNFM-Bold</string>
 			<key>Badge Max Height</key>
 			<real>0.5</real>
 			<key>Badge Max Width</key>
@@ -783,7 +783,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>VictorMonoNerdFontComplete-SemiBold 17</string>
+			<string>VictorMonoNFM-SemiBold 17</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>

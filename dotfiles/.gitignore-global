@@ -10,3 +10,4 @@
 .vs/
 .vscode/
 *.xcuser*
+.idea/

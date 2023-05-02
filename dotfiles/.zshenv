@@ -58,7 +58,14 @@ if [[ $SHLVL = 1 ]]; then
   fi
 
   # add custom binaries to $PATH
+  export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"
   export PATH="$HOME/bin:$PATH"
+
+  # Android
+  export ANDROID_HOME="$HOME/Library/Android/sdk"
+
+  # Java
+  export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
 
   # include private env vars
   source "$HOME/.zshenv.private"

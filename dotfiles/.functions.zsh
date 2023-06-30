@@ -30,28 +30,6 @@ function iterm2_print_user_vars () {
   iterm2_set_user_var gitSlug "$(git-slug)"
 }
 
-# defines a custom Powerlevel10k prompt segment for Docker
-#
-# displays the current Docker host, but only when it's remote
-# this segment is configured to show regardless of which command is entered
-# see .p10k.zsh for the configuration
-function prompt_my_dockerremotecontext() {
-  if [[ -n "$DOCKER_HOST" && "$DOCKER_HOST" != "unix:///var/run/docker.sock" ]]; then
-    p10k segment -i ' ' -b 1 -f 15 -t "$DOCKER_HOST"
-  fi
-}
-
-# defines a custom Powerlevel10k prompt segment for Docker
-#
-# displays the current Docker host, but only when it's local
-# this segment is configured to show only when the docker command is entered
-# see .p10k.zsh for the configuration
-function prompt_my_dockerlocalcontext() {
-  if [[ -z "$DOCKER_HOST" || "$DOCKER_HOST" == "unix:///var/run/docker.sock" ]]; then
-    p10k segment -i ' ' -b 8 -f 15 -t self
-  fi
-}
-
 # defines a custom Powerlevel10k prompt segment for Telepresence
 #
 # displays the current Telepresence container

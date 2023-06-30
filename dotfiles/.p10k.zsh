@@ -33,8 +33,6 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     # os_icon               # os identifier
-    my_dockerremotecontext  # current docker context (remote)
-    my_dockerlocalcontext   # current docker context (local)
     my_telepresencecontext  # current Telepresence context
     dir                     # current directory
     vcs                     # git status
@@ -110,9 +108,6 @@
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
   )
-
-  # Only show my_dockerlocalcontext when running docker
-  typeset -g POWERLEVEL9K_MY_DOCKERLOCALCONTEXT_SHOW_ON_COMMAND='docker'
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
   typeset -g POWERLEVEL9K_MODE=nerdfont-complete

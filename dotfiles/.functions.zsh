@@ -35,7 +35,7 @@ function iterm2_print_user_vars () {
 # displays the current Telepresence container
 function prompt_my_telepresencecontext() {
   if [[ -n "$TELEPRESENCE_CONTAINER" ]]; then
-    p10k segment -i ' ' -b 1 -f 15 -t "$TELEPRESENCE_CONTAINER"
+    p10k segment -i '󰄙 ' -b 1 -f 15 -t "$TELEPRESENCE_CONTAINER"
   fi
 }
 

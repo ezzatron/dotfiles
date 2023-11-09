@@ -8,7 +8,6 @@ tap "remotemobprogramming/brew"
 brew "awscli"
 brew "clang-format" # needed for VSCode protobuf extension to support formatting
 brew "colordiff"
-brew "composer"
 brew "corepack"
 brew "datawire/blackbird/telepresence-arm64" unless system "[[ \"$(uname -m)\" != arm64 ]]"
 brew "datawire/blackbird/telepresence" unless system "[[ \"$(uname -m)\" == arm64 ]]"

@@ -24,6 +24,7 @@ brew "node"
 brew "node@20", link: false
 brew "podman"
 brew "terraform"
+brew "vale"
 brew "watch"
 brew "wdiff"
 brew "wifi-password"

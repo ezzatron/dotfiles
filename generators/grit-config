@@ -10,10 +10,16 @@ TEMPLATE+=$'\n'
 TEMPLATE+=$(<"$HOME/dotfiles/templates/grit.toml")
 EXTENSION_SOURCES=
 
+shopt -s nullglob
+
 for FILE in "$HOME/dotfiles/extensions/"*/dotfiles/grit.sources; do
   EXTENSION_NAME="$(basename "$(dirname "$(dirname "$FILE")")")"
   EXTENSION_SOURCES+="# From extension $EXTENSION_NAME"$'\n'
   EXTENSION_SOURCES+=$(<"$FILE")
 done
+
+if [[ -z "$EXTENSION_SOURCES" ]]; then
+  exit 0
+fi
 
 echo "${TEMPLATE/'"$EXTENSION_SOURCES" = "EXTENSION_SOURCES$"'/"$EXTENSION_SOURCES"}" > "$HOME/.config/grit.toml"

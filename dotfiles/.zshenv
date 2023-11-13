@@ -59,6 +59,7 @@ if [[ $SHLVL = 1 ]]; then
 
   # add custom binaries to $PATH
   export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"
+  export PATH="$HOME/go/bin:$PATH"
   export PATH="$HOME/bin:$PATH"
 
   # Android

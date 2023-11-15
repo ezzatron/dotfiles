@@ -52,3 +52,4 @@ cask "vlc"
 
 mas "Affinity Designer", id: 824171161
 mas "Affinity Photo", id: 824183456
+mas "TestFlight", id: 899247664

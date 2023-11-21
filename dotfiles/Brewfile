@@ -38,6 +38,7 @@ cask "1password"
 cask "around"
 cask "authy"
 cask "calibre"
+cask "figma"
 cask "firefox-developer-edition", args: {language: "en-GB"}
 cask "font-victor-mono-nerd-font"
 cask "google-chrome"

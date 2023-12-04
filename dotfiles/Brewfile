@@ -1,4 +1,3 @@
-tap "datawire/blackbird"
 tap "hashicorp/tap"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
@@ -11,8 +10,6 @@ brew "awscli"
 brew "clang-format" # needed for VSCode protobuf extension to support formatting
 brew "colordiff"
 brew "corepack"
-brew "datawire/blackbird/telepresence-arm64" unless system "[[ \"$(uname -m)\" != arm64 ]]"
-brew "datawire/blackbird/telepresence" unless system "[[ \"$(uname -m)\" == arm64 ]]"
 brew "git"
 brew "go"
 brew "helm"

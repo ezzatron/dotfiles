@@ -46,6 +46,9 @@ export WORDCHARS="_"
 # check that Touch ID for sudo is still enabled
 touchid-sudo-check
 
+# aliases
+alias '??=gh copilot suggest -t shell'
+
 # include extension config
 setopt nullglob
 for FILE in "$HOME/dotfiles/extensions/"*/dotfiles/.zshrc; do

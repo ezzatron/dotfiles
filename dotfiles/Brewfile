@@ -10,6 +10,7 @@ brew "awscli"
 brew "clang-format" # needed for VSCode protobuf extension to support formatting
 brew "colordiff"
 brew "corepack"
+brew "diff-so-fancy"
 brew "git"
 brew "go"
 brew "helm"

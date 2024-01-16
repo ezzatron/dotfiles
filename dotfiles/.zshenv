@@ -66,7 +66,7 @@ if [[ $SHLVL = 1 ]]; then
   export ANDROID_HOME="$HOME/Library/Android/sdk"
 
   # Java
-  export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
+  export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 
   # include private env vars
   source "$HOME/.zshenv.private"

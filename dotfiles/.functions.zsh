@@ -82,3 +82,15 @@ function brew-install-version () {
   brew install "$LOCAL_TAP/$FORMULA@$VERSION"
   brew link --overwrite "$LOCAL_TAP/$FORMULA@$VERSION"
 }
+
+function update () {
+  setopt nullglob
+  for FILE in "$HOME/dotfiles/update/"*-*.bash; do
+    source "$FILE"
+  done
+
+  for FILE in "$HOME/dotfiles/extensions/"*/update/*-*.bash; do
+    source "$FILE"
+  done
+  unsetopt nullglob
+}

@@ -7,7 +7,7 @@
 .nfs.*
 
 # editor configuration files
+.idea/
 .vs/
 .vscode/
 *.xcuser*
-.idea/

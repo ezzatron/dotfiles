@@ -32,7 +32,7 @@ eval "$(op completion zsh)"; compdef _op op
 eval "$(grit shell-integration)"
 # include zoxide completions
 # see https://github.com/ajeetdsouza/zoxide#installation
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
 # prevent the "file exists" warning when using shell redirection
 setopt clobber
@@ -51,8 +51,6 @@ touchid-sudo-check
 
 # aliases
 alias '??=gh copilot suggest -t shell'
-alias z=cd
-alias zi=cdi
 
 # include extension config
 setopt nullglob

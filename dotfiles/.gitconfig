@@ -17,6 +17,8 @@
 	cdiff = diff -w --word-diff --word-diff-regex='[^[:space:]]'
 	# better blame
 	credit = blame -w -M -C -C -C
+	# diff against the upstream branch
+	upstream-diff = diff @{upstream}
 [branch]
 	# sort branches by committer date
 	sort = -committerdate

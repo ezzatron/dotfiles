@@ -1,6 +1,6 @@
 [alias]
 	# better force push
-	push-force = push --force-with-lease
+	push-force = push --force-with-lease --force-if-includes
 	# push tags and associated commits atomically
 	push-tags = !git push --follow-tags --atomic
 	# shows the diff against the latest tag

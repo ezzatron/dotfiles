@@ -11,7 +11,7 @@ else
     echo "Brew zsh is already a standard shell."
   else
     echo "Adding brew zsh as a standard shell..."
-    sudo sh -c "echo '$BREW_ZSH_PATH' > /etc/shells"
+    sudo sh -c "echo '$BREW_ZSH_PATH' >> /etc/shells"
   fi
 
   echo "Setting brew zsh as the current shell..."

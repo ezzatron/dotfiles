@@ -61,6 +61,9 @@ if [[ $SHLVL = 1 ]]; then
   # this must be done before Prezto is loaded
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
+  # add custom functions to $FPATH
+  FPATH="$HOME/.functions:$FPATH"
+
   # add custom binaries to $PATH
   export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"
   export PATH="$HOME/go/bin:$PATH"

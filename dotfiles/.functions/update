@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+# update everything
+
+setopt nullglob
+for FILE in "$HOME/dotfiles/update/"*-*.bash; do
+  source "$FILE"
+done
+
+for FILE in "$HOME/dotfiles/extensions/"*/update/*-*.bash; do
+  source "$FILE"
+done
+unsetopt nullglob

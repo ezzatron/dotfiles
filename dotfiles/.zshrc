@@ -1,5 +1,5 @@
-# include custom functions
-source "$HOME/.functions.zsh"
+# load custom functions
+autoload -Uz "$HOME/.functions/"*(:t)
 
 # include Powerlevel10k instant prompt
 # see https://github.com/romkatv/powerlevel10k#instant-prompt

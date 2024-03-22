@@ -9,7 +9,7 @@
 	release-log = !git -P log "$(git describe --abbrev=0)~1.."
 	# create a tag in a way that allows for Markdown headings
 	tag-md = !git tag --annotate --cleanup=whitespace --edit --message \"$1\"
-	# customize git show pretty format - needs paired git function in .functions.zsh
+	# customize git show pretty format - needs paired git function
 	x-show = !git show --pretty='%C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %C(bold white)%s%C(reset) %C(dim)by %an — %ar%C(reset)%n%n%C(dim)Author:%C(reset)  %an %C(dim)<%ae>%C(reset)%n         %C(dim)%ad — %ar%C(reset)%n%n%C(dim)Commit:%C(reset)  %C(cyan)%h%C(reset) — %C(cyan dim)%H%C(reset)%n         %cn %C(dim)<%ce>%C(reset)%n         %C(dim)%cd — %cr%C(reset)%n%n%C(dim)Parents:%C(reset) %C(cyan)%p%C(reset) — %C(cyan dim)%P%C(reset)%n%n%w(,4,4)%-b%-'
 	# word diff
 	wdiff = diff -w --word-diff

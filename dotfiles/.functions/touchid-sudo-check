@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+# checks to see whether Touch ID is still enabled for sudo
+# this happens after macOS updates
+
+grep -q pam_tid /etc/pam.d/sudo || >&2 echo "WARNING: Touch ID is no longer enabled for sudo. Run touchid-sudo-enable to re-enable."

@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+# enable Touch ID for sudo
+
+grep -q pam_tid /etc/pam.d/sudo || sudo sed -i.bak $'2i\\\nauth       sufficient     pam_tid.so\n' /etc/pam.d/sudo

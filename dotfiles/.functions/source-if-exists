@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+# include a shell script, but don't complain if it doesn't exist
+
+[ -f "$1" ] && source "$1"

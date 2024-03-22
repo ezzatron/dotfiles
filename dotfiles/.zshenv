@@ -44,6 +44,9 @@ if [[ $SHLVL = 1 ]]; then
   # use a GitHub token for Homebrew - this extends GitHub's rate limits
   export HOMEBREW_GITHUB_API_TOKEN="$GH_TOKEN"
 
+  # automatically update Homebrew every 5 minutes
+  export HOMEBREW_AUTO_UPDATE_SECS=300
+
   # execute the macOS path helper, which adds OS-level things to $PATH
   if [[ -x /usr/libexec/path_helper ]]; then
     eval "$(/usr/libexec/path_helper -s)"

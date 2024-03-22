@@ -1,1 +1,3 @@
+MOB_DONE_SQUASH="squash-wip"
 MOB_OPEN_COMMAND="code"
+MOB_TIMER="15"

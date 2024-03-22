@@ -57,6 +57,10 @@ if [[ $SHLVL = 1 ]]; then
     eval "$(/usr/local/bin/brew shellenv)"
   fi
 
+  # configure completions for Homebrew packages
+  # this must be done before Prezto is loaded
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
   # add custom binaries to $PATH
   export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"
   export PATH="$HOME/go/bin:$PATH"

@@ -1,7 +1,3 @@
-# configure completions for Homebrew packages
-# this must be done before Prezto is loaded
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
 # include custom functions
 source "$HOME/.functions.zsh"
 

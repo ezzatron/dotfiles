@@ -10,6 +10,9 @@ source-if-exists "$HOME/.zprezto/init.zsh"
 # include iTerm shell integration
 # see https://iterm2.com/documentation-shell-integration.html
 source-if-exists "$HOME/.iterm2_shell_integration.zsh"
+# include VSCode shell integration
+# see https://code.visualstudio.com/docs/terminal/shell-integration
+[[ "$TERM_PROGRAM" == "vscode" ]] && source "$(code --locate-shell-integration-path zsh)"
 # include Powerlevel10k
 # see https://github.com/romkatv/powerlevel10k
 source-if-exists "$HOME/.p10k.zsh"

@@ -1,3 +1,7 @@
+# add custom functions to $FPATH
+# TODO: figure out why VSCode needs this to run at SHLVL > 1
+[[ "$TERM_PROGRAM" == "vscode" ]] && export FPATH="$HOME/.functions:$FPATH"
+
 # from https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 #
 # .zshenv is always sourced. It often contains exported variables that should be
@@ -62,10 +66,10 @@ if [[ $SHLVL = 1 ]]; then
 
   # configure completions for Homebrew packages
   # this must be done before Prezto is loaded
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
   # add custom functions to $FPATH
-  FPATH="$HOME/.functions:$FPATH"
+  export FPATH="$HOME/.functions:$FPATH"
 
   # add custom binaries to $PATH
   export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"

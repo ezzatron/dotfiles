@@ -73,6 +73,7 @@ if [[ $SHLVL = 1 ]]; then
 
   # add custom binaries to $PATH
   export PATH="/Library/Frameworks/Mono.framework/Versions/Current/bin:$PATH"
+  export PATH="$HOME/.dotnet/tools:$PATH"
   export PATH="$HOME/go/bin:$PATH"
   export PATH="$HOME/bin:$PATH"
 
@@ -81,6 +82,9 @@ if [[ $SHLVL = 1 ]]; then
 
   # Java
   export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+
+  # .NET
+  export DOTNET_ROOT="$(brew --prefix)/opt/dotnet/libexec"
 
   # include private env vars
   source "$HOME/.zshenv.private"

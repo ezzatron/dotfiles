@@ -1,24 +1,24 @@
 [alias]
+	# better blame
+	credit = blame -w -M -C -C -C
+	# character diff
+	diff-chars = diff -w --word-diff --word-diff-regex='[^[:space:]]'
+	# shows the diff against the latest tag
+	diff-release = !git diff "$(git describe --abbrev=0).."
+	# diff against the upstream branch
+	diff-upstream = diff @{upstream}
+	# word diff
+	diff-words = diff -w --word-diff
+	# shows the log since the latest tag
+	log-release = !git -P log "$(git describe --abbrev=0)~1.."
 	# better force push
 	push-force = push --force-with-lease --force-if-includes
 	# push tags and associated commits atomically
 	push-tags = !git push --follow-tags --atomic
-	# shows the diff against the latest tag
-	release-diff = !git diff "$(git describe --abbrev=0).."
-	# shows the log since the latest tag
-	release-log = !git -P log "$(git describe --abbrev=0)~1.."
 	# create a tag in a way that allows for Markdown headings
 	tag-md = !git tag --annotate --cleanup=whitespace --edit --message \"$1\"
 	# customize git show pretty format - needs paired git function
 	x-show = !git show --pretty='%C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %C(bold white)%s%C(reset) %C(dim)by %an — %ar%C(reset)%n%n%C(dim)Author:%C(reset)  %an %C(dim)<%ae>%C(reset)%n         %C(dim)%ad — %ar%C(reset)%n%n%C(dim)Commit:%C(reset)  %C(cyan)%h%C(reset) — %C(cyan dim)%H%C(reset)%n         %cn %C(dim)<%ce>%C(reset)%n         %C(dim)%cd — %cr%C(reset)%n%n%C(dim)Parents:%C(reset) %C(cyan)%p%C(reset) — %C(cyan dim)%P%C(reset)%n%n%w(,4,4)%-b%-'
-	# word diff
-	wdiff = diff -w --word-diff
-	# character diff
-	cdiff = diff -w --word-diff --word-diff-regex='[^[:space:]]'
-	# better blame
-	credit = blame -w -M -C -C -C
-	# diff against the upstream branch
-	upstream-diff = diff @{upstream}
 [branch]
 	# sort branches by committer date
 	sort = -committerdate

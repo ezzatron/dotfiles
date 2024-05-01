@@ -33,6 +33,7 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     # os_icon               # os identifier
+    my_shlvl                # current SHLVL if > 1
     my_telepresencecontext  # current Telepresence context
     dir                     # current directory
     vcs                     # git status

@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+# defines a custom Powerlevel10k prompt segment for SHLVL
+#
+# displays the current shell level for levels greater than 1
+
+if [[ $SHLVL -gt 1 ]]; then
+  p10k segment -i '󰄷 ' -b 1 -f 15 -t "$SHLVL"
+fi

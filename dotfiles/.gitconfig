@@ -34,6 +34,8 @@
 	editor = code --wait
 	# use a global ignore file for files that should be ignored acress all repos
 	excludesfile = ~/.gitignore-global
+	# set the tab width for things like git diff to 2 spaces
+	pager = less --tabs 1,3
 [credential]
 	# cache credentials when using non-SSH repo clones
 	helper = cache --timeout=43200 # 12 hours

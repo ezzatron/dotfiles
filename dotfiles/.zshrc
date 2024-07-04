@@ -4,6 +4,9 @@ autoload -Uz "$HOME/.functions/"*(:t)
 # include Powerlevel10k instant prompt
 # see https://github.com/romkatv/powerlevel10k#instant-prompt
 source-if-exists "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh"
+# include z
+# see https://github.com/rupa/z
+source-if-exists "$(brew --prefix)/etc/profile.d/z.sh"
 # include prezto
 # see https://github.com/sorin-ionescu/prezto
 source-if-exists "$HOME/.zprezto/init.zsh"
@@ -20,18 +23,12 @@ source-if-exists "$HOME/.p10k.zsh"
 # add completions support for commmands that only support bash (e.g. Grit v1)
 autoload -U bashcompinit && bashcompinit
 
-# include fzf
-source-if-exists "$HOME/.fzf.zsh"
-
 # include 1Password CLI completions
 # see https://developer.1password.com/docs/cli/get-started/#shell-completion
 eval "$(op completion zsh)"; compdef _op op
 # include Grit completions
 # see https://github.com/jmalloc/grit#:~:text=eval%20%22%24(grit-,shell%2Dintegration,-)%22
 eval "$(grit shell-integration)"
-# include zoxide completions
-# see https://github.com/ajeetdsouza/zoxide#installation
-eval "$(zoxide init zsh)"
 
 # prevent the "file exists" warning when using shell redirection
 setopt clobber

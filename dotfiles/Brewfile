@@ -37,7 +37,7 @@ cask "authy"
 cask "calibre"
 cask "docker"
 cask "figma"
-cask "firefox-developer-edition", args: {language: "en-GB"}
+cask "firefox@developer-edition", args: {language: "en-GB"}
 cask "font-victor-mono-nerd-font"
 cask "google-chrome"
 cask "guitar-pro"

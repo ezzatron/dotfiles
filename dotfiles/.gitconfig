@@ -17,7 +17,7 @@
 	push-tags = !git push --follow-tags --atomic
 	# step through each commit in a range and show the diff
 	# close the pager to go to the next commit, or use control-C to exit
-	show-all = "!f() { git log --reverse --pretty=format:%h \"$1\" | xargs -n1 git show; }; f"
+	show-all = "!f() { git log --reverse --pretty=format:%h \"$1\" | xargs -n1 -I% sh -c 'git -P -c color.ui=always show % | tail -n +1 | less --tabs 1,3'; }; f"
 	# create a tag in a way that allows for Markdown headings
 	tag-md = !git tag --annotate --cleanup=whitespace --edit --message \"$1\"
 	# customize git show pretty format - needs paired git function

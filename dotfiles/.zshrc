@@ -30,6 +30,11 @@ eval "$(op completion zsh)"; compdef _op op
 # see https://github.com/jmalloc/grit#:~:text=eval%20%22%24(grit-,shell%2Dintegration,-)%22
 eval "$(grit shell-integration)"
 
+# NVM auto-loading
+autoload -U add-zsh-hook
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 # prevent the "file exists" warning when using shell redirection
 setopt clobber
 # don't automatically change directory when a command is not found, and a

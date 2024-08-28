@@ -14,6 +14,7 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'git' \
+  'node' \
   'completion' \
   'syntax-highlighting' \
   'history-substring-search' \
@@ -30,8 +31,9 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'cursor' \
   'root'
 
-# disable prezto's git module aliases
+# disable aliases
 zstyle ':prezto:module:git:alias' skip 'yes'
+zstyle ':prezto:module:node:alias' skip 'yes'
 
 # set the working directory prompt display length.
 zstyle ':prezto:module:prompt' pwd-length 'short'

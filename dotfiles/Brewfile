@@ -21,7 +21,7 @@ brew "ktr0731/evans/evans"
 brew "kubectx"
 brew "kubernetes-cli"
 brew "node"
-brew "node@20", link: false
+brew "nvm"
 brew "remotemobprogramming/brew/mob"
 brew "vale"
 brew "watch"

@@ -6,6 +6,8 @@
 	<false/>
 	<key>AlternateMouseScroll</key>
 	<true/>
+	<key>AutoCommandHistory</key>
+	<false/>
 	<key>BootstrapDaemon</key>
 	<false/>
 	<key>CheckTestRelease</key>

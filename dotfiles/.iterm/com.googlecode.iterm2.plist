@@ -349,7 +349,7 @@
 			<key>Badge Font</key>
 			<string>VictorMonoNF-Bold</string>
 			<key>Badge Max Height</key>
-			<real>0.5</real>
+			<real>0.2</real>
 			<key>Badge Max Width</key>
 			<real>0.80000000000000004</real>
 			<key>Badge Right Margin</key>

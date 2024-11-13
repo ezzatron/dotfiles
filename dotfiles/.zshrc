@@ -23,6 +23,9 @@ source-if-exists "$HOME/.p10k.zsh"
 # see https://asdf-vm.com/
 source-if-exists "$(brew --prefix asdf)/libexec/asdf.sh"
 
+# initialize completions
+autoload -U compinit && compinit
+
 # add completions support for commmands that only support bash (e.g. Grit v1)
 autoload -U bashcompinit && bashcompinit
 

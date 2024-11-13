@@ -94,14 +94,14 @@ fi
 # if mas account &>/dev/null; then
 #     echo "App store sign in detected."
 # else
-#     op item get --account=my --vault=Personal Apple --fields=password | tr -d '\n' | pbcopy
+#     op item get --reveal --account=my --vault=Personal Apple --fields=password | tr -d '\n' | pbcopy
 #     echo "Sign in to the app store first. Password has been copied to the clipboard."
 #     mas open
 #     open "x-apple.systempreferences:com.apple.preferences.AppleIDPrefPane"
 #     exit 1
 # fi
 
-op item get --account=my --vault=Personal Apple --fields=password | tr -d '\n' | pbcopy
+op item get --reveal --account=my --vault=Personal Apple --fields=password | tr -d '\n' | pbcopy
 echo "Sign in to the app store first. Password has been copied to the clipboard."
 mas open
 open "x-apple.systempreferences:com.apple.preferences.AppleIDPrefPane"

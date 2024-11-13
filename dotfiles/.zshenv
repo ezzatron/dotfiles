@@ -45,9 +45,6 @@ if [[ $SHLVL = 1 ]]; then
   # "IdentityAgent" - this environment variable serves the same purpose
   export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
-  # use a GitHub token for Homebrew - this extends GitHub's rate limits
-  export HOMEBREW_GITHUB_API_TOKEN="$GH_TOKEN"
-
   # automatically update Homebrew every 5 minutes
   export HOMEBREW_AUTO_UPDATE_SECS=300
 

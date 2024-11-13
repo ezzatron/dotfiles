@@ -19,6 +19,9 @@ source-if-exists "$HOME/.iterm2_shell_integration.zsh"
 # include Powerlevel10k
 # see https://github.com/romkatv/powerlevel10k
 source-if-exists "$HOME/.p10k.zsh"
+# include asdf
+# see https://asdf-vm.com/
+source-if-exists "$(brew --prefix asdf)/libexec/asdf.sh"
 
 # add completions support for commmands that only support bash (e.g. Grit v1)
 autoload -U bashcompinit && bashcompinit

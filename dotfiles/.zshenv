@@ -64,10 +64,6 @@ if [[ $SHLVL = 1 ]]; then
     eval "$(/usr/local/bin/brew shellenv)"
   fi
 
-  # configure completions for Homebrew packages
-  # this must be done before Prezto is loaded
-  export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
   # add custom functions to $FPATH
   export FPATH="$HOME/.functions:$FPATH"
 

@@ -11,3 +11,6 @@
 .vs/
 .vscode/
 *.xcuser*
+
+# environment configuration files
+.envrc

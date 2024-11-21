@@ -70,6 +70,9 @@ if [[ $SHLVL = 1 ]]; then
   export PATH="$HOME/go/bin:$PATH"
   export PATH="$HOME/bin:$PATH"
 
+  # Silence direnv output
+  export DIRENV_LOG_FORMAT=
+
   # Android
   export ANDROID_HOME="$HOME/Library/Android/sdk"
 

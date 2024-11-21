@@ -39,6 +39,8 @@ eval "$(grit shell-integration)"
 # include GitHub Copilot CLI aliases
 # see https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-the-cli#zsh
 eval "$(gh copilot alias -- zsh)"
+# include direnv
+eval "$(direnv hook zsh)"
 
 # prevent the "file exists" warning when using shell redirection
 setopt clobber

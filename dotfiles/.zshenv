@@ -82,6 +82,9 @@ if [[ $SHLVL = 1 ]]; then
   # .NET
   export DOTNET_ROOT="$(brew --prefix)/opt/dotnet/libexec"
 
+  # Node.js
+  export ASDF_NODEJS_AUTO_ENABLE_COREPACK=true
+
   # include private env vars
   source "$HOME/.zshenv.private"
 

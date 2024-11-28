@@ -36,9 +36,6 @@ eval "$(op completion zsh)"; compdef _op op
 # include Grit completions
 # see https://github.com/jmalloc/grit#:~:text=eval%20%22%24(grit-,shell%2Dintegration,-)%22
 eval "$(grit shell-integration)"
-# include GitHub Copilot CLI aliases
-# see https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-the-cli#zsh
-eval "$(gh copilot alias -- zsh)"
 # include direnv
 eval "$(direnv hook zsh)"
 

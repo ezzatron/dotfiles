@@ -25,10 +25,10 @@ source-if-exists "$(brew --prefix asdf)/libexec/asdf.sh"
 source-if-exists "$HOME/.asdf/plugins/golang/set-env.zsh"
 
 # initialize completions
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
-# add completions support for commmands that only support bash (e.g. Grit v1)
-autoload -U bashcompinit && bashcompinit
+# add completions support for commands that only support bash (e.g. Grit v1)
+autoload -Uz bashcompinit && bashcompinit
 
 # include 1Password CLI completions
 # see https://developer.1password.com/docs/cli/get-started/#shell-completion

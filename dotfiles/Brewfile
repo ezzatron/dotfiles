@@ -50,4 +50,5 @@ cask "visual-studio-code"
 cask "vlc"
 
 mas "MusicHarbor", id: 1440405750
+mas "Pixelmator Pro", id: 1289583905
 mas "TestFlight", id: 899247664

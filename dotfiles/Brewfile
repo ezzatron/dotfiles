@@ -49,7 +49,5 @@ cask "steam"
 cask "visual-studio-code"
 cask "vlc"
 
-mas "Affinity Designer", id: 824171161
-mas "Affinity Photo", id: 824183456
 mas "MusicHarbor", id: 1440405750
 mas "TestFlight", id: 899247664

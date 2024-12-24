@@ -9,5 +9,10 @@ asdf plugin add protoc https://github.com/paxosglobal/asdf-protoc.git
 echo "Installing asdf tools..."
 
 asdf install nodejs latest
+asdf global nodejs system
+
 asdf install golang latest
+asdf global golang system
+
 asdf install protoc latest
+asdf global protoc system

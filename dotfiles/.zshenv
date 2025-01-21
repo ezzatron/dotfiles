@@ -88,6 +88,7 @@ if [[ $SHLVL = 1 ]]; then
   # Node.js
   export ASDF_NODEJS_AUTO_ENABLE_COREPACK=true
   export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_installed
+  export NODE_OPTIONS="--disable-warning=DeprecationWarning --disable-warning=ExperimentalWarning"
 
   # include private env vars
   source "$HOME/.zshenv.private"

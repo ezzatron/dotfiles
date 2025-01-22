@@ -35,7 +35,7 @@
 	autocrlf = input
 	# use VSCode as the editor
 	editor = code --wait
-	# use a global ignore file for files that should be ignored acress all repos
+	# use a global ignore file for files that should be ignored across all repos
 	excludesfile = ~/.gitignore-global
 	# set the tab width for things like git diff to 2 spaces
 	pager = less --tabs 1,3

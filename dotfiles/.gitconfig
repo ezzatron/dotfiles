@@ -31,6 +31,8 @@
 	# sign commit messages
 	gpgsign = true
 [core]
+	# use a global attributes file for attributes applied across all repos
+	attributesfile = ~/.gitattributes-global
 	# convert Windows-style line endings to *nix-style when adding to the index
 	autocrlf = input
 	# use VSCode as the editor

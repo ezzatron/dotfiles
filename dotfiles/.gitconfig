@@ -39,8 +39,8 @@
 	editor = code --wait
 	# use a global ignore file for files that should be ignored across all repos
 	excludesfile = ~/.gitignore-global
-	# set the tab width for things like git diff to 2 spaces
-	pager = less --tabs 1,3
+	# set the tab width for things like git diff to 2 spaces, use diff-so-fancy
+	pager = diff-so-fancy | less --tabs 1,3 -RF
 [credential]
 	# cache credentials when using non-SSH repo clones
 	helper = cache --timeout=43200 # 12 hours
@@ -72,6 +72,9 @@
 [init]
 	# use "main" as the default branch name for new repos
 	defaultBranch = main
+[interactive]
+	# use diff-so-fancy for interactive rebase
+	diffFilter = diff-so-fancy --patch
 [log]
 	# format dates in strict ISO-8601 format
 	date = iso-strict

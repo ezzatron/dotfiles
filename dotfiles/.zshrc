@@ -22,7 +22,6 @@ source-if-exists "$HOME/.p10k.zsh"
 # include asdf
 # see https://asdf-vm.com/
 source-if-exists "$(brew --prefix asdf)/libexec/asdf.sh"
-source-if-exists "$HOME/.asdf/plugins/golang/set-env.zsh"
 
 # initialize completions
 autoload -Uz compinit && compinit

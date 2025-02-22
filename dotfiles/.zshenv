@@ -69,15 +69,13 @@ if [[ $SHLVL = 1 ]]; then
   export PATH="$HOME/.dotnet/tools:$PATH"
   export PATH="$HOME/go/bin:$PATH"
   export PATH="$HOME/bin:$PATH"
+  export PATH="$HOME/.asdf/shims:$PATH"
 
   # Silence direnv output
   export DIRENV_LOG_FORMAT=
 
   # Android
   export ANDROID_HOME="$HOME/Library/Android/sdk"
-
-  # Go
-  export ASDF_GOLANG_MOD_VERSION_ENABLED=true
 
   # Java
   export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"

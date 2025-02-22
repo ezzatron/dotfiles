@@ -38,6 +38,8 @@ eval "$(grit shell-integration)"
 # include direnv
 eval "$(direnv hook zsh)"
 
+# don't add commands with leading spaces to history
+setopt hist_ignore_space
 # prevent the "file exists" warning when using shell redirection
 setopt clobber
 # don't automatically change directory when a command is not found, and a

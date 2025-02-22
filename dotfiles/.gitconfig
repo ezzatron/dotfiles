@@ -72,9 +72,6 @@
 [init]
 	# use "main" as the default branch name for new repos
 	defaultBranch = main
-[interactive]
-	# use diff-so-fancy for interactive rebase
-	diffFilter = diff-so-fancy --patch
 [log]
 	# format dates in strict ISO-8601 format
 	date = iso-strict

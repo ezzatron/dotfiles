@@ -8,7 +8,7 @@ asdf plugin add protoc https://github.com/paxosglobal/asdf-protoc.git
 echo "Installing asdf tools..."
 
 asdf install nodejs latest
-asdf global nodejs system
+asdf set --home nodejs system
 
 asdf install protoc latest
-asdf global protoc system
+asdf set --home protoc system

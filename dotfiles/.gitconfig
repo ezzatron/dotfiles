@@ -30,6 +30,8 @@
 	cleanup = scissors
 	# sign commit messages
 	gpgsign = true
+	# show diffs in commit editors
+	verbose = true
 [core]
 	# use a global attributes file for attributes applied across all repos
 	attributesfile = ~/.gitattributes-global
@@ -45,6 +47,12 @@
 	# cache credentials when using non-SSH repo clones
 	helper = cache --timeout=43200 # 12 hours
 [diff]
+	# use a better diff algorithm
+	algorithm = histogram
+	# use better coloring for moved lines
+	colorMoved = plain
+	# use meaningful prefixes in diff headers instead of a/ and b/
+	mnemonicPrefix = true
 	# increase the max number of files to consider when detecting renamed files
 	renameLimit = 2000
 	# detect renames and copies
@@ -58,8 +66,10 @@
 	# specify the correct arguments for VSCode to act as a visual diff tool
 	cmd = code --wait --diff $LOCAL $REMOTE
 [fetch]
-  # before fetching, remove any branches that were deleted upstream
+	# before fetching, remove any branches that were deleted upstream
 	prune = true
+	# before fetching, remove any tags that were deleted upstream
+	pruneTags = true
 [format]
 	# produce nice-looking logs
 	pretty = %C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %s %C(dim)by %an — %ar%C(reset)
@@ -76,6 +86,8 @@
 	# format dates in strict ISO-8601 format
 	date = iso-strict
 [merge]
+	# show more context in conflict markers
+	conflictstyle = zdiff3
 	# only use fast-forward merges unless --no-ff is explicitly specified
 	ff = only
 [pull]
@@ -87,6 +99,13 @@
 	# push only the current branch to a branch of the same name
 	# this means that pushing new branches upstream is as simple as "git push -u"
 	default = current
+[rebase]
+	# enable autosquashing by default
+	autoSquash = true
+	# stash before rebasing
+	autoStash = true
+	# update "stacked" branches when rebasing
+	updateRefs = true
 [rerere]
 	# enable the reuse recorded resolution feature
 	enabled = true

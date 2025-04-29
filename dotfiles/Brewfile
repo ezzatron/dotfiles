@@ -27,6 +27,8 @@ brew "z"
 brew "zsh"
 
 cask "aldente"
+cask "android-commandlinetools"
+cask "android-studio"
 cask "1password-cli"
 cask "1password"
 cask "around"

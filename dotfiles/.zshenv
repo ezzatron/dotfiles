@@ -78,7 +78,9 @@ if [[ $SHLVL = 1 ]]; then
   export ANDROID_HOME="$HOME/Library/Android/sdk"
 
   # Java
-  export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+  if [ -f "$HOME/.asdf/plugins/java/set-java-home.zsh" ]; then
+    source "$HOME/.asdf/plugins/java/set-java-home.zsh"
+  fi
 
   # .NET
   export DOTNET_ROOT="$(brew --prefix)/opt/dotnet/libexec"

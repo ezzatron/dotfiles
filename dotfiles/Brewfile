@@ -1,7 +1,5 @@
 tap "hashicorp/tap"
 tap "jmalloc/grit"
-tap "ktr0731/evans"
-tap "remotemobprogramming/brew"
 
 brew "adr-tools"
 brew "asdf"

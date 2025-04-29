@@ -23,7 +23,6 @@ brew "node"
 brew "vale"
 brew "watch"
 brew "wdiff"
-brew "wifi-password"
 brew "z"
 brew "zsh"
 

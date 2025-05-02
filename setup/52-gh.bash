@@ -6,3 +6,6 @@ else
   echo "Signing in to the GitHub CLI..."
   gh auth login --web --skip-ssh-key --hostname github.com --git-protocol ssh
 fi
+
+echo "Installing GitHub CLI extensions..."
+gh extension install github/gh-copilot

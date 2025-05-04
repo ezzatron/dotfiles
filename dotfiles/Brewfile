@@ -6,6 +6,7 @@ brew "adr-tools"
 brew "asdf"
 brew "awscli"
 brew "clang-format" # needed for VSCode protobuf extension to support formatting
+brew "cloudflare-wrangler"
 brew "colordiff"
 brew "deno"
 brew "diff-so-fancy"

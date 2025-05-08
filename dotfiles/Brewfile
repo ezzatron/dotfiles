@@ -42,6 +42,7 @@ cask "firefox@developer-edition", args: {language: "en-GB"}
 cask "font-victor-mono-nerd-font"
 cask "google-chrome"
 cask "guitar-pro"
+cask "iina"
 cask "iterm2"
 cask "keyboardcleantool"
 cask "messenger"
@@ -49,7 +50,6 @@ cask "scroll-reverser"
 cask "slack"
 cask "steam"
 cask "visual-studio-code"
-cask "vlc"
 
 mas "MusicHarbor", id: 1440405750
 mas "Pixelmator Pro", id: 1289583905

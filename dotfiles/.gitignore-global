@@ -16,3 +16,5 @@
 .envrc
 .env.local
 .env.*.local
+go.work
+go.work.sum

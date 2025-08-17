@@ -11,6 +11,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+    };
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    jmalloc-homebrew-grit = {
+      url = "github:jmalloc/homebrew-grit";
+      flake = false;
+    };
+
     mac-app-util = {
       url = "github:hraban/mac-app-util";
     };
@@ -26,6 +42,10 @@
       self,
       nixpkgs,
       nix-darwin,
+      nix-homebrew,
+      homebrew-core,
+      homebrew-cask,
+      jmalloc-homebrew-grit,
       mac-app-util,
       home-manager,
     }:
@@ -37,6 +57,43 @@
 
       modules = [
         mac-app-util.darwinModules.default
+
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            enableRosetta = true;
+            user = user.name;
+            mutableTaps = false;
+            autoMigrate = true;
+
+            taps = {
+              "homebrew/homebrew-core" = homebrew-core;
+              "homebrew/homebrew-cask" = homebrew-cask;
+              "jmalloc/homebrew-grit" = jmalloc-homebrew-grit;
+            };
+          };
+        }
+        (
+          { config, ... }:
+          {
+            homebrew = {
+              enable = true;
+              onActivation.cleanup = "zap";
+              onActivation.autoUpdate = true;
+              onActivation.upgrade = true;
+              taps = builtins.attrNames config.nix-homebrew.taps;
+
+              brews = [
+                "jmalloc/grit/grit" # No Nix package.
+              ];
+
+              casks = [
+                "scroll-reverser" # No Nix package.
+              ];
+            };
+          }
+        )
 
         home-manager.darwinModules.home-manager
         {
@@ -53,13 +110,24 @@
         (
           { pkgs, ... }:
           {
+            programs = {
+              _1password = {
+                enable = true;
+              };
+              _1password-gui = {
+                enable = true;
+              };
+            };
+
             environment.systemPackages = [
-              pkgs._1password-cli
-              pkgs._1password-gui
+              pkgs.aldente
+              pkgs.diff-so-fancy
               pkgs.git
+              pkgs.google-chrome
               pkgs.iterm2
               pkgs.jq
               pkgs.nixfmt-rfc-style
+              pkgs.vscode
             ];
 
             fonts.packages = [

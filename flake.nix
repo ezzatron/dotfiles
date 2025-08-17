@@ -84,6 +84,7 @@
               taps = builtins.attrNames config.nix-homebrew.taps;
 
               brews = [
+                "cloudflare-wrangler" # For testing against Cloudflare Worker runtime - Nix package installation takes forever
                 "jmalloc/grit/grit" # No Nix package.
               ];
 
@@ -162,7 +163,6 @@
               pkgs.unixtools.watch
               pkgs.vale
               pkgs.vscode
-              pkgs.wrangler # For testing against Cloudflare Worker runtime
               pkgs.z-lua
             ];
 

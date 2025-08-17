@@ -55,7 +55,6 @@
           {
             environment.systemPackages = [
               pkgs.git
-              pkgs.coreutils
               pkgs.iterm2
               pkgs.jq
               pkgs.nixfmt-rfc-style

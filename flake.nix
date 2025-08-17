@@ -88,8 +88,21 @@
               ];
 
               casks = [
+                "calibre" # Nix package is broken.
+                "docker-desktop" # No Nix package.
+                "figma" # No Nix package.
+                "guitar-pro" # No Nix package.
+                "keyboardcleantool" # No Nix package.
+                "messenger" # No Nix package.
                 "scroll-reverser" # No Nix package.
+                "steam" # Nix package is broken.
               ];
+
+              masApps = {
+                "MusicHarbor" = 1440405750;
+                "Pixelmator Pro" = 1289583905;
+                "TestFlight" = 899247664;
+              };
             };
           }
         )
@@ -119,14 +132,38 @@
             };
 
             environment.systemPackages = [
+              pkgs.adrs
               pkgs.aldente
+              pkgs.asdf-vm
+              pkgs.bun
+              pkgs.clang-tools # To format .proto files
+              pkgs.colordiff
+              pkgs.deno
               pkgs.diff-so-fancy
+              pkgs.direnv
+              pkgs.evans
+              pkgs.firefox-devedition
+              pkgs.gh
               pkgs.git
+              pkgs.go
               pkgs.google-chrome
+              pkgs.iina
               pkgs.iterm2
               pkgs.jq
-              pkgs.nixfmt-rfc-style
+              pkgs.kubectl
+              pkgs.kubectx
+              pkgs.kubernetes-helm
+              pkgs.mob
+              pkgs.nixfmt-rfc-style # To format .nix files
+              pkgs.nodejs_24
+              pkgs.protobuf
+              pkgs.slack
+              pkgs.terraform
+              pkgs.unixtools.watch
+              pkgs.vale
               pkgs.vscode
+              pkgs.wrangler # For testing against Cloudflare Worker runtime
+              pkgs.z-lua
             ];
 
             fonts.packages = [

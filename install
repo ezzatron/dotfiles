@@ -13,7 +13,7 @@ if [[ -f install && -f flake.nix ]]; then
   echo "Running locally, skipping download."
 else
   echo "Downloading dotfiles..."
-  dir=$(mktemp -d -t dotfiles)
+  dir=$(mktemp -d "${TMPDIR:-/tmp}/dotfiles.XXXXXXXXX")
   trap 'rm -rf -- "$dir"' EXIT
   cd "$dir"
   curl \

@@ -7,29 +7,6 @@ files for my terminal, shell, prompt, macOS, and other software.
 
 ["dotfiles"]: https://wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments
 
-## Features
-
-- Semi-automated [installation]
-- [macOS] customizations
-- [Homebrew] for apps and packages
-- [Prezto] for `zsh` customization
-- [Powerlevel10k] for prompt customization
-- [iTerm] customization
-- [1Password] integration for `ssh`
-- [Git] customizations, including signing with SSH
-- [Touch ID] for `sudo`
-- Can be extended with other (potentially private) dotfiles repos
-
-[1password]: https://1password.com/
-[git]: https://git-scm.com/
-[homebrew]: https://brew.sh/
-[installation]: #installation
-[iterm]: https://iterm2.com/
-[macos]: https://apple.com/macos/
-[powerlevel10k]: https://github.com/romkatv/powerlevel10k
-[prezto]: https://github.com/sorin-ionescu/prezto
-[touch id]: https://wikipedia.org/wiki/Touch_ID
-
 ## Installation
 
 > ⚠️ This repo is not intended for installation by anyone other than myself. It

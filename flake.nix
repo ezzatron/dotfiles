@@ -54,6 +54,8 @@
           { pkgs, ... }:
           {
             environment.systemPackages = [
+              pkgs._1password-cli
+              pkgs._1password-gui
               pkgs.git
               pkgs.iterm2
               pkgs.jq

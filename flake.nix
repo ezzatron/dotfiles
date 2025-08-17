@@ -82,6 +82,20 @@
               primaryUser = "erin";
               configurationRevision = self.rev or self.dirtyRev or null;
               stateVersion = 6;
+
+              defaults = {
+                CustomUserPreferences = {
+                  "com.googlecode.iterm2" = {
+                    # Don’t display the annoying prompt when quitting iTerm
+                    PromptOnQuit = false;
+                    OnlyWhenMoreTabs = false;
+
+                    # Use preferences managed by home-manager
+                    PrefsCustomFolder = "${user.home}/.config/iterm2";
+                    LoadPrefsFromCustomFolder = true;
+                  };
+                };
+              };
             };
 
             users.users.${user.name} = user;

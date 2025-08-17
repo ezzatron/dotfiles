@@ -14,6 +14,11 @@
     mac-app-util = {
       url = "github:hraban/mac-app-util";
     };
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -22,6 +27,7 @@
       nixpkgs,
       nix-darwin,
       mac-app-util,
+      home-manager,
     }:
     let
       user = {
@@ -31,6 +37,18 @@
 
       modules = [
         mac-app-util.darwinModules.default
+
+        home-manager.darwinModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            sharedModules = [
+              mac-app-util.homeManagerModules.default
+            ];
+            users.${user.name} = import ./home.nix;
+          };
+        }
 
         (
           { pkgs, ... }:

@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -e
+set -o pipefail
+
+export REPO="ezzatron/dotfiles"
+export BRANCH="nix"
+
+# Prompt immediately for sudo, and keep it alive while the install script runs
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done &>/dev/null &
+
+# Download this repo to a temp dir and run further commands from there
+dir=$(mktemp -d -t dotfiles)
+trap 'rm -rf -- "$dir"' EXIT
+cd "$dir"
+curl \
+  --fail \
+  --silent \
+  --show-error \
+  --location \
+  --output dotfiles.zip \
+  "https://github.com/${REPO}/archive/refs/heads/${BRANCH}.zip"
+unzip -q dotfiles.zip
+cd "dotfiles-${BRANCH}"
+
+# Install Lix with flakes, unattended
+if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
+    echo "Lix is already installed."
+    source "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+else
+    echo "Installing Lix..."
+    curl -sSf -L https://install.lix.systems/lix \
+        | NIX_INSTALLER_ENABLE_FLAKES=true sh -s -- install --no-confirm
+    source "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+    echo "Lix installed."
+fi

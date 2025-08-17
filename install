@@ -9,19 +9,24 @@ export BRANCH="nix"
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done &>/dev/null &
 
-# Download this repo to a temp dir and run further commands from there
-dir=$(mktemp -d -t dotfiles)
-trap 'rm -rf -- "$dir"' EXIT
-cd "$dir"
-curl \
-  --fail \
-  --silent \
-  --show-error \
-  --location \
-  --output dotfiles.zip \
-  "https://github.com/${REPO}/archive/refs/heads/${BRANCH}.zip"
-unzip -q dotfiles.zip
-cd "dotfiles-${BRANCH}"
+if [[ -f install && -f flake.nix ]]; then
+  echo "Running locally, skipping download."
+else
+  echo "Downloading dotfiles..."
+  dir=$(mktemp -d -t dotfiles)
+  trap 'rm -rf -- "$dir"' EXIT
+  cd "$dir"
+  curl \
+    --fail \
+    --silent \
+    --show-error \
+    --location \
+    --output dotfiles.zip \
+    "https://github.com/${REPO}/archive/refs/heads/${BRANCH}.zip"
+  unzip -q dotfiles.zip
+  cd "dotfiles-${BRANCH}"
+  echo "Dotfiles downloaded."
+fi
 
 # Install Lix with flakes
 if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then

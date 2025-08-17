@@ -19,38 +19,37 @@
       home = "/Users/erin";
     };
 
-    modules = [
-      {
-        environment.systemPackages = [
-          pkgs.nixfmt-rfc-style
-        ];
+    configuration = { pkgs, ... }: {
+      environment.systemPackages = [
+        pkgs.nixfmt-rfc-style
+      ];
 
-        nix = {
-          settings = {
-            experimental-features = "nix-command flakes";
-          };
+      nix = {
+        settings = {
+          experimental-features = "nix-command flakes";
         };
+      };
 
-        nixpkgs = {
-          hostPlatform = "aarch64-darwin";
-          config = {
-            allowUnfree = true;
-          };
+      nixpkgs = {
+        hostPlatform = "aarch64-darwin";
+        config = {
+          allowUnfree = true;
         };
+      };
 
-        system = {
-          primaryUser = "erin";
-          configurationRevision = self.rev or self.dirtyRev or null;
-          stateVersion = 6;
-        };
+      system = {
+        primaryUser = "erin";
+        configurationRevision = self.rev or self.dirtyRev or null;
+        stateVersion = 6;
+      };
 
-        users.users.${user.name} = user;
-      }
-    ];
+      users.users.${user.name} = user;
+    };
   in
   {
     darwinConfigurations."ccd1c1b3" = nix-darwin.lib.darwinSystem {
-      modules = modules ++ [
+      modules = [
+        configuration
         {
           networking.hostName = "erins-mbp";
         }

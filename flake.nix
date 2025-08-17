@@ -55,5 +55,14 @@
         }
       ];
     };
+
+    darwinConfigurations."2c3ba79f" = nix-darwin.lib.darwinSystem {
+      modules = [
+        configuration
+        {
+          networking.hostName = "erins-mbp-2c3ba79f";
+        }
+      ];
+    };
   };
 }

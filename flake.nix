@@ -1,0 +1,60 @@
+{
+  description = "ezzatron's dotfiles flake";
+
+  inputs = {
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    };
+
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  let
+    user = {
+      name = "erin";
+      home = "/Users/erin";
+    };
+
+    modules = [
+      {
+        environment.systemPackages = [
+          pkgs.nixfmt-rfc-style
+        ];
+
+        nix = {
+          settings = {
+            experimental-features = "nix-command flakes";
+          };
+        };
+
+        nixpkgs = {
+          hostPlatform = "aarch64-darwin";
+          config = {
+            allowUnfree = true;
+          };
+        };
+
+        system = {
+          primaryUser = "erin";
+          configurationRevision = self.rev or self.dirtyRev or null;
+          stateVersion = 6;
+        };
+
+        users.users.${user.name} = user;
+      }
+    ];
+  in
+  {
+    darwinConfigurations."ccd1c1b3" = nix-darwin.lib.darwinSystem {
+      modules = modules ++ [
+        {
+          networking.hostName = "erins-mbp";
+        }
+      ];
+    };
+  };
+}

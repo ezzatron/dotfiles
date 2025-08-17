@@ -23,7 +23,7 @@ curl \
 unzip -q dotfiles.zip
 cd "dotfiles-${BRANCH}"
 
-# Install Lix with flakes, unattended
+# Install Lix with flakes
 if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
     echo "Lix is already installed."
     source "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
@@ -34,3 +34,6 @@ else
     source "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
     echo "Lix installed."
 fi
+
+# Switch to the flake for this machine
+sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake ".#$(./bin/mac-serial-hash)"

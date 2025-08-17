@@ -31,6 +31,10 @@
             pkgs.nixfmt-rfc-style
           ];
 
+          fonts.packages = [
+            pkgs.nerd-fonts.victor-mono
+          ];
+
           nix = {
             settings = {
               experimental-features = "nix-command flakes";

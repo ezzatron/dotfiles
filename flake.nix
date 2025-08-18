@@ -204,6 +204,10 @@
             };
 
             users.users.${user.name} = user;
+
+            security = {
+              pam.services.sudo_local.touchIdAuth = true;
+            };
           }
         )
       ];

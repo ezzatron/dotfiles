@@ -89,17 +89,30 @@
               ];
 
               casks = [
-                "1password-cli" # 1Password integration is broken via Nix.
-                "1password" # 1Password integration is broken via Nix.
-                "calibre" # Nix package is broken.
-                "docker-desktop" # No Nix package.
-                "figma" # No Nix package.
-                "google-chrome" # 1Password integration is broken via Nix.
-                "guitar-pro" # No Nix package.
-                "keyboardcleantool" # No Nix package.
-                "messenger" # No Nix package.
-                "scroll-reverser" # No Nix package.
-                "steam" # Nix package is broken.
+                "1password-cli"
+                "1password"
+                "aldente"
+                "calibre"
+                "chatgpt"
+                "discord"
+                "docker"
+                "figma"
+                "google-chrome"
+                "guitar-pro"
+                "iina"
+                "iterm2"
+                "keyboardcleantool"
+                "messenger"
+                "microsoft-edge"
+                "scroll-reverser"
+                "slack"
+                "steam"
+                "visual-studio-code"
+
+                {
+                  name = "firefox@developer-edition";
+                  args = { language = "en-GB"; };
+                }
               ];
 
               masApps = {
@@ -128,22 +141,17 @@
           {
             environment.systemPackages = [
               pkgs.adrs
-              pkgs.aldente
               pkgs.asdf-vm
               pkgs.bun
-              pkgs.chatgpt
               pkgs.clang-tools # To format .proto files
               pkgs.colordiff
               pkgs.deno
               pkgs.diff-so-fancy
               pkgs.direnv
               pkgs.evans
-              pkgs.firefox-devedition
               pkgs.gh
               pkgs.git
               pkgs.go
-              pkgs.iina
-              pkgs.iterm2
               pkgs.jq
               pkgs.kubectl
               pkgs.kubectx
@@ -152,11 +160,9 @@
               pkgs.nixfmt-rfc-style # To format .nix files
               pkgs.nodejs_24
               pkgs.protobuf
-              pkgs.slack
               pkgs.terraform
               pkgs.unixtools.watch
               pkgs.vale
-              pkgs.vscode
               pkgs.z-lua
             ];
 

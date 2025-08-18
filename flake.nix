@@ -111,7 +111,9 @@
 
                 {
                   name = "firefox@developer-edition";
-                  args = { language = "en-GB"; };
+                  args = {
+                    language = "en-GB";
+                  };
                 }
               ];
 

@@ -135,6 +135,7 @@
               mac-app-util.homeManagerModules.default
             ];
             users.${user.name} = import ./home.nix;
+            backupFileExtension = "backup";
           };
         }
 

@@ -16,6 +16,7 @@
 
   imports = [
     ./home/aws.nix
+    ./home/git.nix
     ./home/iterm.nix
     ./home/ssh.nix
     ./home/zsh.nix

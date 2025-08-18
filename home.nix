@@ -18,5 +18,6 @@
     ./home/aws.nix
     ./home/iterm.nix
     ./home/ssh.nix
+    ./home/zsh.nix
   ];
 }

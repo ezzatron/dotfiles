@@ -116,7 +116,7 @@
 
       gpg = {
         # sign with an SSH key instead of GPG
-        format = ssh;
+        format = "ssh";
 
         "ssh" = {
           # this must be configured in order to verify SSH signatures on commits

@@ -137,6 +137,7 @@
               pkgs.aldente
               pkgs.asdf-vm
               pkgs.bun
+              pkgs.chatgpt
               pkgs.clang-tools # To format .proto files
               pkgs.colordiff
               pkgs.deno

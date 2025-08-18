@@ -84,7 +84,7 @@
               taps = builtins.attrNames config.nix-homebrew.taps;
 
               brews = [
-                "cloudflare-wrangler" # For testing against Cloudflare Worker runtime - Nix package installation takes forever
+                "cloudflare-wrangler" # For testing against Cloudflare Worker runtime. Nix package installation takes forever.
                 "jmalloc/grit/grit" # No Nix package.
               ];
 

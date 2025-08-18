@@ -89,9 +89,12 @@
               ];
 
               casks = [
+                "1password-cli" # 1Password integration is broken via Nix.
+                "1password" # 1Password integration is broken via Nix.
                 "calibre" # Nix package is broken.
                 "docker-desktop" # No Nix package.
                 "figma" # No Nix package.
+                "google-chrome" # 1Password integration is broken via Nix.
                 "guitar-pro" # No Nix package.
                 "keyboardcleantool" # No Nix package.
                 "messenger" # No Nix package.
@@ -123,15 +126,6 @@
         (
           { pkgs, ... }:
           {
-            programs = {
-              _1password = {
-                enable = true;
-              };
-              _1password-gui = {
-                enable = true;
-              };
-            };
-
             environment.systemPackages = [
               pkgs.adrs
               pkgs.aldente
@@ -148,7 +142,6 @@
               pkgs.gh
               pkgs.git
               pkgs.go
-              pkgs.google-chrome
               pkgs.iina
               pkgs.iterm2
               pkgs.jq

@@ -17,5 +17,6 @@
   imports = [
     ./home/aws.nix
     ./home/iterm.nix
+    ./home/ssh.nix
   ];
 }

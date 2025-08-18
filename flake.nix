@@ -95,7 +95,7 @@
                 "calibre"
                 "chatgpt"
                 "discord"
-                "docker"
+                "docker-desktop"
                 "figma"
                 "google-chrome"
                 "guitar-pro"

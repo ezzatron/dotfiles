@@ -7,6 +7,10 @@
       enable = true;
     };
 
+    historySubstringSearch = {
+      enable = true;
+    };
+
     syntaxHighlighting = {
       enable = true;
     };

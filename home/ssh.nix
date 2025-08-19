@@ -7,9 +7,9 @@
 
     file.sshAllowedSigners = {
       enable = true;
+      force = true;
       source = ./ssh-allowed-signers;
       target = ".ssh/allowed_signers";
-      force = true;
     };
   };
 

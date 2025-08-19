@@ -5,7 +5,7 @@
     enableZshIntegration = true;
 
     settings = {
-      format = "$shlvl$directory$git_branch$git_commit$git_state$git_metrics$git_status";
+      format = "$shlvl$directory$git_branch$git_commit$git_state$git_metrics$git_status$character";
       right_format = "$status$cmd_duration$time";
 
       cmd_duration = {

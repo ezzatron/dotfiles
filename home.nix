@@ -6,6 +6,12 @@
     sessionVariables = {
       PATH = "$HOME/bin:$PATH";
     };
+
+    activation = {
+      screenshotsDir = ''
+        mkdir "$HOME/Screenshots"
+      '';
+    };
   };
 
   programs = {

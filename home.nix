@@ -4,8 +4,8 @@
     stateVersion = "25.11";
 
     sessionVariables = {
-      # Run executables from ~/bin
-      PATH = "$HOME/bin:$PATH";
+      # Run executables from these paths
+      PATH = "$HOME/.asdf/shims:$HOME/bin:$PATH";
 
       # Match "word" characters in line editor with tools like VSCode
       WORDCHARS = "_";
@@ -25,6 +25,7 @@
   };
 
   imports = [
+    ./home/asdf.nix
     ./home/aws.nix
     ./home/direnv.nix
     ./home/git.nix

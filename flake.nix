@@ -153,7 +153,6 @@
           {
             environment.systemPackages = [
               pkgs.adrs
-              pkgs.asdf-vm
               pkgs.bun
               pkgs.clang-tools # To format .proto files
               pkgs.colordiff

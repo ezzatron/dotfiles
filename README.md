@@ -24,7 +24,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Check for TouchID sudo enabled
 - [ ] Update command
 - [ ] Reduce size PDF filter
-- [ ] ASDF integration
+- [ ] ASDF plugin installation
 - [ ] Mob tool config
 - [ ] Options for `less`
 - [ ] Disable some Node warnings, allow type stripping
@@ -35,3 +35,4 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Extended Finder view preferences
 - [ ] Open apps on activate?
 - [ ] Extension system
+- [ ] Add mas

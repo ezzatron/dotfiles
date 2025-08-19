@@ -16,3 +16,26 @@ files for my terminal, shell, prompt, macOS, and other software.
 ```shell
 bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/install)
 ```
+
+## TODO
+
+- [ ] `gh` copilot extension
+- [ ] `ghce` and `ghcs` aliases
+- [ ] Git slugs in iTerm windows
+- [ ] `SHLVL` prompt segment
+- [ ] Check for TouchID sudo enabled
+- [ ] Update command
+- [ ] Reduce size PDF filter
+- [ ] ASDF integration
+- [ ] Mob tool config
+- [ ] Options for `less`
+- [ ] Disable some Node warnings, allow type stripping
+- [ ] iTerm shell integration
+- [ ] 1Password CLI completions
+- [ ] Install 1Password for Safari
+- [ ] Private environment variables
+- [ ] Create `~/bin`
+- [ ] Extended Finder view preferences
+- [ ] Open apps on activate?
+- [ ] Extension system
+- [ ] Customize starship prompt

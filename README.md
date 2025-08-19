@@ -21,7 +21,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 
 - [ ] `gh` copilot extension
 - [ ] `ghce` and `ghcs` aliases
-- [ ] `SHLVL` prompt segment
 - [ ] Check for TouchID sudo enabled
 - [ ] Update command
 - [ ] Reduce size PDF filter

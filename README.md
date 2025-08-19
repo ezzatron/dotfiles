@@ -30,7 +30,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Disable some Node warnings, allow type stripping
 - [ ] 1Password CLI completions
 - [ ] Private environment variables
-- [ ] Create `~/bin`
 - [ ] Extended Finder view preferences
 - [ ] Open apps on activate?
 - [ ] Extension system

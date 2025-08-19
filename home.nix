@@ -9,7 +9,8 @@
     };
 
     activation = {
-      screenshotsDir = ''
+      postActivation = ''
+        mkdir -p "$HOME/bin"
         mkdir -p "$HOME/Screenshots"
       '';
     };

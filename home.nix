@@ -13,7 +13,7 @@
 
     activation = {
       screenshotsDir = ''
-        mkdir "$HOME/Screenshots"
+        mkdir -p "$HOME/Screenshots"
       '';
     };
   };
@@ -30,6 +30,7 @@
     ./home/iterm.nix
     ./home/ssh.nix
     ./home/starship.nix
+    ./home/z-lua.nix
     ./home/zsh.nix
   ];
 }

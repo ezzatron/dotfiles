@@ -165,7 +165,6 @@
               pkgs.terraform
               pkgs.unixtools.watch
               pkgs.vale
-              pkgs.z-lua
             ];
 
             fonts.packages = [

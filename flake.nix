@@ -149,7 +149,6 @@
               pkgs.clang-tools # To format .proto files
               pkgs.colordiff
               pkgs.deno
-              pkgs.direnv
               pkgs.evans
               pkgs.gh
               pkgs.git

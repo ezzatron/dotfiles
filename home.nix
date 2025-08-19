@@ -26,6 +26,7 @@
 
   imports = [
     ./home/aws.nix
+    ./home/direnv.nix
     ./home/git.nix
     ./home/iterm.nix
     ./home/ssh.nix

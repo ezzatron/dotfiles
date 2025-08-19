@@ -3,6 +3,8 @@
   programs.zsh = {
     enable = true;
 
+    initContent = builtins.readFile ./zsh-init-content.zsh;
+
     autosuggestion = {
       enable = true;
     };

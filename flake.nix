@@ -92,6 +92,7 @@
               brews = [
                 "cloudflare-wrangler" # For testing against Cloudflare Worker runtime. Nix package installation takes forever.
                 "jmalloc/grit/grit" # No Nix package.
+                "mas" # To avoid mas getting uninstalled every time.
               ];
 
               casks = [

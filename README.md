@@ -36,3 +36,4 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Open apps on activate?
 - [ ] Extension system
 - [ ] Add mas
+- [ ] Add bat

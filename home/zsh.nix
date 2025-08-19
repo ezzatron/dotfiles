@@ -14,6 +14,10 @@
       # include Grit completions
       # see https://github.com/jmalloc/grit#:~:text=eval%20%22%24(grit-,shell%2Dintegration,-)%22
       eval "$(grit shell-integration)"
+
+      # modify path here, otherwise it gets clobbered by Homebrew
+      export PATH="$HOME/bin:$PATH"
+      export PATH="$HOME/.asdf/shims:$PATH"
     '';
 
     autosuggestion = {

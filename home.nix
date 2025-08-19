@@ -4,7 +4,11 @@
     stateVersion = "25.11";
 
     sessionVariables = {
+      # Run executables from ~/bin
       PATH = "$HOME/bin:$PATH";
+
+      # Match "word" characters in line editor with tools like VSCode
+      WORDCHARS = "_";
     };
 
     activation = {

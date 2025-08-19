@@ -202,9 +202,6 @@
                   KeyRepeat = 2;
                   InitialKeyRepeat = 25;
 
-                  # Disable janky animation when zooming windows (works intermittently)
-                  NSAutomaticWindowAnimationsEnabled = false;
-
                   # Enable tap-to-click
                   "com.apple.mouse.tapBehavior" = 1;
 
@@ -220,23 +217,11 @@
 
                   # use 24-hour time format
                   AppleICUForce24HourTime = true;
-                  # TODO
-                  # AppleICUDateFormatStrings = {
-                  #   "1" = "y-MM-dd";
-                  #   "2" = "y-MM-dd";
-                  #   "3" = "y-MM-dd";
-                  #   "4" = "y-MM-dd";
-                  # };
                 };
 
                 SoftwareUpdate = {
                   # Automatic updates
                   AutomaticallyInstallMacOSUpdates = true;
-                  # TODO
-                  # AutomaticCheckEnabled = true;
-                  # AutomaticDownload = true;
-                  # ConfigDataInstall = true;
-                  # CriticalUpdateInstall = true;
                 };
 
                 dock = {
@@ -262,15 +247,11 @@
                   # Speed up Mission Control animations
                   expose-animation-duration = 0.1;
 
-                  # Top-left hot corner turns on screen saver when holding the command key
+                  # Top-left hot corner turns on screen saver
                   wvous-tl-corner = 5;
-                  # TODO
-                  # wvous-tl-modifier = 1048576;
 
-                  # Top-right hot corner tuns off screen when holding the command key
+                  # Top-right hot corner turns off screen
                   wvous-tr-corner = 10;
-                  # TODO
-                  # wvous-tr-modifier = 1048576;
 
                   # Bottom-right hot corner is disabled
                   wvous-br-corner = 1;
@@ -310,14 +291,6 @@
                   # Show the Finder status bar
                   ShowStatusBar = true;
 
-                  # Hide Finder recent tags
-                  # TODO
-                  # ShowRecentTags = false;
-
-                  # Open folders in new Finder windows instead of tabs
-                  # TODO
-                  # FinderSpawnTab = false;
-
                   # Use list view in all Finder windows by default
                   FXPreferredViewStyle = "Nlsv";
 
@@ -335,27 +308,43 @@
                   ShowHardDrivesOnDesktop = false;
                   ShowMountedServersOnDesktop = false;
                   ShowRemovableMediaOnDesktop = false;
-
-                  # Automatically open a new Finder window when a volume is mounted
-                  # TODO
-                  # OpenWindowForNewRemovableDisk = true;
                 };
 
                 CustomUserPreferences = {
+                  NSGlobalDomain = {
+                    # use ISO-style dates
+                    AppleICUDateFormatStrings = {
+                      "1" = "y-MM-dd";
+                      "2" = "y-MM-dd";
+                      "3" = "y-MM-dd";
+                      "4" = "y-MM-dd";
+                    };
+                  };
+
                   ".GlobalPreferences" = {
                     # Set programmer-friendly word break characters
                     AppleTextBreakLocale = "en_US_POSIX";
                   };
 
-                  "com.apple.menuextra.clock" = {
-                    # Set menu clock format
-                    DateFormat = "EEE MMM d h:mm a";
+                  "com.apple.finder" = {
+                    # Hide Finder recent tags
+                    ShowRecentTags = false;
+
+                    # Open folders in new Finder windows instead of tabs
+                    FinderSpawnTab = false;
                   };
 
-                  "com.apple.frameworks.diskimages" = {
-                    # Automatically open a new Finder window when a volume is mounted
-                    auto-open-ro-root = true;
-                    auto-open-rw-root = true;
+                  "com.apple.dock" = {
+                    # Use command key modifier for hot corners
+                    wvous-tl-modifier = 1048576;
+                    wvous-tr-modifier = 1048576;
+                    wvous-bl-modifier = 1048576;
+                    wvous-br-modifier = 1048576;
+                  };
+
+                  "com.apple.menuextra.clock" = {
+                    # Set menu clock format
+                    DateFormat = "EEE MMM d HH:mm a";
                   };
 
                   "com.apple.dashboard" = {
@@ -363,11 +352,10 @@
                     mcx-disabled = true;
                   };
 
-                  # TODO
-                  # "/Library/Preferences/com.apple.commerce.plist" = {
-                  #   # Automatic updates
-                  #   AutoUpdate = true;
-                  # };
+                  "com.apple.commerce" = {
+                    # Automatic App Store app updates
+                    AutoUpdate = true;
+                  };
 
                   "com.apple.dt.Xcode" = {
                     # Force Xcode to use the built-in version of Git for installing dependencies

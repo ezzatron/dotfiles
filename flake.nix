@@ -125,6 +125,7 @@
               ];
 
               masApps = {
+                "1Password for Safari" = 1569813296;
                 "MusicHarbor" = 1440405750;
                 "Pixelmator Pro" = 1289583905;
                 "TestFlight" = 899247664;

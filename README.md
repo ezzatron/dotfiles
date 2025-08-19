@@ -29,7 +29,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Options for `less`
 - [ ] Disable some Node warnings, allow type stripping
 - [ ] 1Password CLI completions
-- [ ] Install 1Password for Safari
 - [ ] Private environment variables
 - [ ] Create `~/bin`
 - [ ] Extended Finder view preferences

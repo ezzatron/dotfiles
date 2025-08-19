@@ -35,4 +35,3 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Extended Finder view preferences
 - [ ] Open apps on activate?
 - [ ] Extension system
-- [ ] Customize starship prompt

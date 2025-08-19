@@ -121,6 +121,18 @@
         "type": "github"
       }
     },
+    "iterm-shell-integration": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-a1FCU7ohTo5JLL+TEUP9+y+W7+dwhz1qBy9tzaH7QkQ=",
+        "type": "file",
+        "url": "https://iterm2.com/shell_integration/zsh"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://iterm2.com/shell_integration/zsh"
+      }
+    },
     "jmalloc-homebrew-grit": {
       "flake": false,
       "locked": {
@@ -235,6 +247,7 @@
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "iterm-shell-integration": "iterm-shell-integration",
         "jmalloc-homebrew-grit": "jmalloc-homebrew-grit",
         "mac-app-util": "mac-app-util",
         "nix-darwin": "nix-darwin",

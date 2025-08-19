@@ -21,7 +21,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 
 - [ ] `gh` copilot extension
 - [ ] `ghce` and `ghcs` aliases
-- [ ] Git slugs in iTerm windows
 - [ ] `SHLVL` prompt segment
 - [ ] Check for TouchID sudo enabled
 - [ ] Update command
@@ -30,7 +29,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Mob tool config
 - [ ] Options for `less`
 - [ ] Disable some Node warnings, allow type stripping
-- [ ] iTerm shell integration
 - [ ] 1Password CLI completions
 - [ ] Install 1Password for Safari
 - [ ] Private environment variables

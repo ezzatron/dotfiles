@@ -1,7 +1,14 @@
-{ pkgs, ... }:
+{ iterm-shell-integration, ... }:
 {
   home = {
-    file.iterm = {
+    file.itermShell = {
+      enable = true;
+      force = true;
+      source = iterm-shell-integration;
+      target = ".config/iterm2/shell-integration.zsh";
+    };
+
+    file.itermPrefs = {
       enable = true;
       force = true;
       source = ./iterm.plist;

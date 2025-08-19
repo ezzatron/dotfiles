@@ -35,6 +35,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    iterm-shell-integration = {
+      url = "https://iterm2.com/shell_integration/zsh";
+      flake = false;
+    };
   };
 
   outputs =
@@ -48,6 +53,7 @@
       jmalloc-homebrew-grit,
       mac-app-util,
       home-manager,
+      iterm-shell-integration,
     }:
     let
       user = {
@@ -136,6 +142,9 @@
             ];
             users.${user.name} = import ./home.nix;
             backupFileExtension = "backup";
+            extraSpecialArgs = {
+              iterm-shell-integration = iterm-shell-integration;
+            };
           };
         }
 

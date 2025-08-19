@@ -1,9 +1,20 @@
-{ ... }:
+{ lib, ... }:
 {
   programs.zsh = {
     enable = true;
 
-    initContent = builtins.readFile ./zsh-init-content.zsh;
+    initContent = lib.mkOrder 1500 ''
+      # include iTerm shell integration
+      [[ "$TERM_PROGRAM" == "iTerm.app" ]] && source "$HOME/.config/iterm2/shell-integration.zsh"
+
+      # include VSCode shell integration
+      # see https://code.visualstudio.com/docs/terminal/shell-integration
+      [[ "$TERM_PROGRAM" == "vscode" ]] && source "$(code --locate-shell-integration-path zsh)"
+
+      # include Grit completions
+      # see https://github.com/jmalloc/grit#:~:text=eval%20%22%24(grit-,shell%2Dintegration,-)%22
+      eval "$(grit shell-integration)"
+    '';
 
     autosuggestion = {
       enable = true;
@@ -14,9 +25,8 @@
     };
 
     siteFunctions = {
+      # override standard git commands with aliases
       git = ''
-        # override standard git commands with aliases
-
         if [ "$1" = "show" ]; then
           command git x-show "''${@:2}"
         elif [ "$1" = "push" ]; then
@@ -34,6 +44,29 @@
         else
           command git "$@"
         fi
+      '';
+
+      # outputs the Git repo slug (e.g. ezzatron/dotfiles)
+      git-slug = ''
+        if ! URL="$(git config --get remote.origin.url)"; then
+          return 1
+        fi
+
+        if [[ "$URL" =~ [:/]([^/:]+/[^/]+)\.git$ ]]; then
+          echo "''${match[1]}"
+        elif [[ "$1" == '--fuzzy' ]]; then
+          echo "???/$(basename "$(pwd)")"
+        else
+          return 1
+        fi
+      '';
+
+      # defines an iTerm user variable containing the current Git slug
+      #
+      # this is used to display the slug in an iTerm "badge"
+      # see https://iterm2.com/documentation-badges.html
+      iterm2_print_user_vars = ''
+        iterm2_set_user_var gitSlug "$(git-slug)"
       '';
     };
 

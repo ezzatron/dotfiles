@@ -39,4 +39,13 @@
       enable = true;
     };
   };
+
+  home.shellAliases = {
+    # Listing aliases
+    # -h = human-readable sizes
+    # -G = colorize output
+    # -l = long format
+    ls = "ls -hG";
+    ll = "ls -lhG";
+  };
 }

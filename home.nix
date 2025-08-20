@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   home = {
     stateVersion = "25.11";
@@ -10,8 +10,12 @@
 
     activation = {
       postActivation = ''
+        echo "Creating user directories..."
         mkdir -p "$HOME/bin"
         mkdir -p "$HOME/Screenshots"
+
+        echo "Installing asdf plugins..."
+        ${pkgs.asdf-vm}/bin/asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
       '';
     };
   };

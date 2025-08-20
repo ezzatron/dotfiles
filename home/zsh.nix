@@ -33,6 +33,9 @@
     };
 
     siteFunctions = {
+      ghce = builtins.readFile ./zsh-function-ghce.zsh;
+      ghcs = builtins.readFile ./zsh-function-ghcs.zsh;
+
       # override standard git commands with aliases
       git = ''
         if [ "$1" = "show" ]; then

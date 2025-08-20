@@ -19,7 +19,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 
 ## TODO
 
-- [ ] `ghce` and `ghcs` aliases
 - [ ] Update command
 - [ ] Private environment variables
 - [ ] Open apps on activate?

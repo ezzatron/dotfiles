@@ -31,6 +31,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Extended Finder view preferences
 - [ ] Open apps on activate?
 - [ ] Extension system
+- [ ] WIP prompt segment
 
 ## Post-installation steps
 

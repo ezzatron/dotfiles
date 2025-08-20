@@ -26,12 +26,12 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] ASDF plugin installation
 - [ ] Options for `less`
 - [ ] Disable some Node warnings, allow type stripping
-- [ ] 1Password CLI completions
 - [ ] Private environment variables
 - [ ] Extended Finder view preferences
 - [ ] Open apps on activate?
 - [ ] Extension system
 - [ ] WIP prompt segment
+- [ ] Fix completions for `brew` and `mas`
 
 ## Post-installation steps
 

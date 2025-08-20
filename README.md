@@ -31,7 +31,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Open apps on activate?
 - [ ] Extension system
 - [ ] WIP prompt segment
-- [ ] Fix completions for `brew` and `mas`
 
 ## Post-installation steps
 

@@ -11,7 +11,7 @@
     activation = {
       copyFilters = ''
         mkdir -p "$HOME/Library/Filters"
-        cp "$HOME/.config/filters/"*.qfilter "$HOME/Library/Filters/"
+        cp -f "$HOME/.config/filters/"*.qfilter "$HOME/Library/Filters/"
       '';
     };
   };

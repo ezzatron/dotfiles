@@ -5,7 +5,7 @@
     enableZshIntegration = true;
 
     settings = {
-      format = "$shlvl$directory$git_branch$git_commit$git_state$git_metrics$git_status$line_break$character";
+      format = "$shlvl$directory$git_branch$git_commit$git_state$git_metrics$git_status\${custom.git_wip}$line_break$character";
       right_format = "$status$cmd_duration$time";
 
       cmd_duration = {
@@ -38,6 +38,13 @@
 
       time = {
         disabled = false;
+      };
+
+      custom.git_wip = {
+        require_repo = true;
+        symbol = "\\[WIP\\] ";
+        style = "bold red";
+        when = "grep -i WIP <(git log -n 1 --pretty=%B)";
       };
     };
   };

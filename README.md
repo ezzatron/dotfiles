@@ -34,3 +34,13 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Open apps on activate?
 - [ ] Extension system
 - [ ] Add bat
+
+## Post-installation steps
+
+- Stop Chrome from asking to sign in with Google
+  - Settings
+  - Privacy and security
+  - Site settings
+  - Additional content settings
+  - Third-party sign-in
+  - Block sign-in prompts from identity services

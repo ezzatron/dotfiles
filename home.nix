@@ -16,6 +16,9 @@
       # -z-4 = set the scrolling window size to 4 lines less than the screen size
       LESS = "-g -i -M -R -S -w -z-4";
 
+      # Disable some Node.js warnings and always use type stripping
+      NODE_OPTIONS = "--disable-warning=DeprecationWarning --disable-warning=ExperimentalWarning --experimental-strip-types";
+
       # Match "word" characters in line editor with tools like VSCode
       WORDCHARS = "_";
     };

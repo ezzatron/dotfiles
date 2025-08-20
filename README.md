@@ -22,7 +22,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] `gh` copilot extension
 - [ ] `ghce` and `ghcs` aliases
 - [ ] Update command
-- [ ] Options for `less`
 - [ ] Disable some Node warnings, allow type stripping
 - [ ] Private environment variables
 - [ ] Extended Finder view preferences

@@ -4,6 +4,18 @@
     stateVersion = "25.11";
 
     sessionVariables = {
+      # Options for less
+      # I didn't write this, and I can't recall where it came from
+      #
+      # -g   = highlight single search matches instead of all matches
+      # -i   = ignore case in searches if the search string is all lowercase
+      # -M   = more verbose prompt
+      # -R   = display raw control characters while maintaining screen appearance
+      # -S   = chop long lines instead of folding
+      # -w   = highlight the first new line after a forward page movement
+      # -z-4 = set the scrolling window size to 4 lines less than the screen size
+      LESS = "-g -i -M -R -S -w -z-4";
+
       # Match "word" characters in line editor with tools like VSCode
       WORDCHARS = "_";
     };

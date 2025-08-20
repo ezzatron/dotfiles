@@ -23,13 +23,15 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] `ghce` and `ghcs` aliases
 - [ ] Update command
 - [ ] Private environment variables
-- [ ] Extended Finder view preferences
 - [ ] Open apps on activate?
 - [ ] Extension system
 
 ## Post-installation steps
 
 - Start Docker
+- Change Screenshots folder view settings
+  - View > Use Groups
+  - View > Group By > Date Created
 - Stop Chrome from asking to sign in with Google
   - Settings
   - Privacy and security

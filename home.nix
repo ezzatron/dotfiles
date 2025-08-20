@@ -31,6 +31,39 @@
 
         echo "Installing asdf plugins..."
         ${pkgs.asdf-vm}/bin/asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+
+        echo "Configuring advanced system defaults..."
+
+        function plist-set-or-add () {
+          local ENTRY="$1"
+          local TYPE="$2"
+          local VALUE="$3"
+          local PLIST="$4"
+
+          /usr/libexec/PlistBuddy -c "Set $ENTRY $VALUE" "$PLIST" ||
+          /usr/libexec/PlistBuddy -c "Add $ENTRY $TYPE $VALUE" "$PLIST" ||
+          echo "Unable to set or add plist with args:" "$@"
+        }
+
+        # Sort icon views by name
+        plist-set-or-add :DesktopViewSettings:IconViewSettings:arrangeBy string name "$HOME/Library/Preferences/com.apple.finder.plist"
+        plist-set-or-add :FK_StandardViewSettings:IconViewSettings:arrangeBy string name "$HOME/Library/Preferences/com.apple.finder.plist"
+        plist-set-or-add :StandardViewSettings:IconViewSettings:arrangeBy string name "$HOME/Library/Preferences/com.apple.finder.plist"
+
+        # Show item info in icon views
+        plist-set-or-add :DesktopViewSettings:IconViewSettings:showItemInfo bool true "$HOME/Library/Preferences/com.apple.finder.plist"
+        plist-set-or-add :FK_StandardViewSettings:IconViewSettings:showItemInfo bool true "$HOME/Library/Preferences/com.apple.finder.plist"
+        plist-set-or-add :StandardViewSettings:IconViewSettings:showItemInfo bool true "$HOME/Library/Preferences/com.apple.finder.plist"
+
+        # Minimize grid spacing in icon views
+        plist-set-or-add :DesktopViewSettings:IconViewSettings:gridSpacing int 1 "$HOME/Library/Preferences/com.apple.finder.plist"
+        plist-set-or-add :FK_StandardViewSettings:IconViewSettings:gridSpacing int 1 "$HOME/Library/Preferences/com.apple.finder.plist"
+        plist-set-or-add :StandardViewSettings:IconViewSettings:gridSpacing int 1 "$HOME/Library/Preferences/com.apple.finder.plist"
+
+        # Set the icon size in icon views
+        plist-set-or-add :DesktopViewSettings:IconViewSettings:iconSize int 64 "$HOME/Library/Preferences/com.apple.finder.plist"
+        plist-set-or-add :FK_StandardViewSettings:IconViewSettings:iconSize int 64 "$HOME/Library/Preferences/com.apple.finder.plist"
+        plist-set-or-add :StandardViewSettings:IconViewSettings:iconSize int 64 "$HOME/Library/Preferences/com.apple.finder.plist"
       '';
     };
   };

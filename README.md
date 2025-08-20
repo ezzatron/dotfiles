@@ -35,6 +35,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 
 ## Post-installation steps
 
+- Start Docker
 - Stop Chrome from asking to sign in with Google
   - Settings
   - Privacy and security

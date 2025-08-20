@@ -27,6 +27,7 @@
     ./home/aws.nix
     ./home/bat.nix
     ./home/direnv.nix
+    ./home/filters.nix
     ./home/git.nix
     ./home/iterm.nix
     ./home/mob.nix

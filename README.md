@@ -23,7 +23,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] `ghce` and `ghcs` aliases
 - [ ] Check for TouchID sudo enabled
 - [ ] Update command
-- [ ] Reduce size PDF filter
 - [ ] ASDF plugin installation
 - [ ] Options for `less`
 - [ ] Disable some Node warnings, allow type stripping

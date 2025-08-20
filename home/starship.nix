@@ -18,6 +18,12 @@
         truncate_to_repo = false;
       };
 
+      git_status = {
+        ahead = "⇡\${count}";
+        behind = "⇣\${count}";
+        diverged = "⇡\${ahead_count}⇣\${behind_count}";
+      };
+
       shlvl = {
         disabled = false;
         symbol = "󰄷 ";

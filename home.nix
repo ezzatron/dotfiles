@@ -29,6 +29,7 @@
     ./home/direnv.nix
     ./home/git.nix
     ./home/iterm.nix
+    ./home/mob.nix
     ./home/ssh.nix
     ./home/starship.nix
     ./home/z-lua.nix

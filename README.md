@@ -25,7 +25,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Update command
 - [ ] Reduce size PDF filter
 - [ ] ASDF plugin installation
-- [ ] Mob tool config
 - [ ] Options for `less`
 - [ ] Disable some Node warnings, allow type stripping
 - [ ] 1Password CLI completions

@@ -1,0 +1,6 @@
+# defines an iTerm user variable containing the current Git slug
+#
+# this is used to display the slug in an iTerm "badge"
+# see https://iterm2.com/documentation-badges.html
+
+iterm2_set_user_var gitSlug "$(git-slug)"

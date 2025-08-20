@@ -1,3 +1,6 @@
+# ghcs command from the output of "gh copilot alias -- zsh"
+# see https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-the-cli#zsh
+
 FUNCNAME="$funcstack[1]"
 TARGET="shell"
 local GH_DEBUG="$GH_DEBUG"

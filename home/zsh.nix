@@ -35,50 +35,9 @@
     siteFunctions = {
       ghce = builtins.readFile ./zsh-function-ghce.zsh;
       ghcs = builtins.readFile ./zsh-function-ghcs.zsh;
-
-      # override standard git commands with aliases
-      git = ''
-        if [ "$1" = "show" ]; then
-          command git x-show "''${@:2}"
-        elif [ "$1" = "push" ]; then
-          # prevent use force push without lease
-          if [ "$ALLOW_FORCE" != "true" ]; then
-            for ARG in "''${@:2}"; do
-              if [ "$ARG" = "-f" ] || [ "$ARG" = "--force" ]; then
-                echo -e "\033[0;31mYou are trying to force push without lease. Use 'git push --force-with-lease' instead.\033[0m"
-                return 1
-              fi
-            done
-          fi
-
-          command git "$@"
-        else
-          command git "$@"
-        fi
-      '';
-
-      # outputs the Git repo slug (e.g. ezzatron/dotfiles)
-      git-slug = ''
-        if ! URL="$(git config --get remote.origin.url)"; then
-          return 1
-        fi
-
-        if [[ "$URL" =~ [:/]([^/:]+/[^/]+)\.git$ ]]; then
-          echo "''${match[1]}"
-        elif [[ "$1" == '--fuzzy' ]]; then
-          echo "???/$(basename "$(pwd)")"
-        else
-          return 1
-        fi
-      '';
-
-      # defines an iTerm user variable containing the current Git slug
-      #
-      # this is used to display the slug in an iTerm "badge"
-      # see https://iterm2.com/documentation-badges.html
-      iterm2_print_user_vars = ''
-        iterm2_set_user_var gitSlug "$(git-slug)"
-      '';
+      git = builtins.readFile ./zsh-function-git.zsh;
+      git-slug = builtins.readFile ./zsh-function-git-slug.zsh;
+      iterm2_print_user_vars = builtins.readFile ./zsh-function-iterm2_print_user_vars.zsh;
     };
 
     syntaxHighlighting = {

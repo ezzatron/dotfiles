@@ -394,9 +394,6 @@
                 postActivation = {
                   enable = true;
                   text = ''
-                    echo "Installing Rosetta..."
-                    softwareupdate --install-rosetta --agree-to-license
-
                     echo "Activating settings..."
                     sudo -u ${user.name} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
                   '';

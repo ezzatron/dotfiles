@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -e
+set -o pipefail
+
+until [ -e "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]
+do
+  echo "Add your personal 1Password account to the app, then enable the following options in the preferences:"
+  echo
+  echo "  - Developer > 1Password SSH Agent > Use the SSH agent"
+  echo "  - Developer > Command-Line Interface (CLI) > Connect with 1Password CLI"
+  echo
+
+  read -p "Press enter to open 1Password"
+  open /Applications/1Password.app
+  read -p "Press enter to continue"
+done
+echo "1Password SSH agent running."
+
+until op account get --account my &>/dev/null
+do
+    echo "1Password CLI session not detected."
+    echo "Signing in to 1Password CLI..."
+    eval $(op signin --account=my)
+done
+echo "1Password CLI authenticated."
+
+until gh auth status &>/dev/null; do
+  echo "Authenticating GitHub CLI..."
+  gh auth login --hostname=github.com --git-protocol=ssh --skip-ssh-key --web
+done
+echo "GitHub CLI authenticated."
+
+echo "Installing GitHub CLI extensions..."
+gh extension install --force github/gh-copilot

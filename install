@@ -28,6 +28,15 @@ else
   echo "Dotfiles downloaded."
 fi
 
+if [[ "$(uname -p)" == "arm" ]]; then
+  if [[ -f /Library/Apple/usr/share/rosetta/rosetta ]]; then
+    echo "Rosetta is already installed."
+  else
+    echo "Installing Rosetta..."
+    sudo softwareupdate --install-rosetta --agree-to-license
+  fi
+fi
+
 if [ -d "/Library/Developer/CommandLineTools" ]; then
     echo "Xcode Command Line Tools are already installed."
 else

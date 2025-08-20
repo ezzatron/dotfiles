@@ -17,13 +17,6 @@ files for my terminal, shell, prompt, macOS, and other software.
 bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/install)
 ```
 
-## TODO
-
-- [ ] Update command
-- [ ] Private environment variables
-- [ ] Open apps on activate?
-- [ ] Extension system
-
 ## Post-installation steps
 
 - Start AlDente
@@ -39,3 +32,10 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
   - Additional content settings
   - Third-party sign-in
   - Block sign-in prompts from identity services
+
+## TODO
+
+- [ ] Update command
+- [ ] Private environment variables
+- [ ] Open apps on activate?
+- [ ] Extension system

@@ -390,6 +390,9 @@
                 postActivation = {
                   enable = true;
                   text = ''
+                    # Install Rosetta because Docker will ask for it
+                    softwareupdate --install-rosetta --agree-to-license
+
                     # Following line should allow us to avoid a logout/login cycle when changing settings
                     sudo -u ${user.name} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
                   '';

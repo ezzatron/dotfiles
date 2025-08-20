@@ -26,7 +26,9 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 
 ## Post-installation steps
 
+- Start AlDente
 - Start Docker
+- Start Scroll Reverser
 - Change Screenshots folder view settings
   - View > Use Groups
   - View > Group By > Date Created

@@ -374,6 +374,10 @@
                     PromptOnQuit = false;
                     OnlyWhenMoreTabs = false;
 
+                    # Don't display tips
+                    NoSyncPermissionToShowTip = false;
+                    NoSyncTipsDisabled = true;
+
                     # Use preferences managed by home-manager
                     PrefsCustomFolder = "${user.home}/.config/iterm2";
                     LoadPrefsFromCustomFolder = true;

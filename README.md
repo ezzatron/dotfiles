@@ -44,3 +44,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
   - Additional content settings
   - Third-party sign-in
   - Block sign-in prompts from identity services
+
+## System defaults wanted
+
+- Disable iTerm tip of the day

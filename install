@@ -5,6 +5,11 @@ set -o pipefail
 export REPO="ezzatron/dotfiles"
 export BRANCH="nix"
 
+echo "Ensure this terminal has full disk access before continuing."
+read -p "Press enter to open System Settings - Privacy & Security..."
+open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
+read -p "Press enter to continue..."
+
 # Prompt immediately for sudo, and keep it alive while the install script runs
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done &>/dev/null &

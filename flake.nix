@@ -162,7 +162,6 @@
               pkgs.evans
               pkgs.gh
               pkgs.git
-              pkgs.go
               pkgs.jq
               pkgs.kubectl
               pkgs.kubectx

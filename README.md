@@ -23,3 +23,6 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Private environment variables
 - [ ] Open apps on activate?
 - [ ] Extension system
+- [ ] XCode
+- [ ] File extension associations
+- [ ] iTerm enable automatic updates

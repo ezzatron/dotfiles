@@ -32,9 +32,6 @@
         mkdir -p "$HOME/bin"
         mkdir -p "$HOME/Screenshots"
 
-        echo "Installing asdf plugins..."
-        ${pkgs.asdf-vm}/bin/asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-
         echo "Configuring advanced system defaults..."
 
         function plist-set-or-add () {

@@ -19,6 +19,13 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 
 ## Post-installation steps
 
+- Bind caps lock to escape for both internal and external keyboards
+  - Settings
+  - Keyboard
+  - Keyboard Shortcuts...
+  - Modifier Keys
+  - Select keyboard
+  - Caps Lock
 - Start AlDente
 - Start Docker
 - Start Scroll Reverser
@@ -26,12 +33,12 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
   - View > Use Groups
   - View > Group By > Date Created
 - Stop Chrome from asking to sign in with Google
-  - Settings
-  - Privacy and security
-  - Site settings
-  - Additional content settings
-  - Third-party sign-in
+  - Visit chrome://settings/content/federatedIdentityApi
   - Block sign-in prompts from identity services
+- Stop Chrome from using media keys
+  - Visit chrome://flags/#hardware-media-key-handling
+  - Set to "Disabled"
+- Set Music playlists to download
 
 ## TODO
 

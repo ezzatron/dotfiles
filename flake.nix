@@ -205,6 +205,12 @@
                   # use dark mode always
                   AppleInterfaceStyle = "Dark";
 
+                  # Enable moving focus in dialogs with Tab and Shift Tab
+                  AppleKeyboardUIMode = 2;
+
+                  # Do key repeat instead of alternate characters
+                  ApplePressAndHoldEnabled = false;
+
                   # Set a blazingly fast keyboard repeat rate
                   KeyRepeat = 2;
                   InitialKeyRepeat = 25;
@@ -315,6 +321,9 @@
                   ShowHardDrivesOnDesktop = false;
                   ShowMountedServersOnDesktop = false;
                   ShowRemovableMediaOnDesktop = false;
+
+                  # Delete Bin items after 30 days
+                  FXRemoveOldTrashItems = true;
                 };
 
                 CustomUserPreferences = {

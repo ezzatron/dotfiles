@@ -4,6 +4,9 @@
     stateVersion = "25.11";
 
     sessionVariables = {
+      # Use VSCode as the editor
+      EDITOR = "code --wait";
+
       # Options for less
       # I didn't write this, and I can't recall where it came from
       #

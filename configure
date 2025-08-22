@@ -72,6 +72,11 @@ read -p "Press enter to open System Settings - Keyboard..."
 open "x-apple.systempreferences:com.apple.preference.keyboard"
 read -p "Press enter to continue..."
 
+echo "Add internet accounts:"
+read -p "Press enter to open System Settings - Internet Accounts..."
+open "/System/Library/PreferencePanes/InternetAccounts.prefPane"
+read -p "Press enter to continue..."
+
 echo "Change Screenshots folder view settings:"
 echo
 echo "  - View > Use Groups"
@@ -89,6 +94,17 @@ echo "    - Advanced > Show features for web developers"
 echo
 read -p "Press enter to open Safari..."
 open -a "Safari"
+read -p "Press enter to continue..."
+
+echo "Change Mail settings:"
+echo
+echo " - Favourites (+ button):"
+echo "   - All Inboxes"
+echo "   - All Archive"
+echo "   - All Sent"
+echo "   - All Junk"
+read -p "Press enter to open Mail..."
+open -a "Mail"
 read -p "Press enter to continue..."
 
 echo "Change Music settings:"

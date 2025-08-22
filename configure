@@ -26,8 +26,18 @@ echo "1Password CLI authenticated."
 echo "Installing asdf plugins..."
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 
-# TODO: Set Chrome as default browser
-# TODO: Set up Tampermonkey
+echo "Change Chrome settings:"
+echo
+echo "  - Set as the default browser"
+echo '  - Chrome > Uncheck "Warn Before Quitting"'
+echo "  - chrome://settings/content/federatedIdentityApi > Block sign-in prompts from identity services"
+echo "  - chrome://flags/#hardware-media-key-handling > Disabled"
+echo "  - chrome://extensions/?id=dhdgffkkebhmkfjojejmpbldmpobfkfo > Allow user scripts"
+echo "  - Install https://gist.github.com/ezzatron/a17ddc0ce4cbdf1f37aeaf6acc95af7a"
+echo
+read -p "Press enter to open Chrome..."
+open -a "Google Chrome"
+read -p "Press enter to continue..."
 
 until gh auth status &>/dev/null; do
   echo "Authenticating GitHub CLI..."
@@ -44,6 +54,15 @@ until fdesetup status | grep -q "FileVault is On" ; do
   read -p "Press enter to continue..."
 done
 
+echo "Adjust screen brightness:"
+echo
+echo '  - Disable "Automatically adjust brightness'
+echo '  - Adjust brightness manually using the slider'
+echo
+read -p "Press enter to open System Settings - Displays..."
+open "x-apple.systempreferences:com.apple.preference.displays"
+read -p "Press enter to continue..."
+
 echo "Bind caps lock to escape for both internal and external keyboards:"
 echo
 echo "  - Keyboard Shortcuts... > Modifier Keys > Select keyboard > Caps Lock > Escape"
@@ -59,15 +78,6 @@ echo "  - View > Group By > Date Created"
 echo
 read -p "Press enter to open Screenshots directory..."
 open "$HOME/Screenshots"
-read -p "Press enter to continue..."
-
-echo "Change Chrome settings:"
-echo
-echo "  - chrome://settings/content/federatedIdentityApi > Block sign-in prompts from identity services"
-echo "  - chrome://flags/#hardware-media-key-handling > Disabled"
-echo
-read -p "Press enter to open Chrome..."
-open -a "Google Chrome"
 read -p "Press enter to continue..."
 
 echo "Change Safari settings:"

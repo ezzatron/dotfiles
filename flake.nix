@@ -442,6 +442,9 @@
         modules = modules ++ [
           {
             networking.hostName = "erins-mbp-ccd1c1b3";
+            system.activationScripts.setComputerName = ''
+              scutil --set ComputerName "Erin's MacBook Pro ccd1c1b3"
+            '';
           }
         ];
       };
@@ -450,6 +453,9 @@
         modules = modules ++ [
           {
             networking.hostName = "erins-mbp-2c3ba79f";
+            system.activationScripts.setComputerName = ''
+              scutil --set ComputerName "Erin's MacBook Pro 2c3ba79f"
+            '';
           }
         ];
       };

@@ -9,10 +9,9 @@ do
   echo "  - Developer > 1Password SSH Agent > Use the SSH agent"
   echo "  - Developer > Command-Line Interface (CLI) > Connect with 1Password CLI"
   echo
-
-  read -p "Press enter to open 1Password"
+  read -p "Press enter to open 1Password..."
   open /Applications/1Password.app
-  read -p "Press enter to continue"
+  read -p "Press enter to continue..."
 done
 echo "1Password SSH agent running."
 
@@ -36,5 +35,50 @@ gh extension install --force github/gh-copilot
 until fdesetup status | grep -q "FileVault is On" ; do
   echo "Enable FileVault in the System Preferences."
   open "x-apple.systempreferences:com.apple.preference.security?FileVault"
-  read -p "Press enter to continue"
+  read -p "Press enter to continue..."
 done
+
+echo "Bind caps lock to escape for both internal and external keyboards:"
+echo
+echo "  - Keyboard Shortcuts... > Modifier Keys > Select keyboard > Caps Lock > Escape"
+echo
+read -p "Press enter to open System Settings - Keyboard..."
+open "x-apple.systempreferences:com.apple.preference.keyboard"
+read -p "Press enter to continue..."
+
+echo "Change Screenshots folder view settings:"
+echo
+echo "  - View > Use Groups"
+echo "  - View > Group By > Date Created"
+echo
+read -p "Press enter to open Screenshots directory..."
+open "$HOME/Screenshots"
+read -p "Press enter to continue..."
+
+echo "Change Chrome settings:"
+echo
+echo "  - chrome://settings/content/federatedIdentityApi > Block sign-in prompts from identity services"
+echo "  - chrome://flags/#hardware-media-key-handling > Disabled"
+echo
+read -p "Press enter to open Chrome..."
+open -a "Google Chrome"
+read -p "Press enter to continue..."
+
+echo "Change Safari settings:"
+echo
+echo "  - Safari > Settings:"
+echo "    - Extensions > 1Password for Safari > Allow in Private Browsing"
+echo "    - Advanced > Show features for web developers"
+echo
+read -p "Press enter to open Safari..."
+open -a "Safari"
+read -p "Press enter to continue..."
+
+echo "Set Music playlists to download."
+read -p "Press enter to open Music..."
+open -a "Music"
+read -p "Press enter to continue..."
+
+open -a "AlDente"
+open -a "Docker"
+open -a "Scroll Reverser"

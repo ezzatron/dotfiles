@@ -17,29 +17,6 @@ files for my terminal, shell, prompt, macOS, and other software.
 bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/install)
 ```
 
-## Post-installation steps
-
-- Bind caps lock to escape for both internal and external keyboards
-  - Settings
-  - Keyboard
-  - Keyboard Shortcuts...
-  - Modifier Keys
-  - Select keyboard
-  - Caps Lock
-- Start AlDente
-- Start Docker
-- Start Scroll Reverser
-- Change Screenshots folder view settings
-  - View > Use Groups
-  - View > Group By > Date Created
-- Stop Chrome from asking to sign in with Google
-  - Visit <chrome://settings/content/federatedIdentityApi>
-  - Block sign-in prompts from identity services
-- Stop Chrome from using media keys
-  - Visit <chrome://flags/#hardware-media-key-handling>
-  - Set to "Disabled"
-- Set Music playlists to download
-
 ## TODO
 
 - [ ] Update command

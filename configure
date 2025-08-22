@@ -34,6 +34,7 @@ echo "  - chrome://settings/content/federatedIdentityApi > Block sign-in prompts
 echo "  - chrome://flags/#hardware-media-key-handling > Disabled"
 echo "  - chrome://extensions/?id=dhdgffkkebhmkfjojejmpbldmpobfkfo > Allow user scripts"
 echo "  - Install https://gist.github.com/ezzatron/a17ddc0ce4cbdf1f37aeaf6acc95af7a"
+echo "  - Configure 1Password extension to only fill from the Personal vault"
 echo
 read -p "Press enter to open Chrome..."
 open -a "Google Chrome"
@@ -90,7 +91,11 @@ read -p "Press enter to open Safari..."
 open -a "Safari"
 read -p "Press enter to continue..."
 
-echo "Set Music playlists to download."
+echo "Change Music settings:"
+echo
+echo "  - Set Music playlists to download"
+echo "  - Controls > Shuffle > Albums"
+echo
 read -p "Press enter to open Music..."
 open -a "Music"
 read -p "Press enter to continue..."

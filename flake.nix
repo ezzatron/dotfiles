@@ -440,23 +440,31 @@
     {
       darwinConfigurations."ccd1c1b3" = nix-darwin.lib.darwinSystem {
         modules = modules ++ [
-          {
-            networking.hostName = "erins-mbp-ccd1c1b3";
-            system.activationScripts.setComputerName = ''
-              scutil --set ComputerName "Erin's MacBook Pro ccd1c1b3"
-            '';
-          }
+          (
+            { lib, ... }:
+            {
+              networking.hostName = "erins-mbp-ccd1c1b3";
+              system.activationScripts.postActivation.text = lib.mkAfter ''
+                echo "Setting computer name..."
+                scutil --set ComputerName "Erin's MacBook Pro ccd1c1b3"
+              '';
+            }
+          )
         ];
       };
 
       darwinConfigurations."2c3ba79f" = nix-darwin.lib.darwinSystem {
         modules = modules ++ [
-          {
-            networking.hostName = "erins-mbp-2c3ba79f";
-            system.activationScripts.setComputerName = ''
-              scutil --set ComputerName "Erin's MacBook Pro 2c3ba79f"
-            '';
-          }
+          (
+            { lib, ... }:
+            {
+              networking.hostName = "erins-mbp-2c3ba79f";
+              system.activationScripts.postActivation.text = lib.mkAfter ''
+                echo "Setting computer name..."
+                scutil --set ComputerName "Erin's MacBook Pro 2c3ba79f"
+              '';
+            }
+          )
         ];
       };
     };

@@ -24,7 +24,7 @@ done
 echo "1Password CLI authenticated."
 
 echo "Installing asdf plugins..."
-asdf/bin/asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 
 until gh auth status &>/dev/null; do
   echo "Authenticating GitHub CLI..."

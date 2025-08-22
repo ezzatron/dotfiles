@@ -28,7 +28,7 @@
       # word diff
       diff-words = "diff -w --word-diff";
       # list branches that are ahead of or behind their upstream
-      diverged-branches = "!git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads/ | grep 'ahead\\|behind'";
+      diverged-branches = "!git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads/ | awk '/ahead|behind/'";
       # list local branches without a remote
       local-branches = "!git branch --format '%(refname:short) %(upstream:short)' | awk '{if (!$2) print $1;}'";
       # shows the log since the latest tag

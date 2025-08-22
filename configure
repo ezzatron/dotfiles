@@ -26,6 +26,9 @@ echo "1Password CLI authenticated."
 echo "Installing asdf plugins..."
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 
+# TODO: Set Chrome as default browser
+# TODO: Set up Tampermonkey
+
 until gh auth status &>/dev/null; do
   echo "Authenticating GitHub CLI..."
   gh auth login --hostname=github.com --git-protocol=ssh --skip-ssh-key --web

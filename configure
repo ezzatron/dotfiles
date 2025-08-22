@@ -32,3 +32,9 @@ echo "GitHub CLI authenticated."
 
 echo "Installing GitHub CLI extensions..."
 gh extension install --force github/gh-copilot
+
+until fdesetup status | grep -q "FileVault is On" ; do
+  echo "Enable FileVault in the System Preferences."
+  open "x-apple.systempreferences:com.apple.preference.security?FileVault"
+  read -p "Press enter to continue"
+done

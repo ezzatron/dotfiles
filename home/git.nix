@@ -27,6 +27,8 @@
       diff-upstream = "diff @{upstream}";
       # word diff
       diff-words = "diff -w --word-diff";
+      # list local branches without a remote
+      local-branches = "!git branch --format '%(refname:short) %(upstream:short)' | awk '{if (!$2) print $1;}'";
       # shows the log since the latest tag
       log-release = "!git -P log '$(git describe --abbrev=0)~1..'";
       # better force push

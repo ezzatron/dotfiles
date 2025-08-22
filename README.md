@@ -33,10 +33,10 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
   - View > Use Groups
   - View > Group By > Date Created
 - Stop Chrome from asking to sign in with Google
-  - Visit chrome://settings/content/federatedIdentityApi
+  - Visit <chrome://settings/content/federatedIdentityApi>
   - Block sign-in prompts from identity services
 - Stop Chrome from using media keys
-  - Visit chrome://flags/#hardware-media-key-handling
+  - Visit <chrome://flags/#hardware-media-key-handling>
   - Set to "Disabled"
 - Set Music playlists to download
 

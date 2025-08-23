@@ -403,6 +403,10 @@
                   enable = true;
                   text = ''
                     echo "Activating settings..."
+
+                    # Use 24-hour time on the lock screen
+                    defaults write /Library/Preferences/.GlobalPreferences AppleICUForce24HourTime -bool true
+
                     sudo -u ${user.name} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
                   '';
                 };

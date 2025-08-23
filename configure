@@ -32,6 +32,7 @@ echo "  - Set as the default browser"
 echo '  - Chrome > Uncheck "Warn Before Quitting"'
 echo "  - chrome://settings/content/federatedIdentityApi > Block sign-in prompts from identity services"
 echo "  - chrome://flags/#hardware-media-key-handling > Disabled"
+echo "  - chrome://settings/content/notifications > Don't allow sites to send notifications"
 echo "  - chrome://extensions/?id=dhdgffkkebhmkfjojejmpbldmpobfkfo > Allow user scripts"
 echo "  - Install https://gist.github.com/ezzatron/a17ddc0ce4cbdf1f37aeaf6acc95af7a"
 echo "  - Configure 1Password extension to only fill from the Personal vault"

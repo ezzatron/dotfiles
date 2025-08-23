@@ -26,3 +26,4 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] XCode
 - [ ] File extension associations
 - [ ] iTerm enable automatic updates
+- [ ] Disable macOS Tips

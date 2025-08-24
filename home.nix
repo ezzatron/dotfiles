@@ -79,6 +79,7 @@
     ./home/aws.nix
     ./home/bat.nix
     ./home/direnv.nix
+    ./home/duti.nix
     ./home/filters.nix
     ./home/git.nix
     ./home/iterm.nix

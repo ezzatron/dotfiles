@@ -86,10 +86,11 @@ read -p "Press enter to open System Settings - Internet Accounts..."
 open "/System/Library/PreferencePanes/InternetAccounts.prefPane"
 read -p "Press enter to continue..."
 
-echo "Change Screenshots folder view settings:"
+echo "Change Screenshots folder settings:"
 echo
 echo "  - View > Use Groups"
 echo "  - View > Group By > Date Created"
+echo "  - Drag Screenshots folder into Favourites"
 echo
 read -p "Press enter to open Screenshots directory..."
 open "$HOME/Screenshots"

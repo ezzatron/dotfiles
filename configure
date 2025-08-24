@@ -58,11 +58,19 @@ done
 
 echo "Adjust screen brightness:"
 echo
-echo '  - Disable "Automatically adjust brightness'
-echo '  - Adjust brightness manually using the slider'
+echo '  - Disable "Automatically adjust brightness"'
+echo "  - Adjust brightness manually using the slider"
 echo
 read -p "Press enter to open System Settings - Displays..."
 open "x-apple.systempreferences:com.apple.preference.displays"
+read -p "Press enter to continue..."
+
+echo "Adjust battery settings:"
+echo
+echo '  - Options > Disable "Slightly dim the display on battery"'
+echo
+read -p "Press enter to open System Settings - Battery..."
+open "x-apple.systempreferences:com.apple.preference.battery"
 read -p "Press enter to continue..."
 
 echo "Bind caps lock to escape for both internal and external keyboards:"

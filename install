@@ -5,10 +5,12 @@ set -o pipefail
 export REPO="ezzatron/dotfiles"
 export BRANCH="nix"
 
-echo "Ensure this terminal has full disk access before continuing."
-read -p "Press enter to open System Settings - Privacy & Security..."
-open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
-read -p "Press enter to continue..."
+if ! plutil -lint /Library/Preferences/com.apple.TimeMachine.plist >/dev/null ; then
+  echo "This terminal does not have Full Disk Access."
+  read -p "Press enter to open System Settings - Privacy & Security..."
+  open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
+  read -p "Press enter to continue..."
+fi
 
 # Prompt immediately for sudo, and keep it alive while the install script runs
 sudo -v

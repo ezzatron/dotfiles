@@ -129,6 +129,7 @@
                 "MusicHarbor" = 1440405750;
                 "Pixelmator Pro" = 1289583905;
                 "TestFlight" = 899247664;
+                "Xcode" = 497799835;
               };
             };
           }

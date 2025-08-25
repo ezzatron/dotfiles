@@ -472,5 +472,20 @@
           )
         ];
       };
+
+      darwinConfigurations."50abbd64" = nix-darwin.lib.darwinSystem {
+        modules = modules ++ [
+          (
+            { lib, ... }:
+            {
+              networking.hostName = "erins-mbp-50abbd64";
+              system.activationScripts.postActivation.text = lib.mkAfter ''
+                echo "Setting computer name..."
+                scutil --set ComputerName "Erin's Work MacBook Pro 50abbd64"
+              '';
+            }
+          )
+        ];
+      };
     };
 }

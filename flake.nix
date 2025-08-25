@@ -171,6 +171,7 @@
               pkgs.kubernetes-helm
               pkgs.nixfmt-rfc-style # To format .nix files
               pkgs.nodejs_24
+              pkgs.powershell
               pkgs.protobuf
               pkgs.terraform
               pkgs.unixtools.watch

@@ -164,6 +164,7 @@
               pkgs.evans
               pkgs.gh
               pkgs.git
+              pkgs.google-cloud-sdk
               pkgs.jq
               pkgs.kubectl
               pkgs.kubectx

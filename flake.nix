@@ -160,6 +160,7 @@
               pkgs.clang-tools # To format .proto files
               pkgs.colordiff
               pkgs.deno
+              pkgs.dotnetCorePackages.dotnet_8.sdk
               pkgs.evans
               pkgs.gh
               pkgs.git

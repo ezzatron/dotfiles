@@ -4,10 +4,11 @@ set -o pipefail
 
 until [ -e "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]
 do
-  echo "Add your personal 1Password account to the app, then enable the following options in the preferences:"
+  echo "Add your personal 1Password account to the app, then configure as follows:"
   echo
   echo "  - Developer > 1Password SSH Agent > Use the SSH agent"
   echo "  - Developer > Command-Line Interface (CLI) > Connect with 1Password CLI"
+  echo "  - General > Keyboard Shortcuts > Show Quick Access > ⇧⌘\\"
   echo
   read -p "Press enter to open 1Password..."
   open /Applications/1Password.app

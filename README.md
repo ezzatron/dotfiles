@@ -23,3 +23,4 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 - [ ] Extension system
 - [ ] Disable macOS Tips
 - [ ] Menu bar clock not updating format
+- [ ] Find a way to actually hide the Spotlight first time experience consistently

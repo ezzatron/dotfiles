@@ -20,10 +20,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 ## TODO
 
 - [ ] Update command
-- [ ] Open apps on activate?
 - [ ] Extension system
-- [ ] XCode
-- [ ] File extension associations
 - [ ] iTerm enable automatic updates
 - [ ] Disable macOS Tips
 - [ ] Menu bar clock not updating format

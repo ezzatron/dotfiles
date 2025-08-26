@@ -371,6 +371,16 @@
                     mcx-disabled = true;
                   };
 
+                  "com.apple.spotlight" = {
+                    # Hide first-time experience - TODO: test this thoroughly, it's flaky af
+                    "engagementCount-com.apple.Spotlight.suggestions" = 99;
+                    "engagementCount-com.apple.Spotlight" = 99;
+                    "engagementCountForDate-com.apple.Spotlight" = 99;
+                    "engagementDate-com.apple.Spotlight" = "2025-01-01";
+                    showedFTE = true;
+                    useCount = 99;
+                  };
+
                   "com.apple.commerce" = {
                     # Automatic App Store app updates
                     AutoUpdate = true;

@@ -400,6 +400,9 @@
                     NoSyncPermissionToShowTip = false;
                     NoSyncTipsDisabled = true;
 
+                    # Enable automatic updates
+                    SUEnableAutomaticChecks = true;
+
                     # Use preferences managed by home-manager
                     PrefsCustomFolder = "${user.home}/.config/iterm2";
                     LoadPrefsFromCustomFolder = true;

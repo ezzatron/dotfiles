@@ -21,6 +21,5 @@ bash <(curl -fsSL https://raw.githubusercontent.com/ezzatron/dotfiles/nix/instal
 
 - [ ] Update command
 - [ ] Extension system
-- [ ] iTerm enable automatic updates
 - [ ] Disable macOS Tips
 - [ ] Menu bar clock not updating format

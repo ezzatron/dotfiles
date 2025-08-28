@@ -157,6 +157,7 @@
             environment.systemPackages = [
               pkgs.adrs
               pkgs.bun
+              pkgs.caddy
               pkgs.clang-tools # To format .proto files
               pkgs.colordiff
               pkgs.deno

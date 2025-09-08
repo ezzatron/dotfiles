@@ -154,29 +154,29 @@
         (
           { pkgs, ... }:
           {
-            environment.systemPackages = [
-              pkgs.adrs
-              pkgs.bun
-              pkgs.caddy
-              pkgs.clang-tools # To format .proto files
-              pkgs.colordiff
-              pkgs.deno
-              pkgs.dotnetCorePackages.dotnet_8.sdk
-              pkgs.evans
-              pkgs.gh
-              pkgs.git
-              pkgs.google-cloud-sdk
-              pkgs.jq
-              pkgs.kubectl
-              pkgs.kubectx
-              pkgs.kubernetes-helm
-              pkgs.nixfmt-rfc-style # To format .nix files
-              pkgs.nodejs_24
-              pkgs.powershell
-              pkgs.protobuf
-              pkgs.terraform
-              pkgs.unixtools.watch
-              pkgs.vale
+            environment.systemPackages = with pkgs; [
+              adrs
+              bun
+              caddy
+              clang-tools # To format .proto files
+              colordiff
+              deno
+              dotnetCorePackages.dotnet_8.sdk
+              evans
+              gh
+              git
+              (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
+              jq
+              kubectl
+              kubectx
+              kubernetes-helm
+              nixfmt-rfc-style # To format .nix files
+              nodejs_24
+              powershell
+              protobuf
+              terraform
+              unixtools.watch
+              vale
             ];
 
             fonts.packages = [

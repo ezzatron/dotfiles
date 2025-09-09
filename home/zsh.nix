@@ -6,7 +6,7 @@
     initContent = lib.mkOrder 1500 ''
       # include private env vars if present
       [[ -f "$HOME/.config/private.zsh" ]] && source "$HOME/.config/private.zsh"
-      
+
       # include iTerm shell integration
       [[ "$TERM_PROGRAM" == "iTerm.app" ]] && source "$HOME/.config/iterm2/shell-integration.zsh"
 

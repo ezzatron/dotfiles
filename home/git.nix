@@ -76,6 +76,10 @@
       "yarn.lock binary"
     ];
 
+    includes = [
+      { path = "${config.home.homeDirectory}/.config/git/private.gitconfig"; }
+    ];
+
     extraConfig = {
       branch = {
         # sort branches by committer date

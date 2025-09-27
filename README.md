@@ -9,7 +9,9 @@ files for my terminal, shell, prompt, macOS, and other software.
 
 ## Installation
 
-> ⚠️ This repo is not intended for installation by anyone other than myself. It
+> [!WARNING]
+>
+> This repo is not intended for installation by anyone other than myself. It
 > makes a lot of assumptions about software that I use, and will not work for
 > anyone else without heavy modification.
 

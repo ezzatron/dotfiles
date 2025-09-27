@@ -81,18 +81,13 @@
         }
         (
           { config, ... }:
-          let
-            brew = import ./brew.nix;
-          in
           {
-            homebrew = {
+            homebrew = (import ./brew.nix) // {
               enable = true;
               onActivation.cleanup = "zap";
               onActivation.autoUpdate = true;
               onActivation.upgrade = true;
               taps = builtins.attrNames config.nix-homebrew.taps;
-
-              inherit (brew) brews casks masApps;
             };
           }
         )

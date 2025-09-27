@@ -46,6 +46,28 @@
       x-show = "!git show --pretty='%C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %C(bold white)%s%C(reset) %C(dim)by %an — %ar%C(reset)%n%n%C(dim)Author:%C(reset)  %an %C(dim)<%ae>%C(reset)%n         %C(dim)%ad — %ar%C(reset)%n%n%C(dim)Commit:%C(reset)  %C(cyan)%h%C(reset) — %C(cyan dim)%H%C(reset)%n         %cn %C(dim)<%ce>%C(reset)%n         %C(dim)%cd — %cr%C(reset)%n%n%C(dim)Parents:%C(reset) %C(cyan)%p%C(reset) — %C(cyan dim)%P%C(reset)%n%n%w(,4,4)%-b%-'";
     };
 
+    ignores = [
+      # files created by macOS
+      ".DS_Store"
+      ".AppleDouble"
+      ".LSOverride"
+      ".Spotlight-V100"
+      ".nfs.*"
+
+      # editor configuration files
+      ".idea/"
+      ".vs/"
+      ".vscode/"
+      "*.xcuser*"
+
+      # environment configuration files
+      ".envrc"
+      ".env.local"
+      ".env.*.local"
+      "go.work"
+      "go.work.sum"
+    ];
+
     attributes = [
       # don't diff lock files
       "go.sum binary"
@@ -193,27 +215,5 @@
         };
       };
     };
-
-    ignores = [
-      # files created by macOS
-      ".DS_Store"
-      ".AppleDouble"
-      ".LSOverride"
-      ".Spotlight-V100"
-      ".nfs.*"
-
-      # editor configuration files
-      ".idea/"
-      ".vs/"
-      ".vscode/"
-      "*.xcuser*"
-
-      # environment configuration files
-      ".envrc"
-      ".env.local"
-      ".env.*.local"
-      "go.work"
-      "go.work.sum"
-    ];
   };
 }

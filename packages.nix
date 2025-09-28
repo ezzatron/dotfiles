@@ -11,6 +11,7 @@
   pkgs.gh
   pkgs.git
   (pkgs.writeShellScriptBin "gsed" "exec -a $0 ${pkgs.gnused}/bin/sed \"\$@\"")
+  pkgs.go-task
   (pkgs.google-cloud-sdk.withExtraComponents [
     pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
   ])

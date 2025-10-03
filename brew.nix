@@ -21,6 +21,7 @@
     "keyboardcleantool"
     "messenger"
     "microsoft-edge"
+    "rider"
     "scroll-reverser"
     "slack"
     "steam"

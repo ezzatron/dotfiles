@@ -26,12 +26,7 @@
       WORDCHARS = "_";
 
       # Set DOTNET_ROOT to point to the .NET SDK installation
-      DOTNET_ROOT = "${
-        pkgs.dotnetCorePackages.combinePackages [
-          pkgs.dotnetCorePackages.dotnet_8.sdk
-          pkgs.dotnetCorePackages.dotnet_9.sdk
-        ]
-      }/share/dotnet";
+      DOTNET_ROOT = "${(import ./dotnet.nix { inherit pkgs; })}/share/dotnet";
     };
 
     activation = {

@@ -6,10 +6,7 @@
   pkgs.clang-tools # To format .proto files
   pkgs.colordiff
   pkgs.deno
-  (pkgs.dotnetCorePackages.combinePackages [
-    pkgs.dotnetCorePackages.dotnet_8.sdk
-    pkgs.dotnetCorePackages.dotnet_9.sdk
-  ])
+  (import ./dotnet.nix { inherit pkgs; })
   pkgs.evans
   pkgs.gh
   pkgs.git

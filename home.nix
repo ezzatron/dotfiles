@@ -24,6 +24,14 @@
 
       # Match "word" characters in line editor with tools like VSCode
       WORDCHARS = "_";
+
+      # Set DOTNET_ROOT to point to the .NET SDK installation
+      DOTNET_ROOT = "${
+        pkgs.dotnetCorePackages.combinePackages [
+          pkgs.dotnetCorePackages.dotnet_8.sdk
+          pkgs.dotnetCorePackages.dotnet_9.sdk
+        ]
+      }/share/dotnet";
     };
 
     activation = {

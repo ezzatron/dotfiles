@@ -22,6 +22,7 @@
     "keyboardcleantool"
     "messenger"
     "microsoft-edge"
+    "miro"
     "rider"
     "scroll-reverser"
     "slack"

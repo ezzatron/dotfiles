@@ -11,6 +11,7 @@
     "aldente"
     "calibre"
     "chatgpt"
+    "crystalfetch"
     "discord"
     "docker-desktop"
     "figma"
@@ -25,6 +26,7 @@
     "scroll-reverser"
     "slack"
     "steam"
+    "utm"
     "visual-studio-code"
 
     {

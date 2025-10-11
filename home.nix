@@ -24,9 +24,6 @@
 
       # Match "word" characters in line editor with tools like VSCode
       WORDCHARS = "_";
-
-      # Set DOTNET_ROOT to point to the .NET SDK installation
-      DOTNET_ROOT = "${(import ./dotnet.nix { inherit pkgs; })}/share/dotnet";
     };
 
     activation = {

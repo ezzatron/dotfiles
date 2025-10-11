@@ -22,6 +22,9 @@
       # Disable some Node.js warnings and always use type stripping
       NODE_OPTIONS = "--disable-warning=DeprecationWarning --disable-warning=ExperimentalWarning";
 
+      # Always use Task core utils to catch Windows compatibility issues
+      TASK_CORE_UTILS = "true";
+
       # Match "word" characters in line editor with tools like VSCode
       WORDCHARS = "_";
     };

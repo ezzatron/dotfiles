@@ -1,5 +1,6 @@
 {
   brews = [
+    "awscli" # nixpkgs unstable is currently broken
     "cloudflare-wrangler" # For testing against Cloudflare Worker runtime. Nix package installation takes forever.
     "dotnet@8" # nixpkgs unstable is currently broken
     "jmalloc/grit/grit" # No Nix package.

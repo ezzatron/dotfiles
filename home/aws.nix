@@ -1,6 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 {
   home = {
+    packages = [ pkgs.awscli2 ];
+
     file.aws = {
       enable = true;
       force = true;

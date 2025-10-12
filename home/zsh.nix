@@ -29,7 +29,6 @@
         eval "$(grit shell-integration)"
 
         # modify path here, otherwise it gets clobbered by Homebrew
-        export PATH="$HOME/.dotnet/tools:$PATH"
         export PATH="$HOME/bin:$PATH"
         export PATH="$HOME/.asdf/shims:$PATH"
       '')

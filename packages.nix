@@ -22,6 +22,7 @@
   pkgs.nodejs_24
   pkgs.powershell
   pkgs.protobuf
+  pkgs.step-cli
   pkgs.terraform
   pkgs.unixtools.watch
   pkgs.vale

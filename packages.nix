@@ -8,6 +8,7 @@
   pkgs.deno
   pkgs.evans
   pkgs.firebase-tools
+  pkgs.ffmpeg
   pkgs.gh
   pkgs.git
   (pkgs.writeShellScriptBin "gsed" "exec -a $0 ${pkgs.gnused}/bin/sed \"\$@\"")

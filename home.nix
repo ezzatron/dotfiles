@@ -81,6 +81,7 @@
     ./home/asdf.nix
     ./home/aws.nix
     ./home/bat.nix
+    ./home/delta.nix
     ./home/direnv.nix
     ./home/duti.nix
     ./home/filters.nix

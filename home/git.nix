@@ -3,47 +3,9 @@
   programs.git = {
     enable = true;
 
-    userEmail = "contact@erin.id.au";
-    userName = "Erin Millard-Wright";
-
     signing = {
       signByDefault = true;
       key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKRaKzNLwVvprRZIs3q+ZSU1mnvyvTr/YM04/pAc9r7S";
-    };
-
-    # https://github.com/dandavison/delta
-    delta = {
-      enable = true;
-    };
-
-    aliases = {
-      # better blame
-      credit = "blame -w -M -C -C -C";
-      # character diff
-      diff-chars = "diff -w --word-diff --word-diff-regex='[^[:space:]]'";
-      # shows the diff against the latest tag
-      diff-release = "!git diff '$(git describe --abbrev=0)..'";
-      # diff against the upstream branch
-      diff-upstream = "diff @{upstream}";
-      # word diff
-      diff-words = "diff -w --word-diff";
-      # list branches that are ahead of or behind their upstream
-      diverged-branches = "!git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads/ | awk '/ahead|behind/'";
-      # list local branches without a remote
-      local-branches = "!git branch --format '%(refname:short) %(upstream:short)' | awk '{if (!$2) print $1;}'";
-      # shows the log since the latest tag
-      log-release = "!git -P log '$(git describe --abbrev=0)~1..'";
-      # better force push
-      push-force = "push --force-with-lease --force-if-includes";
-      # push tags and associated commits atomically
-      push-tags = "!git push --follow-tags --atomic";
-      # step through each commit in a range and show the diff
-      # close the pager to go to the next commit, or use control-C to exit
-      show-all = "!f() { git log --reverse --pretty=format:%h \"$1\" | xargs -n1 -I% sh -c 'git -P -c color.ui=always show % | tail -n +1 | less --tabs 1,3'; }; f";
-      # create a tag in a way that allows for Markdown headings
-      tag-md = "!git tag --annotate --cleanup=whitespace --edit --message \"$1\"";
-      # customize git show pretty format - needs paired git function
-      x-show = "!git show --pretty='%C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %C(bold white)%s%C(reset) %C(dim)by %an — %ar%C(reset)%n%n%C(dim)Author:%C(reset)  %an %C(dim)<%ae>%C(reset)%n         %C(dim)%ad — %ar%C(reset)%n%n%C(dim)Commit:%C(reset)  %C(cyan)%h%C(reset) — %C(cyan dim)%H%C(reset)%n         %cn %C(dim)<%ce>%C(reset)%n         %C(dim)%cd — %cr%C(reset)%n%n%C(dim)Parents:%C(reset) %C(cyan)%p%C(reset) — %C(cyan dim)%P%C(reset)%n%n%w(,4,4)%-b%-'";
     };
 
     ignores = [
@@ -80,7 +42,42 @@
       { path = "${config.home.homeDirectory}/.config/git/private.gitconfig"; }
     ];
 
-    extraConfig = {
+    settings = {
+      user = {
+        email = "contact@erin.id.au";
+        name = "Erin Millard-Wright";
+      };
+
+      alias = {
+        # better blame
+        credit = "blame -w -M -C -C -C";
+        # character diff
+        diff-chars = "diff -w --word-diff --word-diff-regex='[^[:space:]]'";
+        # shows the diff against the latest tag
+        diff-release = "!git diff '$(git describe --abbrev=0)..'";
+        # diff against the upstream branch
+        diff-upstream = "diff @{upstream}";
+        # word diff
+        diff-words = "diff -w --word-diff";
+        # list branches that are ahead of or behind their upstream
+        diverged-branches = "!git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads/ | awk '/ahead|behind/'";
+        # list local branches without a remote
+        local-branches = "!git branch --format '%(refname:short) %(upstream:short)' | awk '{if (!$2) print $1;}'";
+        # shows the log since the latest tag
+        log-release = "!git -P log '$(git describe --abbrev=0)~1..'";
+        # better force push
+        push-force = "push --force-with-lease --force-if-includes";
+        # push tags and associated commits atomically
+        push-tags = "!git push --follow-tags --atomic";
+        # step through each commit in a range and show the diff
+        # close the pager to go to the next commit, or use control-C to exit
+        show-all = "!f() { git log --reverse --pretty=format:%h \"$1\" | xargs -n1 -I% sh -c 'git -P -c color.ui=always show % | tail -n +1 | less --tabs 1,3'; }; f";
+        # create a tag in a way that allows for Markdown headings
+        tag-md = "!git tag --annotate --cleanup=whitespace --edit --message \"$1\"";
+        # customize git show pretty format - needs paired git function
+        x-show = "!git show --pretty='%C(cyan dim)%h%C(reset)%C(cyan)%d%C(reset) %C(yellow)|%C(reset) %C(bold white)%s%C(reset) %C(dim)by %an — %ar%C(reset)%n%n%C(dim)Author:%C(reset)  %an %C(dim)<%ae>%C(reset)%n         %C(dim)%ad — %ar%C(reset)%n%n%C(dim)Commit:%C(reset)  %C(cyan)%h%C(reset) — %C(cyan dim)%H%C(reset)%n         %cn %C(dim)<%ce>%C(reset)%n         %C(dim)%cd — %cr%C(reset)%n%n%C(dim)Parents:%C(reset) %C(cyan)%p%C(reset) — %C(cyan dim)%P%C(reset)%n%n%w(,4,4)%-b%-'";
+      };
+
       branch = {
         # sort branches by committer date
         sort = "-committerdate";

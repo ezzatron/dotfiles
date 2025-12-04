@@ -29,5 +29,6 @@
   pkgs.terraform
   pkgs.unixtools.watch
   pkgs.vale
+  pkgs.woff2
   pkgs.zsh-history-substring-search
 ]

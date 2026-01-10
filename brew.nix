@@ -2,7 +2,6 @@
   brews = [
     "asdf" # Because nixpkgs unstable is outdated.
     "cloudflare-wrangler" # For testing against Cloudflare Worker runtime. Nix package installation takes forever.
-    "dotnet@8" # Because nixpkgs unstable is currently broken.
     "jmalloc/grit/grit" # No Nix package.
     "mas" # To avoid mas getting uninstalled every time.
   ];
@@ -16,7 +15,6 @@
     "crystalfetch"
     "discord"
     "docker-desktop"
-    "dotnet-sdk@8" # nixpkgs unstable is currently broken
     "figma"
     "google-chrome"
     "guitar-pro"

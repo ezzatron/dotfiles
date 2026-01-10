@@ -6,6 +6,7 @@
   pkgs.clang-tools # To format .proto files
   pkgs.colordiff
   pkgs.deno
+  (import ./dotnet.nix { inherit pkgs; })
   pkgs.evans
   pkgs.ffmpeg
   pkgs.gh

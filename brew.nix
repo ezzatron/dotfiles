@@ -23,7 +23,6 @@
     "iina"
     "iterm2"
     "keyboardcleantool"
-    "messenger"
     "microsoft-edge"
     "miro"
     "rider"

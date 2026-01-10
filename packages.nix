@@ -7,7 +7,6 @@
   pkgs.colordiff
   pkgs.deno
   pkgs.evans
-  pkgs.firebase-tools
   pkgs.ffmpeg
   pkgs.gh
   pkgs.git
@@ -23,7 +22,7 @@
   pkgs.kubectx
   pkgs.kubernetes-helm
   pkgs.kustomize
-  pkgs.nixfmt-rfc-style # To format .nix files
+  pkgs.nixfmt # To format .nix files
   pkgs.nodejs_24
   pkgs.powershell
   pkgs.protobuf

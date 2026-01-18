@@ -19,6 +19,7 @@
     "google-chrome"
     "guitar-pro"
     "iina"
+    "insomnia"
     "iterm2"
     "keyboardcleantool"
     "microsoft-edge"

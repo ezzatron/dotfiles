@@ -23,6 +23,7 @@
   pkgs.kubectx
   pkgs.kubernetes-helm
   pkgs.kustomize
+  pkgs.ngrok
   pkgs.nixfmt # To format .nix files
   pkgs.nodejs_24
   pkgs.powershell

@@ -33,5 +33,6 @@
   pkgs.unixtools.watch
   pkgs.vale
   pkgs.woff2
+  pkgs.yq-go
   pkgs.zsh-history-substring-search
 ]

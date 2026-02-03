@@ -23,8 +23,6 @@
     "iterm2"
     "keyboardcleantool"
     "microsoft-edge"
-    "miro"
-    "rider"
     "scroll-reverser"
     "slack"
     "steam"

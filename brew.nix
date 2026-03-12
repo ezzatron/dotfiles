@@ -28,7 +28,6 @@
     "steam"
     "utm"
     "visual-studio-code"
-    "whatsapp"
 
     {
       name = "firefox@developer-edition";
@@ -44,5 +43,6 @@
     "Pixelmator Pro" = 1289583905;
     "TestFlight" = 899247664;
     "Xcode" = 497799835;
+    "Whatsapp Messenger" = 310633997;
   };
 }

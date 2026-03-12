@@ -28,6 +28,7 @@
     "steam"
     "utm"
     "visual-studio-code"
+    "whatsapp"
 
     {
       name = "firefox@developer-edition";

@@ -43,6 +43,6 @@
     "Pixelmator Pro" = 1289583905;
     "TestFlight" = 899247664;
     "Xcode" = 497799835;
-    "Whatsapp Messenger" = 310633997;
+    "Whatsapp" = 310633997;
   };
 }

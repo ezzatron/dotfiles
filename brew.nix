@@ -12,6 +12,7 @@
     "aldente"
     "calibre"
     "chatgpt"
+    "copilot-cli"
     "crystalfetch"
     "discord"
     "docker-desktop"

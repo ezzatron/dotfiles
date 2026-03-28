@@ -29,6 +29,7 @@
     "steam"
     "utm"
     "visual-studio-code"
+    "voiceink"
 
     {
       name = "firefox@developer-edition";

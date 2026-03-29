@@ -44,7 +44,7 @@
         require_repo = true;
         symbol = "\\[WIP\\] ";
         style = "bold red";
-        when = "grep -i WIP <(git log -n 1 --pretty=%B)";
+        when = "grep -iqw WIP <(git log -n 1 --pretty=%B)";
       };
     };
   };

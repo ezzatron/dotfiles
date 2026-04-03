@@ -1,6 +1,7 @@
 { pkgs, ... }:
 [
   pkgs.adrs
+  pkgs.buf
   pkgs.bun
   pkgs.caddy
   pkgs.clang-tools # To format .proto files

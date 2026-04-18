@@ -86,6 +86,7 @@
     ./home/duti.nix
     ./home/filters.nix
     ./home/git.nix
+    ./home/gwq.nix
     ./home/iterm.nix
     ./home/mob.nix
     ./home/ssh.nix

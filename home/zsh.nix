@@ -20,13 +20,16 @@
         # see https://code.visualstudio.com/docs/terminal/shell-integration
         [[ "$TERM_PROGRAM" == "vscode" ]] && source "$(code --locate-shell-integration-path zsh)"
 
-        # include 1Password CLI completions
+        # include 1Password CLI shell integration
         # see https://developer.1password.com/docs/cli/get-started/#shell-completion
         eval "$(op completion zsh)"; compdef _op op
 
-        # include Grit completions
+        # include Grit shell integration
         # see https://github.com/jmalloc/grit#:~:text=eval%20%22%24(grit-,shell%2Dintegration,-)%22
         eval "$(grit shell-integration)"
+
+        # include gwq shell integration
+        source <(gwq completion zsh)
 
         # modify path here, otherwise it gets clobbered by Homebrew
         export PATH="$HOME/bin:$PATH"

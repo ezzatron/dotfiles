@@ -2,6 +2,7 @@
   brews = [
     "asdf" # Because nixpkgs unstable is outdated.
     "cloudflare-wrangler" # For testing against Cloudflare Worker runtime. Nix package installation takes forever.
+    "d-kuro/tap/gwq" # No Nix package.
     "jmalloc/grit/grit" # No Nix package.
     "mas" # To avoid mas getting uninstalled every time.
   ];

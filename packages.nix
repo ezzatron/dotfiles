@@ -18,6 +18,9 @@
   pkgs.kubectx
   pkgs.kubernetes-helm
   pkgs.kustomize
+  pkgs.mise
+  pkgs.ripgrep
+  pkgs.uv
   pkgs.nixfmt # To format .nix files
   pkgs.nodejs_24
   pkgs.protobuf

@@ -22,6 +22,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    d-kuro-homebrew-tap = {
+      url = "github:d-kuro/homebrew-tap";
+      flake = false;
+    };
     jmalloc-homebrew-grit = {
       url = "github:jmalloc/homebrew-grit";
       flake = false;
@@ -50,6 +54,7 @@
       nix-homebrew,
       homebrew-core,
       homebrew-cask,
+      d-kuro-homebrew-tap,
       jmalloc-homebrew-grit,
       mac-app-util,
       home-manager,
@@ -75,6 +80,7 @@
             taps = {
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
+              "d-kuro/homebrew-tap" = d-kuro-homebrew-tap;
               "jmalloc/homebrew-grit" = jmalloc-homebrew-grit;
             };
           };

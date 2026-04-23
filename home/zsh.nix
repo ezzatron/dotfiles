@@ -35,6 +35,11 @@
         export PATH="$HOME/bin:$PATH"
         export PATH="$HOME/.asdf/shims:$PATH"
       '')
+
+      (lib.mkOrder 2000 ''
+        # ensure # works as comments in interactive shell
+        setopt INTERACTIVE_COMMENTS
+      '')
     ];
 
     autosuggestion = {

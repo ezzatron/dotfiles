@@ -5,7 +5,6 @@
   pkgs.bun
   pkgs.caddy
   pkgs.clang-tools # To format .proto files
-  pkgs.deno
   pkgs.evans
   pkgs.ffmpeg
   pkgs.gh
@@ -18,7 +17,6 @@
   pkgs.kubectx
   pkgs.kubernetes-helm
   pkgs.kustomize
-  pkgs.mise
   pkgs.ripgrep
   pkgs.uv
   pkgs.nixfmt # To format .nix files

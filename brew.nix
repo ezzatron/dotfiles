@@ -3,8 +3,11 @@
     "asdf" # Because nixpkgs unstable is outdated.
     "cloudflare-wrangler" # For testing against Cloudflare Worker runtime. Nix package installation takes forever.
     "d-kuro/tap/gwq" # No Nix package.
+    "deno" # Frequently uncached in nixpkgs unstable for aarch64-darwin.
+    "direnv" # Frequently uncached in nixpkgs unstable for aarch64-darwin.
     "jmalloc/grit/grit" # No Nix package.
     "mas" # To avoid mas getting uninstalled every time.
+    "mise" # Frequently uncached in nixpkgs unstable for aarch64-darwin.
   ];
 
   casks = [

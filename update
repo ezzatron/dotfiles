@@ -1,0 +1,160 @@
+#!/usr/bin/env bash
+set -e
+set -o pipefail
+
+machine_id="$(./bin/mac-serial-hash)"
+config=".#darwinConfigurations.${machine_id}.system"
+max_attempts=10
+no_switch=false
+force=false
+
+usage() {
+  echo "Usage: update [OPTIONS]"
+  echo
+  echo "Finds the latest fully-cached nixpkgs revision and updates to it."
+  echo "Tests recent nixpkgs-unstable revisions (most recent first) until"
+  echo "one is found where all derivations are in the binary cache."
+  echo
+  echo "Options:"
+  echo "  --attempts N    Max nixpkgs revisions to try (default: $max_attempts)"
+  echo "  --no-switch     Update flake.lock but don't run darwin-rebuild switch"
+  echo "  --force         Use the latest revision even if not fully cached"
+  echo "  --help          Show this help"
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --attempts) max_attempts="$2"; shift 2 ;;
+    --no-switch) no_switch=true; shift ;;
+    --force) force=true; shift ;;
+    --help) usage; exit 0 ;;
+    -*) echo "Unknown option: $1" >&2; usage >&2; exit 1 ;;
+    *) echo "Unknown argument: $1" >&2; usage >&2; exit 1 ;;
+  esac
+done
+
+# Derivation patterns that are always built locally (unique to this system config)
+local_drv_patterns=(
+  '-darwin-system-'
+  '-darwin-version'
+  '-darwin-manpages'
+  '-darwin-manual-'
+  '-darwin-help'
+  '-system-path\.drv'
+  '-system-applications\.drv'
+  '-user-environment\.drv'
+  '-etc\.drv'
+  '-etc-'
+  '-options\.json\.drv'
+  '-activation-'
+  '-home-manager-'
+  '-home-configuration-reference-'
+  '-hm_'
+  '-taps-env'
+  '-setup-homebrew'
+  '-Brewfile'
+)
+
+# Check if the build would be fully cached for a given flake.lock state
+# Sets $uncached_drv to the list of uncached derivations (empty if all cached)
+check_cached() {
+  local dry_run_output
+  dry_run_output=$(nix build "$config" --dry-run 2>&1) || return 1
+
+  if ! echo "$dry_run_output" | grep -q "will be built"; then
+    uncached_drv=""
+    return 0
+  fi
+
+  # Extract just the derivation paths that will be built
+  uncached_drv=$(echo "$dry_run_output" \
+    | grep '\.drv$' \
+    | grep -v -E -e "$(IFS='|'; echo "${local_drv_patterns[*]}")" || true)
+
+  if [[ -z "$uncached_drv" ]]; then
+    return 0
+  fi
+
+  return 1
+}
+
+echo "Fetching recent nixpkgs-unstable revisions..."
+revisions=$(curl -sf "https://api.github.com/repos/NixOS/nixpkgs/commits?sha=nixpkgs-unstable&per_page=${max_attempts}" \
+  | jq -r '.[].sha') || {
+  echo "Failed to fetch nixpkgs-unstable revisions from GitHub." >&2
+  exit 1
+}
+
+# Back up the lock file
+cp flake.lock flake.lock.bak
+trap 'rm -f flake.lock.bak' EXIT
+
+# Update all non-nixpkgs inputs first
+echo "Updating non-nixpkgs inputs..."
+nix flake update \
+  nix-darwin \
+  nix-homebrew \
+  homebrew-core \
+  homebrew-cask \
+  d-kuro-homebrew-tap \
+  jmalloc-homebrew-grit \
+  mac-app-util \
+  home-manager \
+  iterm-shell-integration
+
+# Now try nixpkgs revisions from newest to oldest
+found=false
+attempt=0
+
+for rev in $revisions; do
+  attempt=$((attempt + 1))
+  short_rev="${rev:0:8}"
+  echo
+  echo "[$attempt/$max_attempts] Trying nixpkgs revision ${short_rev}..."
+
+  # Pin nixpkgs to this specific revision
+  nix flake lock --override-input nixpkgs "github:NixOS/nixpkgs/${rev}"
+
+  # Check if everything is cached
+  if check_cached; then
+    echo "✓ All derivations are cached with nixpkgs ${short_rev}!"
+    found=true
+    break
+  else
+    echo "  Uncached:"
+    echo "$uncached_drv" | sed 's|.*/[a-z0-9]*-||; s|\.drv$||' | sed 's/^/    /'
+    echo "✗ Trying older..."
+  fi
+done
+
+if [[ "$found" != true ]]; then
+  if [[ "$force" == true ]]; then
+    echo
+    echo "⚠️  No fully-cached revision found in last ${max_attempts} attempts."
+    echo "Using latest revision anyway (--force)."
+    nix flake lock --override-input nixpkgs "github:NixOS/nixpkgs/nixpkgs-unstable"
+  else
+    echo
+    echo "✗ No fully-cached nixpkgs revision found in last ${max_attempts} attempts."
+    echo "Reverting flake.lock."
+    mv flake.lock.bak flake.lock
+    trap - EXIT
+    exit 1
+  fi
+fi
+
+# Check if the lock actually changed from the original
+if diff -q flake.lock flake.lock.bak &>/dev/null; then
+  echo
+  echo "No changes to flake.lock."
+  exit 0
+fi
+
+if [[ "$no_switch" == true ]]; then
+  echo
+  echo "flake.lock updated. Run 'darwin-rebuild switch --flake \".#${machine_id}\"' to apply."
+else
+  echo
+  echo "Switching to updated configuration..."
+  sudo darwin-rebuild switch --flake ".#${machine_id}"
+fi

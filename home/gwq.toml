@@ -1,2 +1,3 @@
 [cd]
+auto_cd_on_add = true
 launch_shell = false

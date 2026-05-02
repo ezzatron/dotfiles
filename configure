@@ -27,7 +27,6 @@ echo "1Password CLI authenticated."
 echo "Installing asdf plugins..."
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf plugin add protoc https://github.com/paxosglobal/asdf-protoc.git
-asdf plugin add vale https://github.com/pdemagny/asdf-vale.git
 
 echo "Change Chrome settings:"
 echo

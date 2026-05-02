@@ -40,6 +40,7 @@ local_drv_patterns=(
   '-darwin-manpages'
   '-darwin-manual-'
   '-darwin-help'
+  '-darwin-uninstaller'
   '-system-path\.drv'
   '-system-applications\.drv'
   '-user-environment\.drv'
@@ -49,11 +50,37 @@ local_drv_patterns=(
   '-activation-'
   '-home-manager-'
   '-home-configuration-reference-'
+  '-hm-modules-messages'
   '-hm_'
+  '-check-link-targets\.sh'
+  '-cleanup\.drv'
+  '-link\.drv'
   '-taps-env'
   '-setup-homebrew'
   '-Brewfile'
 )
+
+print_drv_names() {
+  sed 's|.*/[a-z0-9]*-||; s|\.drv$||' | sed '/^$/d' | sed 's/^/    /'
+}
+
+subtract_baseline_uncached() {
+  local candidate="$1"
+  local baseline="$2"
+
+  if [[ -z "$candidate" ]]; then
+    return 0
+  fi
+
+  if [[ -z "$baseline" ]]; then
+    printf '%s\n' "$candidate"
+    return 0
+  fi
+
+  comm -23 \
+    <(printf '%s\n' "$candidate" | sed '/^$/d' | LC_ALL=C sort -u) \
+    <(printf '%s\n' "$baseline" | sed '/^$/d' | LC_ALL=C sort -u) || true
+}
 
 # Check if the build would be fully cached for a given flake.lock state
 # Sets $uncached_drv to the list of uncached derivations (empty if all cached)
@@ -102,6 +129,15 @@ nix flake update \
   home-manager \
   iterm-shell-integration
 
+baseline_uncached_drv=""
+echo "Checking baseline cache misses with current nixpkgs..."
+if ! check_cached; then
+  baseline_uncached_drv="$uncached_drv"
+  baseline_count=$(printf '%s\n' "$baseline_uncached_drv" | sed '/^$/d' | wc -l | tr -d ' ')
+  echo "Ignoring ${baseline_count} persistent uncached derivation(s) already present before nixpkgs updates:"
+  printf '%s\n' "$baseline_uncached_drv" | print_drv_names
+fi
+
 # Now try nixpkgs revisions from newest to oldest
 found=false
 attempt=0
@@ -121,8 +157,15 @@ for rev in $revisions; do
     found=true
     break
   else
-    echo "  Uncached:"
-    echo "$uncached_drv" | sed 's|.*/[a-z0-9]*-||; s|\.drv$||' | sed 's/^/    /'
+    uncached_new_drv=$(subtract_baseline_uncached "$uncached_drv" "$baseline_uncached_drv")
+    if [[ -z "$uncached_new_drv" ]]; then
+      echo "✓ No additional uncached derivations beyond baseline with nixpkgs ${short_rev}!"
+      found=true
+      break
+    fi
+
+    echo "  Uncached (new vs baseline):"
+    printf '%s\n' "$uncached_new_drv" | print_drv_names
     echo "✗ Trying older..."
   fi
 done

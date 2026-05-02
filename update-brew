@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+set -e
+set -o pipefail
+
+machine_id="$(./bin/mac-serial-hash)"
+no_switch=false
+
+usage() {
+  echo "Usage: update-brew [OPTIONS]"
+  echo
+  echo "Updates Homebrew-related flake inputs and optionally applies them."
+  echo
+  echo "Options:"
+  echo "  --no-switch     Update flake.lock but don't run darwin-rebuild switch"
+  echo "  --help          Show this help"
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --no-switch) no_switch=true; shift ;;
+    --help) usage; exit 0 ;;
+    -*) echo "Unknown option: $1" >&2; usage >&2; exit 1 ;;
+    *) echo "Unknown argument: $1" >&2; usage >&2; exit 1 ;;
+  esac
+done
+
+# Keep a backup so lock changes can be reverted on failure.
+cp flake.lock flake.lock.bak
+restore_lock_on_error() {
+  local exit_code="$1"
+  if [[ "$exit_code" -ne 0 && -f flake.lock.bak ]]; then
+    mv flake.lock.bak flake.lock
+  else
+    rm -f flake.lock.bak
+  fi
+}
+trap 'restore_lock_on_error "$?"' EXIT
+
+echo "Updating Homebrew flake inputs..."
+nix flake update \
+  nix-homebrew \
+  homebrew-core \
+  homebrew-cask \
+  d-kuro-homebrew-tap \
+  jmalloc-homebrew-grit
+
+if diff -q flake.lock flake.lock.bak &>/dev/null; then
+  echo
+  echo "No changes to flake.lock."
+  exit 0
+fi
+
+if [[ "$no_switch" == true ]]; then
+  echo
+  echo "flake.lock updated. Run 'darwin-rebuild switch --flake \".#${machine_id}\"' to apply Homebrew changes."
+else
+  echo
+  echo "Switching to updated configuration (applies Homebrew package updates)..."
+  sudo darwin-rebuild switch --flake ".#${machine_id}"
+fi

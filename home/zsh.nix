@@ -4,11 +4,6 @@
     enable = true;
 
     initContent = lib.mkMerge [
-      (lib.mkOrder 500 ''
-        # use a dumb terminal for VSCode's built-in terminal
-        [[ "$TERM_PROGRAM" == "vscode" ]] && export TERM=dumb
-      '')
-
       (lib.mkOrder 1500 ''
         # include private env vars if present
         [[ -f "$HOME/.config/private.zsh" ]] && source "$HOME/.config/private.zsh"

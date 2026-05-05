@@ -26,6 +26,7 @@
     "iina"
     "insomnia"
     "iterm2"
+    "itermai"
     "keyboardcleantool"
     "microsoft-edge"
     "scroll-reverser"

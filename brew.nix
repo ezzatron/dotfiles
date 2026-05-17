@@ -28,6 +28,7 @@
     "iterm2"
     "itermai"
     "keyboardcleantool"
+    "logi-options+"
     "microsoft-edge"
     "scroll-reverser"
     "slack"

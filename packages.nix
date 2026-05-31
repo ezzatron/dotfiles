@@ -1,6 +1,7 @@
 { pkgs, ... }:
 [
   pkgs.adrs
+  pkgs.azure-cli
   pkgs.buf
   pkgs.bun
   pkgs.caddy

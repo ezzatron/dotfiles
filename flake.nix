@@ -22,6 +22,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    azure-homebrew-functions = {
+      url = "github:Azure/homebrew-functions";
+      flake = false;
+    };
     d-kuro-homebrew-tap = {
       url = "github:d-kuro/homebrew-tap";
       flake = false;
@@ -54,6 +58,7 @@
       nix-homebrew,
       homebrew-core,
       homebrew-cask,
+      azure-homebrew-functions,
       d-kuro-homebrew-tap,
       jmalloc-homebrew-grit,
       mac-app-util,
@@ -80,6 +85,7 @@
             taps = {
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
+              "azure/homebrew-functions" = azure-homebrew-functions;
               "d-kuro/homebrew-tap" = d-kuro-homebrew-tap;
               "jmalloc/homebrew-grit" = jmalloc-homebrew-grit;
             };

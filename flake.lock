@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "azure-homebrew-functions": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779992710,
+        "narHash": "sha256-f/jUDyZIGZ99egcHMA4h+rbrOKCsUj0S4hapRcUpeAI=",
+        "owner": "Azure",
+        "repo": "homebrew-functions",
+        "rev": "a70c072948fcca4336f2f5911d41e0c21b41306b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Azure",
+        "repo": "homebrew-functions",
+        "type": "github"
+      }
+    },
     "brew-src": {
       "flake": false,
       "locked": {
@@ -41,11 +57,11 @@
     "d-kuro-homebrew-tap": {
       "flake": false,
       "locked": {
-        "lastModified": 1778745143,
-        "narHash": "sha256-PIS5jXvFwvCR2WV4FsGnoVvll0do1TL3/Ka8nhDgZKg=",
+        "lastModified": 1780022844,
+        "narHash": "sha256-u+B2ZtiRrt6KuqGKlCeyEF5DfmVFYEsOJVrj3DmC7n8=",
         "owner": "d-kuro",
         "repo": "homebrew-tap",
-        "rev": "c4b4b007ea2e5000fe8a50a5aabb57a9c51667e8",
+        "rev": "b58a4a8b6d7cbb9af18c1dcb50755a9a44ba2631",
         "type": "github"
       },
       "original": {
@@ -132,11 +148,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1779395358,
-        "narHash": "sha256-ezzdNGEc7kGJag+AtlQN+EjXY9/0H+AsIPL6BSSx/Rc=",
+        "lastModified": 1780224513,
+        "narHash": "sha256-XZMNxLvojhtB9zkoty6TqJY2Ra46b4UmZJ0mop4/CfQ=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "7a81b4091d0ff7b458d3355fa7d83e6fa7c89855",
+        "rev": "5f0fd5ce45da603855b94be81b1339e0cdd415ae",
         "type": "github"
       },
       "original": {
@@ -148,11 +164,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1779399864,
-        "narHash": "sha256-KQmiUiPCsYuTmDbj6lb54g4wJNVOK+Ins4z79SO4Z1I=",
+        "lastModified": 1780224162,
+        "narHash": "sha256-6DQmOXJZG6TegWtpJE9jnTjZO0x/yxGsjkOlqHVeCuE=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "b0954df49db9eea6ae2917787b634dc0d83a1173",
+        "rev": "1343b391ab04b946604cfea2e594eebc44b68282",
         "type": "github"
       },
       "original": {
@@ -348,6 +364,7 @@
     },
     "root": {
       "inputs": {
+        "azure-homebrew-functions": "azure-homebrew-functions",
         "d-kuro-homebrew-tap": "d-kuro-homebrew-tap",
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",

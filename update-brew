@@ -41,6 +41,7 @@ nix flake update \
   nix-homebrew \
   homebrew-core \
   homebrew-cask \
+  azure-homebrew-functions \
   d-kuro-homebrew-tap \
   jmalloc-homebrew-grit
 

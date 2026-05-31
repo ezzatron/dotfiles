@@ -2,7 +2,7 @@
   brews = [
     "asdf" # Because nixpkgs unstable is outdated.
     "azure-cli" # Because nixpkgs version can't install extensions.
-    "azure/functions/azure-functions-core-tools" # Because might as well install the same way as the Azure CLI.
+    "azure/functions/azure-functions-core-tools@4" # Because might as well install the same way as the Azure CLI.
     "cloudflare-wrangler" # For testing against Cloudflare Worker runtime. Nix package installation takes forever.
     "d-kuro/tap/gwq" # No Nix package.
     "deno" # Frequently uncached in nixpkgs unstable for aarch64-darwin.

@@ -1,6 +1,7 @@
 { pkgs, ... }:
 [
   pkgs.adrs
+  pkgs.awscli2
   pkgs.buf
   pkgs.bun
   pkgs.caddy

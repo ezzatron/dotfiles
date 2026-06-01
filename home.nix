@@ -79,7 +79,6 @@
 
   imports = [
     ./home/asdf.nix
-    ./home/aws.nix
     ./home/bat.nix
     ./home/delta.nix
     ./home/duti.nix

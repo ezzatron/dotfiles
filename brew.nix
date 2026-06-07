@@ -1,6 +1,7 @@
 {
   brews = [
     "asdf" # Because nixpkgs unstable is outdated.
+    "aws-sam-cli" # Because nixpkgs is kind of annoying.
     "azure-cli" # Because nixpkgs version can't install extensions.
     "azure/functions/azure-functions-core-tools@4" # Because might as well install the same way as the Azure CLI.
     "cloudflare-wrangler" # For testing against Cloudflare Worker runtime. Nix package installation takes forever.

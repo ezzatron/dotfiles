@@ -89,6 +89,14 @@
               "d-kuro/homebrew-tap" = d-kuro-homebrew-tap;
               "jmalloc/homebrew-grit" = jmalloc-homebrew-grit;
             };
+
+            trust = {
+              taps = [
+                "azure/homebrew-functions"
+                "d-kuro/homebrew-tap"
+                "jmalloc/homebrew-grit"
+              ];
+            };
           };
         }
         (

@@ -24,7 +24,6 @@
     "discord"
     "docker-desktop"
     "figma"
-    "gcloud-cli"
     "google-chrome"
     "guitar-pro"
     "insomnia"

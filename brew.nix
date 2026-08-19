@@ -50,6 +50,7 @@
   masApps = {
     "1Password for Safari" = 1569813296;
     "MusicHarbor" = 1440405750;
+    "Palworld" = 6503918400;
     "Pixelmator Pro" = 1289583905;
     "TestFlight" = 899247664;
     "Xcode" = 497799835;

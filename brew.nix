@@ -12,6 +12,7 @@
     "jmalloc/grit/grit" # No Nix package.
     "mas" # To avoid mas getting uninstalled every time.
     "mise" # Frequently uncached in nixpkgs unstable for aarch64-darwin.
+    "skills" # Because nixpkgs is kind of annoying.
   ];
 
   casks = [

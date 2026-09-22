@@ -1,6 +1,5 @@
 {
   brews = [
-    "anomalyco/tap/opencode" # Because nixpkgs is kind of annoying.
     "asdf" # Because nixpkgs unstable is outdated.
     "aws-sam-cli" # Because nixpkgs is kind of annoying.
     "azure-cli" # Because nixpkgs version can't install extensions.

@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "anomalyco-homebrew-tap": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1789444872,
-        "narHash": "sha256-aKlMG6dHBtiTf64nlOUR4KzfZqMcN5uTfBEQ1+nVNs0=",
-        "owner": "anomalyco",
-        "repo": "homebrew-tap",
-        "rev": "db49a4d9a3c05d34645baabc907d00d9d2b495f4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "anomalyco",
-        "repo": "homebrew-tap",
-        "type": "github"
-      }
-    },
     "azure-homebrew-functions": {
       "flake": false,
       "locked": {
@@ -380,7 +364,6 @@
     },
     "root": {
       "inputs": {
-        "anomalyco-homebrew-tap": "anomalyco-homebrew-tap",
         "azure-homebrew-functions": "azure-homebrew-functions",
         "d-kuro-homebrew-tap": "d-kuro-homebrew-tap",
         "home-manager": "home-manager",

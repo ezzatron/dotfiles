@@ -22,10 +22,6 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    anomalyco-homebrew-tap = {
-      url = "github:anomalyco/homebrew-tap";
-      flake = false;
-    };
     azure-homebrew-functions = {
       url = "github:Azure/homebrew-functions";
       flake = false;
@@ -62,7 +58,6 @@
       nix-homebrew,
       homebrew-core,
       homebrew-cask,
-      anomalyco-homebrew-tap,
       azure-homebrew-functions,
       d-kuro-homebrew-tap,
       jmalloc-homebrew-grit,
@@ -90,7 +85,6 @@
             taps = {
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
-              "anomalyco/homebrew-tap" = anomalyco-homebrew-tap;
               "azure/homebrew-functions" = azure-homebrew-functions;
               "d-kuro/homebrew-tap" = d-kuro-homebrew-tap;
               "jmalloc/homebrew-grit" = jmalloc-homebrew-grit;
@@ -98,7 +92,6 @@
 
             trust = {
               taps = [
-                "anomalyco/homebrew-tap"
                 "azure/homebrew-functions"
                 "d-kuro/homebrew-tap"
                 "jmalloc/homebrew-grit"

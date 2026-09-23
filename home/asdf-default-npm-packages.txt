@@ -1,1 +1,3 @@
 corepack
+
+@opencode/cli

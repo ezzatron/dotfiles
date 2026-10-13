@@ -70,4 +70,4 @@ fi
 # Switch to the flake for this machine
 # Using a temporary home directory fixes "warning: $HOME is not owned by you"
 sudo mkdir -p /tmp/nix-home
-HOME=/tmp/nix-home sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake ".#$(./bin/mac-serial-hash)"
+HOME=/tmp/nix-home sudo nix run nix-darwin/nix-darwin-26.05#darwin-rebuild -- switch --flake ".#$(./bin/mac-serial-hash)"
